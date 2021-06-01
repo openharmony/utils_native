@@ -1,37 +1,36 @@
-# utils_native
+# utils/native<a name="EN-US_TOPIC_0000001148676553"></a>
 
-#### 介绍
-General-purpose C++ classes and functions | 通用的C++功能函数和类
+-   [Introduction](#section11660541593)
+-   [Directory Structure](#section17271017133915)
+-   [Repositories Involved](#section1249817110914)
 
-#### 软件架构
-软件架构说明
+## Introduction<a name="section11660541593"></a>
 
+The  **utils/native**  repository provides the following commonly used C++ utility classes:
 
-#### 安装教程
+-   Enhanced APIs for operations related to files, paths, and strings
+-   APIs related to the read-write lock, semaphore, timer, thread, and thread pool
+-   APIs related to the security data container and data serialization
+-   Error codes for each subsystem
+-   Safe functions in C
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## Directory Structure<a name="section17271017133915"></a>
 
-#### 使用说明
+```
+utils/native
+└─ base
+    ├── include       # Header files of APIs open to other subsystems
+    ├── src           # Source files
+    └── test          # Test code
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## Repositories Involved<a name="section1249817110914"></a>
 
-#### 参与贡献
+Utils subsystem
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+utils
 
+**utils\_native**
 
-#### 特技
+[utils\_native\_lite](https://gitee.com/openharmony/utils_native_lite)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
