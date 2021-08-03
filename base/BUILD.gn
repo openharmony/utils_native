@@ -111,6 +111,8 @@ ohos_shared_library("utils") {
   defines = [ "CONFIG_HILOG" ]
   external_deps = [ "hiviewdfx_hilog_native:libhilog" ]
   part_name = "utils_base"
+  module_install_dir = "lib"
+  install_images = [ "system", "updater" ]
 }
 
 securec_sources = [
@@ -168,5 +170,7 @@ ohos_shared_library("utilsecurec_shared") {
     ":utils_config",
   ]
   part_name = "utils_base"
+  module_install_dir = "lib"
+  install_images = [ "system", "updater" ]
 }
 ###############################################################################
