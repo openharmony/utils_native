@@ -12,7 +12,6 @@
 # limitations under the License.
 import("//build/ohos.gni")
 
-
 ###############################################################################
 config("utils_config") {
   visibility = [ ":*" ]
@@ -111,49 +110,53 @@ ohos_shared_library("utils") {
   defines = [ "CONFIG_HILOG" ]
   external_deps = [ "hiviewdfx_hilog_native:libhilog" ]
   part_name = "utils_base"
+  install_images = [
+    "system",
+    "updater",
+  ]
 }
 
 securec_sources = [
-    "src/securec/fscanf_s.c",
-    "src/securec/fwscanf_s.c",
-    "src/securec/gets_s.c",
-    "src/securec/memcpy_s.c",
-    "src/securec/memmove_s.c",
-    "src/securec/memset_s.c",
-    "src/securec/scanf_s.c",
-    "src/securec/securecutil.c",
-    "src/securec/secureinput_a.c",
-    "src/securec/secureinput_w.c",
-    "src/securec/secureprintoutput_a.c",
-    "src/securec/secureprintoutput_w.c",
-    "src/securec/snprintf_s.c",
-    "src/securec/sprintf_s.c",
-    "src/securec/sscanf_s.c",
-    "src/securec/strcat_s.c",
-    "src/securec/strcpy_s.c",
-    "src/securec/strncat_s.c",
-    "src/securec/strncpy_s.c",
-    "src/securec/strtok_s.c",
-    "src/securec/swprintf_s.c",
-    "src/securec/swscanf_s.c",
-    "src/securec/vfscanf_s.c",
-    "src/securec/vfwscanf_s.c",
-    "src/securec/vscanf_s.c",
-    "src/securec/vsnprintf_s.c",
-    "src/securec/vsprintf_s.c",
-    "src/securec/vsscanf_s.c",
-    "src/securec/vswprintf_s.c",
-    "src/securec/vsnprintf_s_p.c",
-    "src/securec/vswscanf_s.c",
-    "src/securec/vwscanf_s.c",
-    "src/securec/wcscat_s.c",
-    "src/securec/wcscpy_s.c",
-    "src/securec/wcsncat_s.c",
-    "src/securec/wcsncpy_s.c",
-    "src/securec/wcstok_s.c",
-    "src/securec/wmemcpy_s.c",
-    "src/securec/wmemmove_s.c",
-    "src/securec/wscanf_s.c",
+  "src/securec/fscanf_s.c",
+  "src/securec/fwscanf_s.c",
+  "src/securec/gets_s.c",
+  "src/securec/memcpy_s.c",
+  "src/securec/memmove_s.c",
+  "src/securec/memset_s.c",
+  "src/securec/scanf_s.c",
+  "src/securec/securecutil.c",
+  "src/securec/secureinput_a.c",
+  "src/securec/secureinput_w.c",
+  "src/securec/secureprintoutput_a.c",
+  "src/securec/secureprintoutput_w.c",
+  "src/securec/snprintf_s.c",
+  "src/securec/sprintf_s.c",
+  "src/securec/sscanf_s.c",
+  "src/securec/strcat_s.c",
+  "src/securec/strcpy_s.c",
+  "src/securec/strncat_s.c",
+  "src/securec/strncpy_s.c",
+  "src/securec/strtok_s.c",
+  "src/securec/swprintf_s.c",
+  "src/securec/swscanf_s.c",
+  "src/securec/vfscanf_s.c",
+  "src/securec/vfwscanf_s.c",
+  "src/securec/vscanf_s.c",
+  "src/securec/vsnprintf_s.c",
+  "src/securec/vsprintf_s.c",
+  "src/securec/vsscanf_s.c",
+  "src/securec/vswprintf_s.c",
+  "src/securec/vsnprintf_s_p.c",
+  "src/securec/vswscanf_s.c",
+  "src/securec/vwscanf_s.c",
+  "src/securec/wcscat_s.c",
+  "src/securec/wcscpy_s.c",
+  "src/securec/wcsncat_s.c",
+  "src/securec/wcsncpy_s.c",
+  "src/securec/wcstok_s.c",
+  "src/securec/wmemcpy_s.c",
+  "src/securec/wmemmove_s.c",
+  "src/securec/wscanf_s.c",
 ]
 
 ohos_static_library("utilsecurec") {
@@ -164,9 +167,11 @@ ohos_static_library("utilsecurec") {
 ohos_shared_library("utilsecurec_shared") {
   sources = securec_sources
   configs = [ ":utils_config" ]
-  public_configs = [
-    ":utils_config",
-  ]
+  public_configs = [ ":utils_config" ]
   part_name = "utils_base"
+  install_images = [
+    "system",
+    "updater",
+  ]
 }
 ###############################################################################
