@@ -269,6 +269,7 @@ void Parcel::FlushBuffer()
         free(objectOffsets_);
         objectCursor_ = 0;
         objectOffsets_ = nullptr;
+        objectsCapacity_ = 0;
     }
 }
 
@@ -301,7 +302,7 @@ bool Parcel::WriteDataBytes(const void *data, size_t size)
 {
     void *dest = data_ + writeCursor_;
     size_t writableBytes = GetWritableBytes();
-    if (memcpy_s(dest, writableBytes, data, size) != EOK){
+    if (memcpy_s(dest, writableBytes, data, size) != EOK) {
         return false;
     }
     writeCursor_ += size;
@@ -609,7 +610,7 @@ bool Parcel::WriteParcelable(const Parcelable *object)
         return true;
     }
 
-    //rollback the write position.
+    // rollback the write position.
     writeCursor_ = placeholder;
     dataSize_ = restorSize;
     return false;
@@ -1312,5 +1313,4 @@ bool Parcel::ReadString16Vector(std::vector<std::u16string> *val)
 
     return true;
 }
-
 }  // namespace OHOS
