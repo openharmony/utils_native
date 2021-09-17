@@ -68,20 +68,20 @@ static int AshmemOpenLocked()
     }
 
     if (fd < 0) {
-        UTILS_LOGE("fd is invalid");
+        UTILS_LOGE("%{public}s: fd is invalid, fd = %{public}d", __func__, fd);
         return fd;
     }
 
     struct stat st;
     int ret = TEMP_FAILURE_RETRY(fstat(fd, &st));
     if (ret < 0) {
-        UTILS_LOGE("Failed to exec fstat");
+        UTILS_LOGE("%{public}s: Failed to exec fstat, ret = %{public}d", __func__, ret);
         close(fd);
         return ret;
     }
 
     if (!S_ISCHR(st.st_mode) || !st.st_rdev) {
-        UTILS_LOGE("stat status is invalid");
+        UTILS_LOGE("%{public}s: stat status is invalid, st_mode = %{public}u", __func__, st.st_mode);
         close(fd);
         return -1;
     }
@@ -106,7 +106,7 @@ int AshmemCreate(const char *name, size_t size)
     int ret;
     int fd = AshmemOpen();
     if (fd < 0) {
-        UTILS_LOGE("Failed to exec AshmemOpen");
+        UTILS_LOGE("%{public}s: Failed to exec AshmemOpen fd = %{public}d", __func__, fd);
         return fd;
     }
 
@@ -114,13 +114,13 @@ int AshmemCreate(const char *name, size_t size)
         char buf[ASHMEM_NAME_LEN] = {0};
         ret = strcpy_s(buf, sizeof(buf), name);
         if (ret != EOK) {
-            UTILS_LOGE("Failed to exec strcpy_s");
+            UTILS_LOGE("%{public}s: Failed to exec strcpy_s, name= %{public}s, ret= %{public}d", __func__, name, ret);
             close(fd);
             return -1;
         }
         ret = TEMP_FAILURE_RETRY(ioctl(fd, ASHMEM_SET_NAME, buf));
         if (ret < 0) {
-            UTILS_LOGE("Failed to exec ioctl");
+            UTILS_LOGE("%{public}s: Failed to set name, name= %{public}s, ret= %{public}d", __func__, name, ret);
             close(fd);
             return ret;
         }
@@ -128,7 +128,7 @@ int AshmemCreate(const char *name, size_t size)
 
     ret = TEMP_FAILURE_RETRY(ioctl(fd, ASHMEM_SET_SIZE, size));
     if (ret < 0) {
-        UTILS_LOGE("Failed to exec ioctl");
+        UTILS_LOGE("%{public}s: Failed to set size, size= %{public}zu", __func__, size);
         close(fd);
         return ret;
     }
@@ -156,13 +156,13 @@ Ashmem::~Ashmem()
 sptr<Ashmem> Ashmem::CreateAshmem(const char *name, int32_t size)
 {
     if ((name == nullptr) || (size <= 0)) {
-        UTILS_LOGE("Parameter is invalid");
+        UTILS_LOGE("%{public}s: Parameter is invalid, size= %{public}d", __func__, size);
         return nullptr;
     }
 
     int fd = AshmemCreate(name, size);
     if (fd < 0) {
-        UTILS_LOGE("Failed to exec AshmemCreate");
+        UTILS_LOGE("%{public}s: Failed to exec AshmemCreate, fd= %{public}d", __func__, size);
         return nullptr;
     }
 
@@ -266,9 +266,13 @@ bool Ashmem::CheckValid(int32_t size, int32_t offset, int cmd)
         return false;
     }
     if ((size < 0) || (size > memorySize_) || (offset < 0) || (offset > memorySize_)) {
+        UTILS_LOGE("%{public}s: , invalid parameter, size = %{public}d, memorySize_ = %{public}d, offset = %{public}d",
+            __func__, size, memorySize_, offset);
         return false;
     }
     if (offset + size > memorySize_) {
+        UTILS_LOGE("%{public}s: , invalid parameter, size = %{public}d, memorySize_ = %{public}d, offset = %{public}d",
+            __func__, size, memorySize_, offset);
         return false;
     }
     if (!(static_cast<uint32_t>(GetProtection()) & static_cast<uint32_t>(cmd)) ||

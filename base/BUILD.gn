@@ -97,7 +97,7 @@ ohos_static_library("utilsbase") {
   sources = sources_utils
   configs = [ ":utils_config" ]
   defines = [ "CONFIG_HILOG" ]
-  external_deps = [ "hiviewdfx_hilog_native:libhilog" ]
+  external_deps = [ "hilog_native:libhilog" ]
 }
 
 ohos_shared_library("utils") {
@@ -105,7 +105,7 @@ ohos_shared_library("utils") {
   configs = [ ":utils_config" ]
   subsystem_name = "utils"
   defines = [ "CONFIG_HILOG" ]
-  external_deps = [ "hiviewdfx_hilog_native:libhilog" ]
+  external_deps = [ "hilog_native:libhilog" ]
   part_name = "utils_base"
   install_images = [
     "system",
@@ -161,14 +161,16 @@ ohos_static_library("utilsecurec") {
   configs = [ ":utils_config" ]
 }
 
-ohos_shared_library("utilsecurec_shared") {
-  sources = securec_sources
-  configs = [ ":utils_config" ]
-  public_configs = [ ":utils_config" ]
-  part_name = "utils_base"
-  install_images = [
-    "system",
-    "updater",
-  ]
+if (build_public_version) {
+  ohos_shared_library("utilsecurec_shared") {
+    sources = securec_sources
+    configs = [ ":utils_config" ]
+    public_configs = [ ":utils_config" ]
+    part_name = "utils_base"
+    install_images = [
+      "system",
+      "updater",
+    ]
+  }
 }
 ###############################################################################

@@ -330,8 +330,6 @@ bool String8ToString16(const string& str8, u16string& str16)
 {
     size_t str8len = str8.length();
     if (str8len < 1) {
-        UTILS_LOGE("str8 to str16 failed, str8 is: %{public}s, size is: %{public}zu",
-            str8.c_str(), str8len);
         return false;
     }
 
