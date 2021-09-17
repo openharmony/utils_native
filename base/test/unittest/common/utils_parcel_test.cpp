@@ -20,6 +20,7 @@
 #include "directory_ex.h"
 #include "parcel.h"
 #include "refbase.h"
+#include "securec.h"
 
 using namespace testing::ext;
 using namespace OHOS;
@@ -78,6 +79,21 @@ void WriteTestData(Parcel &parcel, const struct TestData &data)
 }
 
 /**
+ * Here to simulate the scenario of ipc sending data, the buffer will be released when the Parcel object is destructed.
+*/
+bool SendData(void *&buffer, size_t size, const uint8_t *data)
+{
+    if (size <= 0) {
+        return false;
+    }
+    buffer = malloc(size);
+    if (memcpy_s(buffer, size, data, size) != EOK) {
+        return false;
+    }
+    return true;
+}
+
+/**
  * @tc.name: test_parcel_WriteAndRead_001
  * @tc.desc: test parcel primary type read write.
  * @tc.type: FUNC
@@ -122,7 +138,13 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_002, TestSize.Level1)
     struct TestData data = { true, -0x34, 0x5634, -0x12345678, 0x34, 0x5634, 0x12345678 };
     WriteTestData(parcel1, data);
 
-    bool result = parcel2.ParseFrom(parcel1.GetData(), parcel1.GetDataSize());
+    void *buffer = nullptr;
+    size_t size = parcel1.GetDataSize();
+    if (!SendData(buffer, size, reinterpret_cast<const uint8_t *>(parcel1.GetData()))) {
+        ASSERT_FALSE(false);
+    }
+
+    bool result = parcel2.ParseFrom(reinterpret_cast<uintptr_t>(buffer), parcel1.GetDataSize());
     EXPECT_EQ(result, true);
 
     bool readbool = parcel2.ReadBool();
@@ -159,7 +181,13 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_003, TestSize.Level1)
     struct TestData data = { true, -0x34, 0x5634, -0x12345678, 0x34, 0x5634, 0x12345678 };
     WriteTestData(parcel1, data);
 
-    bool result = parcel2.ParseFrom(parcel1.GetData(), parcel1.GetDataSize());
+    void *buffer = nullptr;
+    size_t size = parcel1.GetDataSize();
+    if (!SendData(buffer, size, reinterpret_cast<const uint8_t *>(parcel1.GetData()))) {
+        ASSERT_FALSE(false);
+    }
+
+    bool result = parcel2.ParseFrom(reinterpret_cast<uintptr_t>(buffer), parcel1.GetDataSize());
     EXPECT_EQ(result, true);
 
     bool boolVal = true;
@@ -223,7 +251,14 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_004, TestSize.Level1)
     EXPECT_EQ(readuint64, uint64test);
 
     Parcel parcel2(nullptr);
-    result = parcel2.ParseFrom(parcel1.GetData(), parcel1.GetDataSize());
+
+    void *buffer = nullptr;
+    size_t size = parcel1.GetDataSize();
+    if (!SendData(buffer, size, reinterpret_cast<const uint8_t *>(parcel1.GetData()))) {
+        ASSERT_FALSE(false);
+    }
+
+    result = parcel2.ParseFrom(reinterpret_cast<uintptr_t>(buffer), parcel1.GetDataSize());
 
     readint64 = parcel2.ReadInt64();
     EXPECT_EQ(readint64, int64test);
@@ -264,7 +299,14 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_001, TestSize.Level1)
     EXPECT_EQ(0, strcmp(strread2.c_str(), strwrite2.c_str()));
 
     Parcel parcel2(nullptr);
-    result = parcel2.ParseFrom(parcel1.GetData(), parcel1.GetDataSize());
+
+    void *buffer = nullptr;
+    size_t size = parcel1.GetDataSize();
+    if (!SendData(buffer, size, reinterpret_cast<const uint8_t *>(parcel1.GetData()))) {
+        ASSERT_FALSE(false);
+    }
+
+    result = parcel2.ParseFrom(reinterpret_cast<uintptr_t>(buffer), parcel1.GetDataSize());
 
     strread = parcel2.ReadString();
     strread1 = parcel2.ReadString();
@@ -297,7 +339,14 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_002, TestSize.Level1)
     EXPECT_EQ(0, str16read2.compare(str16write2));
 
     Parcel parcel2(nullptr);
-    result = parcel2.ParseFrom(parcel1.GetData(), parcel1.GetDataSize());
+
+    void *buffer = nullptr;
+    size_t size = parcel1.GetDataSize();
+    if (!SendData(buffer, size, reinterpret_cast<const uint8_t *>(parcel1.GetData()))) {
+        ASSERT_FALSE(false);
+    }
+
+    result = parcel2.ParseFrom(reinterpret_cast<uintptr_t>(buffer), parcel1.GetDataSize());
 
     str16read = parcel2.ReadString16();
     str16read2 = parcel2.ReadString16();
@@ -406,7 +455,14 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_Float_001, TestSize.Level1)
     EXPECT_EQ(doublewrite, doubleread);
 
     Parcel parcel2(nullptr);
-    result = parcel2.ParseFrom(parcel1.GetData(), parcel1.GetDataSize());
+
+    void *buffer = nullptr;
+    size_t size = parcel1.GetDataSize();
+    if (!SendData(buffer, size, reinterpret_cast<const uint8_t *>(parcel1.GetData()))) {
+        ASSERT_FALSE(false);
+    }
+
+    result = parcel2.ParseFrom(reinterpret_cast<uintptr_t>(buffer), parcel1.GetDataSize());
     result = parcel2.ReadFloat(floatread);
     EXPECT_EQ(result, true);
     EXPECT_EQ(floatwrite, floatread);
@@ -453,7 +509,14 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_005, TestSize.Level1)
     EXPECT_EQ(0, strcmp(strread2.c_str(), strwrite2.c_str()));
 
     Parcel parcel2(nullptr);
-    result = parcel2.ParseFrom(parcel1.GetData(), parcel1.GetDataSize());
+
+    void *buffer = nullptr;
+    size_t size = parcel1.GetDataSize();
+    if (!SendData(buffer, size, reinterpret_cast<const uint8_t *>(parcel1.GetData()))) {
+        ASSERT_FALSE(false);
+    }
+
+    result = parcel2.ParseFrom(reinterpret_cast<uintptr_t>(buffer), parcel1.GetDataSize());
     EXPECT_EQ(result, true);
 
     result = parcel2.ReadString(strread);
@@ -661,7 +724,14 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_002, TestSize.Level1)
     WriteVectorTestData(parcel1, data);
 
     Parcel parcel2(nullptr);
-    bool result = parcel2.ParseFrom(parcel1.GetData(), parcel1.GetDataSize());
+
+    void *buffer = nullptr;
+    size_t size = parcel1.GetDataSize();
+    if (!SendData(buffer, size, reinterpret_cast<const uint8_t *>(parcel1.GetData()))) {
+        ASSERT_FALSE(false);
+    }
+
+    bool result = parcel2.ParseFrom(reinterpret_cast<uintptr_t>(buffer), parcel1.GetDataSize());
     EXPECT_EQ(result, true);
     ReadVectorTestData(parcel2, data);
 }
@@ -698,7 +768,13 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_003, TestSize.Level1)
         EXPECT_EQ(0, string16test[i].compare(u16stringread[i]));
     }
 
-    result = parcel2.ParseFrom(parcel1.GetData(), parcel1.GetDataSize());
+    void *buffer = nullptr;
+    size_t size = parcel1.GetDataSize();
+    if (!SendData(buffer, size, reinterpret_cast<const uint8_t *>(parcel1.GetData()))) {
+        ASSERT_FALSE(false);
+    }
+
+    result = parcel2.ParseFrom(reinterpret_cast<uintptr_t>(buffer), parcel1.GetDataSize());
     result = parcel2.ReadStringVector(&stringread);
     EXPECT_EQ(result, true);
     for (size_t i = 0; i < stringtest.size(); i++) {
@@ -888,7 +964,3 @@ HWTEST_F(UtilsParcelTest, test_SetMaxCapacity_002, TestSize.Level1)
     ret = parcel.ReadString16Vector(&val);
     EXPECT_EQ(false, ret);
 }
-
-
-
-
