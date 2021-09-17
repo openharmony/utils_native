@@ -513,6 +513,22 @@ bool Parcel::WriteString16WithLength(const char16_t *value, size_t len)
     return WriteBuffer(u16str.data(), desireCapacity);
 }
 
+bool Parcel::WriteString8WithLength(const char *value, size_t len)
+{
+    if (!value) {
+        return WriteInt32(-1);
+    }
+
+    int32_t dataLength = len;
+    int32_t desireCapacity = (dataLength + 1) * sizeof(char);
+
+    if (!Write<int32_t>(dataLength)) {
+        return false;
+    }
+
+    return WriteBuffer(value, desireCapacity);
+}
+
 bool Parcel::EnsureObjectsCapacity()
 {
     if ((objectsCapacity_ - objectCursor_) >= 1) {
@@ -1033,6 +1049,37 @@ const std::u16string Parcel::ReadString16WithLength(int32_t &readLength)
 
     readCursor_ = oldCursor;
     return std::u16string();
+}
+
+const std::string Parcel::ReadString8WithLength(int32_t &readLength)
+{
+    int32_t dataLength = 0;
+    size_t oldCursor = readCursor_;
+
+    if (!Read<int32_t>(dataLength)) {
+        return std::string();
+    }
+
+    if (dataLength < 0) {
+        readLength = dataLength;
+        return std::string();
+    }
+
+    size_t readCapacity = (dataLength + 1) * sizeof(char);
+    if ((readCapacity > (size_t)dataLength) && (readCapacity <= GetReadableBytes())) {
+        const uint8_t *str = ReadBuffer(readCapacity);
+        if (str != nullptr) {
+            const auto *u8Str = reinterpret_cast<const char *>(str);
+            SkipBytes(GetPadSize(readCapacity));
+            if (u8Str[dataLength] == 0) {
+                readLength = dataLength;
+                return std::string(u8Str, dataLength);
+            }
+        }
+    }
+
+    readCursor_ = oldCursor;
+    return std::string();
 }
 
 void *DefaultAllocator::Alloc(size_t size)
