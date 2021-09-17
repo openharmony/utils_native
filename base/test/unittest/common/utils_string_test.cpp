@@ -53,7 +53,7 @@ void UtilsStringTest::TearDown(void)
 * EnvConditions: NA
 * CaseDescription: test for convert all letters of str  to uppercase
 */
-HWTEST_F(UtilsStringTest, test_strupper_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strupper_01, TestSize.Level0)
 {
     string strBase = "strbase";
     string strTemp = "STRBASE";
@@ -65,7 +65,7 @@ HWTEST_F(UtilsStringTest, test_strupper_01, TestSize.Level1)
     EXPECT_EQ(result, strTemp);
 }
 
-HWTEST_F(UtilsStringTest, test_strupper_02, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strupper_02, TestSize.Level0)
 {
     string strBase = "";
     string strTemp = "";
@@ -81,7 +81,7 @@ HWTEST_F(UtilsStringTest, test_strupper_02, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for convert all letters of str  to lowercase
 */
-HWTEST_F(UtilsStringTest, test_strlower_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strlower_01, TestSize.Level0)
 {
     string strBase = "STRbase";
     string strTemp = "strbase";
@@ -93,7 +93,7 @@ HWTEST_F(UtilsStringTest, test_strlower_01, TestSize.Level1)
     EXPECT_EQ(result, strTemp);
 }
 
-HWTEST_F(UtilsStringTest, test_strlower_02, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strlower_02, TestSize.Level0)
 {
     string strBase = "";
     string strTemp = "";
@@ -109,7 +109,7 @@ HWTEST_F(UtilsStringTest, test_strlower_02, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for replace src with dst int strBase
 */
-HWTEST_F(UtilsStringTest, test_strreplace_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strreplace_01, TestSize.Level0)
 {
     string strBase = "test for replace";
     string src = "for";
@@ -144,7 +144,7 @@ HWTEST_F(UtilsStringTest, test_strreplace_01, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for trim str front and end
 */
-HWTEST_F(UtilsStringTest, test_strtrim_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strtrim_01, TestSize.Level0)
 {
     string strBase = "              test for trim ";
     string strTemp = "test for trim";
@@ -152,7 +152,7 @@ HWTEST_F(UtilsStringTest, test_strtrim_01, TestSize.Level1)
     EXPECT_EQ(result, strTemp);
 }
 
-HWTEST_F(UtilsStringTest, test_strtrim_02, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strtrim_02, TestSize.Level0)
 {
     string strBase = "test";
     string strTemp = "es";
@@ -168,7 +168,7 @@ HWTEST_F(UtilsStringTest, test_strtrim_02, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for split str by strSep
 */
-HWTEST_F(UtilsStringTest, test_strsplit_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strsplit_01, TestSize.Level0)
 {
     string strBase = "test for split";
     string strSep = " ";
@@ -182,7 +182,7 @@ HWTEST_F(UtilsStringTest, test_strsplit_01, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsStringTest, test_strsplit_02, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strsplit_02, TestSize.Level0)
 {
     string strBase = "test for split";
     string strSep = "for";
@@ -204,7 +204,7 @@ HWTEST_F(UtilsStringTest, test_strsplit_02, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsStringTest, test_strsplit_03, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strsplit_03, TestSize.Level0)
 {
     string strBase = "test for for split";
     string strSep = "for";
@@ -226,7 +226,7 @@ HWTEST_F(UtilsStringTest, test_strsplit_03, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for judge all characters of the string are numbers
 */
-HWTEST_F(UtilsStringTest, test_strisnumeric_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strisnumeric_01, TestSize.Level0)
 {
     string strBase = "1234556";
     bool result = IsNumericStr(strBase);
@@ -249,7 +249,7 @@ HWTEST_F(UtilsStringTest, test_strisnumeric_01, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for judge all characters of the string are alphabet
 */
-HWTEST_F(UtilsStringTest, test_strisalpha_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strisalpha_01, TestSize.Level0)
 {
     string strBase = "1234556";
     bool result = IsAlphaStr(strBase);
@@ -280,7 +280,7 @@ HWTEST_F(UtilsStringTest, test_strisalpha_01, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for judge all characters of the string are uppercase
 */
-HWTEST_F(UtilsStringTest, test_IsUpperStr_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_IsUpperStr_01, TestSize.Level0)
 {
     string strBase = "ABSEFAD";
     bool result = IsUpperStr(strBase);
@@ -307,7 +307,7 @@ HWTEST_F(UtilsStringTest, test_IsUpperStr_01, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for judge all characters of the string are lowercase
 */
-HWTEST_F(UtilsStringTest, test_IsLowerStr_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_IsLowerStr_01, TestSize.Level0)
 {
     string strBase = "testlower";
     bool result = IsLowerStr(strBase);
@@ -334,7 +334,7 @@ HWTEST_F(UtilsStringTest, test_IsLowerStr_01, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for judge the sub_str in base_str
 */
-HWTEST_F(UtilsStringTest, test_IsSubStr_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_IsSubStr_01, TestSize.Level0)
 {
     string strBase = "test for issubstr";
     string strSub = "for";
@@ -354,7 +354,7 @@ HWTEST_F(UtilsStringTest, test_IsSubStr_01, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for judge the strFirst's letter is same with strSecond
 */
-HWTEST_F(UtilsStringTest, test_IsSameTextStr_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_IsSameTextStr_01, TestSize.Level0)
 {
     string strFirst = "Test For StrSameText";
     string strSecond = "test for strsametext";
@@ -374,7 +374,7 @@ HWTEST_F(UtilsStringTest, test_IsSameTextStr_01, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for convert int to str
 */
-HWTEST_F(UtilsStringTest, test_ToString_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_ToString_01, TestSize.Level0)
 {
     int ivalue = 12345;
     string strValue = "12345";
@@ -394,7 +394,7 @@ HWTEST_F(UtilsStringTest, test_ToString_01, TestSize.Level1)
 * EnvConditions: NA
 * CaseDescription: test for convert str to int
 */
-HWTEST_F(UtilsStringTest, test_StrToInt_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_StrToInt_01, TestSize.Level0)
 {
     string strValue = "12345";
     int iValue = 0;
@@ -407,7 +407,7 @@ HWTEST_F(UtilsStringTest, test_StrToInt_01, TestSize.Level1)
     EXPECT_EQ(result, false);
 }
 
-HWTEST_F(UtilsStringTest, test_StrToInt_02, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_StrToInt_02, TestSize.Level0)
 {
     string strValue = "-12345";
     int iValue = 0;
@@ -424,7 +424,7 @@ HWTEST_F(UtilsStringTest, test_StrToInt_02, TestSize.Level1)
     EXPECT_EQ(result, false);
 }
 
-HWTEST_F(UtilsStringTest, test_StrToInt_03, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_StrToInt_03, TestSize.Level0)
 {
     string strValue = "2147483648";
     int ivalue = 0;
@@ -432,7 +432,7 @@ HWTEST_F(UtilsStringTest, test_StrToInt_03, TestSize.Level1)
     EXPECT_EQ(result, false);
 }
 
-HWTEST_F(UtilsStringTest, test_StrToInt_04, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_StrToInt_04, TestSize.Level0)
 {
     string strValue = "             ";
     int iValue = 0;
@@ -440,7 +440,7 @@ HWTEST_F(UtilsStringTest, test_StrToInt_04, TestSize.Level1)
     EXPECT_EQ(result, false);
 }
 
-HWTEST_F(UtilsStringTest, test_strcovertfailed_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strcovertfailed_01, TestSize.Level0)
 {
     char test[] = {192, 157, 47, 106, 97, 18, 97, 47, 115, 1, 2};
     string strValue(test);
@@ -458,14 +458,14 @@ HWTEST_F(UtilsStringTest, test_strcovertfailed_01, TestSize.Level1)
 }
 
 
-HWTEST_F(UtilsStringTest, test_strcovert_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strcovert_01, TestSize.Level0)
 {
     string strValue = "hello world!";
     u16string str16 = Str8ToStr16(strValue);
     EXPECT_EQ(0, strValue.compare(Str16ToStr8(str16)));
 }
 
-HWTEST_F(UtilsStringTest, test_strcovert_02, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strcovert_02, TestSize.Level0)
 {
     string str8Value = "hello world!";
     u16string str16Result = u"hello world!";
@@ -484,7 +484,7 @@ HWTEST_F(UtilsStringTest, test_strcovert_02, TestSize.Level1)
     EXPECT_EQ(0, str16Result.compare(str16Value));
 }
 
-HWTEST_F(UtilsStringTest, test_strcovert_03, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strcovert_03, TestSize.Level0)
 {
     string str8Value = "1234567890!@#$%^&*().";
     u16string str16Result = u"1234567890!@#$%^&*().";
@@ -495,7 +495,7 @@ HWTEST_F(UtilsStringTest, test_strcovert_03, TestSize.Level1)
     EXPECT_EQ(0, str8Result.compare(str8Value));
 }
 
-HWTEST_F(UtilsStringTest, test_strcovert_04, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_strcovert_04, TestSize.Level0)
 {
     string str8Value = "1234567890!@#$%^&*().qazxswedcvfr,./;'][";
     u16string str16Result = u"1234567890!@#$%^&*().qazxswedcvfr,./;'][";
@@ -507,7 +507,7 @@ HWTEST_F(UtilsStringTest, test_strcovert_04, TestSize.Level1)
 }
 
 
-HWTEST_F(UtilsStringTest, test_getsubstr_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_getsubstr_01, TestSize.Level0)
 {
     string strBase = "test for {sub str} {sub str1}";
     string left = "{";
@@ -525,7 +525,7 @@ HWTEST_F(UtilsStringTest, test_getsubstr_01, TestSize.Level1)
     EXPECT_EQ(strResult, strValue);
 }
 
-HWTEST_F(UtilsStringTest, test_getsubstr_02, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_getsubstr_02, TestSize.Level0)
 {
     string strBase = "test for} {sub str {sub str1";
     string left = "{";
@@ -536,7 +536,7 @@ HWTEST_F(UtilsStringTest, test_getsubstr_02, TestSize.Level1)
 }
 
 
-HWTEST_F(UtilsStringTest, test_getsubstr_03, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_getsubstr_03, TestSize.Level0)
 {
     string strBase = "test for {sub str} {sub str1}";
     string left = "{";
@@ -549,7 +549,7 @@ HWTEST_F(UtilsStringTest, test_getsubstr_03, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsStringTest, test_getsubstr_04, TestSize.Level1)
+HWTEST_F(UtilsStringTest, test_getsubstr_04, TestSize.Level0)
 {
     string strBase = "test for } {sub str {sub str1";
     string left = "{";
@@ -560,7 +560,7 @@ HWTEST_F(UtilsStringTest, test_getsubstr_04, TestSize.Level1)
     EXPECT_EQ(0, static_cast<int>(strValue.size()));
 }
 
-HWTEST_F(UtilsStringTest, DexToHexString_01, TestSize.Level1)
+HWTEST_F(UtilsStringTest, DexToHexString_01, TestSize.Level0)
 {
     string result = DexToHexString(0);
     EXPECT_EQ(result, "0");
