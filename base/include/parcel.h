@@ -148,6 +148,8 @@ public:
 
     bool WriteString16WithLength(const char16_t *value, size_t len);
 
+    bool WriteString8WithLength(const char *value, size_t len);
+
     bool WriteParcelable(const Parcelable *object);
 
     bool WriteStrongParcelable(const sptr<Parcelable> &object);
@@ -222,6 +224,8 @@ public:
     bool ReadString16(std::u16string &value);
 
     const std::u16string ReadString16WithLength(int32_t &len);
+
+    const std::string ReadString8WithLength(int32_t &len);
 
     bool RewindRead(size_t newPosition);
 
