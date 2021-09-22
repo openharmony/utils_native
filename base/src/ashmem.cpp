@@ -53,6 +53,51 @@ openFdFunction ProbeAshmemFdFunction()
     return func;
 }
 
+static inline void TrimFromStart(std::string &s)
+{
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch) {return !std::isspace(ch);}));
+}
+
+static inline void TrimFromEnd(std::string &s)
+{
+    s.erase(std::find_if(s.rbegin(), s.rend(), [](unsigned char ch) {return !std::isspace(ch);}).base(), s.end());
+}
+
+static void Trim(std::string &s)
+{
+    TrimFromStart(s);
+    TrimFromEnd(s);
+}
+
+static int GetAshmemDeviceFd()
+{
+    static const std::string boot_id_path = "/proc/sys/kernel/random/boot_id";
+    std::string boot_id;
+    char buf[BUFSIZ];
+    ssize_t n;
+    int fdBoot = -1;
+    int fdAshmem = -1;
+
+    fdBoot = TEMP_FAILURE_RETRY(open(boot_id_path.c_str(), O_RDONLY | O_CLOEXEC));
+    if (fdBoot < 0) {
+        return -1;
+    }
+
+    if ((n = TEMP_FAILURE_RETRY(read(fdBoot, &buf[0], sizeof(buf)))) > 0) {
+        boot_id.append(buf, n);
+    } else {
+        close(fdBoot);
+        return -1;
+    }
+    close(fdBoot);
+
+    Trim(boot_id);
+
+    fdAshmem = TEMP_FAILURE_RETRY(open(("/dev/ashmem" + boot_id).c_str(), O_RDWR | O_CLOEXEC));
+    return fdAshmem;
+}
+
+
 static int AshmemOpenLocked()
 {
     int fd = -1;
@@ -64,6 +109,10 @@ static int AshmemOpenLocked()
     if (g_openFdApi != nullptr) {
         fd = g_openFdApi();
     } else {
+        fd = GetAshmemDeviceFd();
+    }
+
+    if (fd < 0) {
         fd = TEMP_FAILURE_RETRY(open("/dev/ashmem", O_RDWR | O_CLOEXEC));
     }
 
