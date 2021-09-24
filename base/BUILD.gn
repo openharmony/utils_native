@@ -23,9 +23,6 @@ config("utils_config") {
   if (current_os == "mingw") {
     cflags += [ "-Wno-error=inconsistent-dllimport" ]
   }
-  if (target_cpu == "arm") {
-    cflags += [ "-DBINDER_IPC_32BIT" ]
-  }
 }
 
 config("static_utils_config") {
