@@ -59,7 +59,7 @@ void UtilsThreadPoolTest::TearDown(void)
 
 }
 
-HWTEST_F(UtilsThreadPoolTest, test_01, TestSize.Level1)
+HWTEST_F(UtilsThreadPoolTest, test_01, TestSize.Level0)
 {
     ThreadPool pool;
     EXPECT_EQ(pool.GetName(), "");
@@ -68,7 +68,7 @@ HWTEST_F(UtilsThreadPoolTest, test_01, TestSize.Level1)
     EXPECT_EQ((int)pool.GetCurTaskNum(), 0);
 }
 
-HWTEST_F(UtilsThreadPoolTest, test_02, TestSize.Level1)
+HWTEST_F(UtilsThreadPoolTest, test_02, TestSize.Level0)
 {
     ThreadPool pool("test_02_pool");
     EXPECT_EQ(pool.GetName(), "test_02_pool");
@@ -77,7 +77,7 @@ HWTEST_F(UtilsThreadPoolTest, test_02, TestSize.Level1)
     EXPECT_EQ((int)pool.GetCurTaskNum(), 0);
 }
 
-HWTEST_F(UtilsThreadPoolTest, test_03, TestSize.Level1)
+HWTEST_F(UtilsThreadPoolTest, test_03, TestSize.Level0)
 {
     ThreadPool pool("test_02_pool");
     pool.SetMaxTaskNum(10);
@@ -87,7 +87,7 @@ HWTEST_F(UtilsThreadPoolTest, test_03, TestSize.Level1)
     EXPECT_EQ((int)pool.GetCurTaskNum(), 0);
 }
 
-HWTEST_F(UtilsThreadPoolTest, test_04, TestSize.Level1)
+HWTEST_F(UtilsThreadPoolTest, test_04, TestSize.Level0)
 {
     ThreadPool pool;
     pool.Start(4);
@@ -112,7 +112,7 @@ void TestFuncSubOneTime(int& i)
 }
 
 // simple task, total task num less than the MaxTaskNum
-HWTEST_F(UtilsThreadPoolTest, test_05, TestSize.Level1)
+HWTEST_F(UtilsThreadPoolTest, test_05, TestSize.Level0)
 {
     ThreadPool pool;
     pool.Start(5);
@@ -140,7 +140,7 @@ HWTEST_F(UtilsThreadPoolTest, test_05, TestSize.Level1)
 }
 
 // simaple task, total task num exceed the MaxTaskNum and the threads num
-HWTEST_F(UtilsThreadPoolTest, test_06, TestSize.Level1)
+HWTEST_F(UtilsThreadPoolTest, test_06, TestSize.Level0)
 {
     ThreadPool pool;
     pool.Start(5);
@@ -190,7 +190,7 @@ void TestFuncSubWait(int& i)
 
 // complex task, wait for notify by the main thread
 // total task num less than the threads num and the MaxTaskNum
-HWTEST_F(UtilsThreadPoolTest, test_07, TestSize.Level1)
+HWTEST_F(UtilsThreadPoolTest, test_07, TestSize.Level0)
 {
     ThreadPool pool;
     pool.Start(5);
@@ -225,7 +225,7 @@ HWTEST_F(UtilsThreadPoolTest, test_07, TestSize.Level1)
     pool.Stop();
 }
 
-HWTEST_F(UtilsThreadPoolTest, test_08, TestSize.Level1)
+HWTEST_F(UtilsThreadPoolTest, test_08, TestSize.Level0)
 {
     ThreadPool pool;
     pool.Start(5);

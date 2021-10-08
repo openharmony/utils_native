@@ -48,7 +48,7 @@ void UtilsSemaphoreTest::TearDown(void)
     // recover times
 }
 
-HWTEST_F(UtilsSemaphoreTest, test_01, TestSize.Level1)
+HWTEST_F(UtilsSemaphoreTest, test_01, TestSize.Level0)
 {
     EXPECT_EQ(0, 0);
 }

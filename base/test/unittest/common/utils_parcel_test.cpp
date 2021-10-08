@@ -101,7 +101,7 @@ bool SendData(void *&buffer, size_t size, const uint8_t *data)
  * @tc.desc: test parcel primary type read write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_001, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_001, TestSize.Level0)
 {
     Parcel parcel(nullptr);
     struct TestData data = { true, -0x34, 0x5634, -0x12345678, 0x34, 0x5634, 0x12345678 };
@@ -134,7 +134,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_001, TestSize.Level1)
  * @tc.desc: test parcel primary type read write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_002, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_002, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
     Parcel parcel2(nullptr);
@@ -177,7 +177,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_002, TestSize.Level1)
  * @tc.desc: test parcel primary type read write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_003, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_003, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
     Parcel parcel2(nullptr);
@@ -234,7 +234,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_003, TestSize.Level1)
  * @tc.desc: test parcel primary type read write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_004, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_004, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
     bool result;
@@ -275,7 +275,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_004, TestSize.Level1)
  * @tc.desc: test parcel string read write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_001, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_001, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
     bool result;
@@ -324,7 +324,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_001, TestSize.Level1)
  * @tc.desc: test parcel string read write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_002, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_002, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
 
@@ -362,7 +362,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_002, TestSize.Level1)
  * @tc.desc: test parcel CString read write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_003, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_003, TestSize.Level0)
 {
     Parcel parcel(nullptr);
     string test1 = "12345";
@@ -385,7 +385,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_003, TestSize.Level1)
  * @tc.desc: test parcel CString read write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String004, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String004, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
     bool result = false;
@@ -435,7 +435,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String004, TestSize.Level1)
  * @tc.desc: test parcel float types read write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_Float_001, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_Float_001, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
     bool result;
@@ -479,7 +479,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_Float_001, TestSize.Level1)
  * @tc.desc: test parcel String type read write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_005, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_String_005, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
     bool result;
@@ -560,7 +560,7 @@ void ValidateUnpadded(const struct Unpadded &left, const struct Unpadded &right)
  * @tc.desc: test parcel struct data related function.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_Data_Structure_001, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_Data_Structure_001, TestSize.Level0)
 {
     Parcel parcel(nullptr);
     bool result;
@@ -706,7 +706,7 @@ void ReadVectorTestData(Parcel &parcel, const VectorTestData &data)
  * @tc.desc: test vector parcel read and write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_001, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_001, TestSize.Level0)
 {
     Parcel parcel(nullptr);
     struct VectorTestData data;
@@ -720,7 +720,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_001, TestSize.Level1)
  * @tc.desc: test vector parcel read and write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_002, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_002, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
     struct VectorTestData data;
@@ -744,7 +744,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_002, TestSize.Level1)
  * @tc.desc: test vector parcel read and write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_003, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_003, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
     Parcel parcel2(nullptr);
@@ -796,7 +796,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_003, TestSize.Level1)
  * @tc.desc: test vector parcel read and write.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_004, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_WriteAndReadVector_004, TestSize.Level0)
 {
     Parcel parcel1(nullptr);
     Parcel parcel2(nullptr);
@@ -856,7 +856,7 @@ TestParcelable *TestParcelable::Unmarshalling(Parcel &parcel)
  * @tc.desc: test parcel read and write parcelable obj.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_parcelable_001, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_parcelable_001, TestSize.Level0)
 {
     Parcel parcel(nullptr);
     sptr<TestParcelable> parcelableWrite = new TestParcelable();
@@ -876,7 +876,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_parcelable_001, TestSize.Level1)
  * @tc.desc: test parcel read and write parcelable obj.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_parcelable_002, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_parcelable_002, TestSize.Level0)
 {
     Parcel parcel(nullptr);
 
@@ -892,7 +892,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_parcelable_002, TestSize.Level1)
  * @tc.desc: test parcel read and write parcelable obj.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_parcel_parcelable_003, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_parcel_parcelable_003, TestSize.Level0)
 {
     Parcel parcel(nullptr);
     sptr<TestParcelable> parcelableWriteNull;
@@ -934,7 +934,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_parcelable_003, TestSize.Level1)
  * @tc.desc: test parcel capacity function.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_SetMaxCapacity_001, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_SetMaxCapacity_001, TestSize.Level0)
 {
     Parcel parcel(nullptr);
     char test[48] = {0};
@@ -954,7 +954,7 @@ HWTEST_F(UtilsParcelTest, test_SetMaxCapacity_001, TestSize.Level1)
  * @tc.desc: test parcel capacity function.
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsParcelTest, test_SetMaxCapacity_002, TestSize.Level1)
+HWTEST_F(UtilsParcelTest, test_SetMaxCapacity_002, TestSize.Level0)
 {
     Parcel parcel(nullptr);
     char test[48] = {0};

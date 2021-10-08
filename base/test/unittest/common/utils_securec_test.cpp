@@ -48,21 +48,21 @@ void UtilsSecurecTest::TearDown(void)
     // step 3: input testcase teardown step
 }
 
-HWTEST_F(UtilsSecurecTest, test_memset_s_01, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_memset_s_01, TestSize.Level0)
 {
     char cBase[20];
     errno_t result = memset_s((void*)cBase, sizeof(char) * 20, 1, sizeof(char) * 20);
     EXPECT_EQ(result, 0);
 }
 
-HWTEST_F(UtilsSecurecTest, test_memset_s_02, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_memset_s_02, TestSize.Level0)
 {
     char cBase[20];
     errno_t result = memset_s((void*)cBase, sizeof(char) * 20, 1, sizeof(char) * 21);
     EXPECT_NE(result, 0);
 }
 
-HWTEST_F(UtilsSecurecTest, test_memcpy_s_01, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_memcpy_s_01, TestSize.Level0)
 {
     char cBase[20] = "memcpy_s";
     char cTemp[20];
@@ -71,7 +71,7 @@ HWTEST_F(UtilsSecurecTest, test_memcpy_s_01, TestSize.Level1)
     EXPECT_EQ(0, strcmp(cTemp, cBase));
 }
 
-HWTEST_F(UtilsSecurecTest, test_memcpy_s_02, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_memcpy_s_02, TestSize.Level0)
 {
     char cBase[20] = "memcpy_s";
     char cTemp[5];
@@ -79,7 +79,7 @@ HWTEST_F(UtilsSecurecTest, test_memcpy_s_02, TestSize.Level1)
     EXPECT_NE(result, 0);
 }
 
-HWTEST_F(UtilsSecurecTest, test_strcpy_s_01, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_strcpy_s_01, TestSize.Level0)
 {
     const char cBase[] = "strcpy_base";
     char cTemp[20];
@@ -88,7 +88,7 @@ HWTEST_F(UtilsSecurecTest, test_strcpy_s_01, TestSize.Level1)
     EXPECT_EQ(0, strcmp(cTemp, cBase));
 }
 
-HWTEST_F(UtilsSecurecTest, test_strcpy_s_02, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_strcpy_s_02, TestSize.Level0)
 {
     const char cBase[] = "strcpy_base";
     char cTemp[10];
@@ -96,7 +96,7 @@ HWTEST_F(UtilsSecurecTest, test_strcpy_s_02, TestSize.Level1)
     EXPECT_NE(result, 0);
 }
 
-HWTEST_F(UtilsSecurecTest, test_strncpy_s_01, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_strncpy_s_01, TestSize.Level0)
 {
     const char cBase[] = "strcpy_base";
     char cTemp[20];
@@ -105,7 +105,7 @@ HWTEST_F(UtilsSecurecTest, test_strncpy_s_01, TestSize.Level1)
     EXPECT_EQ(0, strcmp(cTemp, cBase));
 }
 
-HWTEST_F(UtilsSecurecTest, test_strncpy_s_02, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_strncpy_s_02, TestSize.Level0)
 {
     const char cBase[] = "strcpy_base";
     char cTemp[10];
@@ -115,7 +115,7 @@ HWTEST_F(UtilsSecurecTest, test_strncpy_s_02, TestSize.Level1)
     EXPECT_NE(result, 0);
 }
 
-HWTEST_F(UtilsSecurecTest, test_strcat_s_01, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_strcat_s_01, TestSize.Level0)
 {
     const char cBase[] = "strcpy_base";
     char cTemp[20] = "temp ";
@@ -124,7 +124,7 @@ HWTEST_F(UtilsSecurecTest, test_strcat_s_01, TestSize.Level1)
     EXPECT_EQ(0, strcmp(cTemp, "temp strcpy_base"));
 }
 
-HWTEST_F(UtilsSecurecTest, test_strcat_s_02, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_strcat_s_02, TestSize.Level0)
 {
     const char cBase[] = "strcpy_base";
     char cTemp[10];
@@ -132,7 +132,7 @@ HWTEST_F(UtilsSecurecTest, test_strcat_s_02, TestSize.Level1)
     EXPECT_NE(result, 0);
 }
 
-HWTEST_F(UtilsSecurecTest, test_sprintf_s_01, TestSize.Level1)
+HWTEST_F(UtilsSecurecTest, test_sprintf_s_01, TestSize.Level0)
 {
     char cBase[64] = { 0 };
     errno_t result = sprintf_s(cBase, sizeof(cBase), "%d", 12345);

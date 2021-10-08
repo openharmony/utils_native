@@ -72,7 +72,7 @@ int RemoveTestFile(const std::string& path)
  * @tc.name: testLoadStringFromFile001
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadStringFromFile001, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadStringFromFile001, TestSize.Level0)
 {
     string str;
     string filename = "/proc/meminfo";
@@ -94,7 +94,7 @@ HWTEST_F(UtilsFileTest, testLoadStringFromFile001, TestSize.Level1)
  * @tc.name: testLoadStringFromFile002
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadStringFromFile002, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadStringFromFile002, TestSize.Level0)
 {
     string str;
     string filename = "";
@@ -106,7 +106,7 @@ HWTEST_F(UtilsFileTest, testLoadStringFromFile002, TestSize.Level1)
  * @tc.name: testLoadStringFromFile003
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadStringFromFile003, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadStringFromFile003, TestSize.Level0)
 {
     string str;
     string filename = "./tmp.txt";
@@ -121,7 +121,7 @@ HWTEST_F(UtilsFileTest, testLoadStringFromFile003, TestSize.Level1)
  * @tc.name: testLoadStringFromFile004
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadStringFromFile004, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadStringFromFile004, TestSize.Level0)
 {
     string str;
     string filename = "./tmp.txt";
@@ -136,7 +136,7 @@ HWTEST_F(UtilsFileTest, testLoadStringFromFile004, TestSize.Level1)
  * @tc.name: testLoadStringFromFile005
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadStringFromFile005, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadStringFromFile005, TestSize.Level0)
 {
     string str;
     string filename = "./tmp.txt";
@@ -151,7 +151,7 @@ HWTEST_F(UtilsFileTest, testLoadStringFromFile005, TestSize.Level1)
  * @tc.name: testLoadStringFromFile006
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadStringFromFile006, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadStringFromFile006, TestSize.Level0)
 {
     string str;
     string filename = "./tmp.txt";
@@ -166,7 +166,7 @@ HWTEST_F(UtilsFileTest, testLoadStringFromFile006, TestSize.Level1)
  * @tc.name: testLoadStringFromFd001
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadStringFromFd001, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadStringFromFd001, TestSize.Level0)
 {
     string result;
     string filename = "";
@@ -178,7 +178,7 @@ HWTEST_F(UtilsFileTest, testLoadStringFromFd001, TestSize.Level1)
  * @tc.name: testLoadStringFromFd002
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadStringFromFd002, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadStringFromFd002, TestSize.Level0)
 {
     string result;
     string filename = "./tmp.txt";
@@ -195,7 +195,7 @@ HWTEST_F(UtilsFileTest, testLoadStringFromFd002, TestSize.Level1)
  * @tc.name: testLoadStringFromFd003
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadStringFromFd003, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadStringFromFd003, TestSize.Level0)
 {
     string result;
     string filename = "./tmp.txt";
@@ -212,7 +212,7 @@ HWTEST_F(UtilsFileTest, testLoadStringFromFd003, TestSize.Level1)
  * @tc.name: testLoadStringFromFd004
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadStringFromFd004, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadStringFromFd004, TestSize.Level0)
 {
     string result;
     string filename = "./tmp.txt";
@@ -229,7 +229,7 @@ HWTEST_F(UtilsFileTest, testLoadStringFromFd004, TestSize.Level1)
  * @tc.name: testSaveStringToFile001
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFile001, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFile001, TestSize.Level0)
 {
     string content;
     string path = "./tmp2.txt";
@@ -248,7 +248,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFile001, TestSize.Level1)
  * @tc.name: testSaveStringToFile002
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFile002, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFile002, TestSize.Level0)
 {
     string path = "./tmp2.txt";
     string fileContent = "ttxx";
@@ -267,7 +267,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFile002, TestSize.Level1)
  * @tc.name: testSaveStringToFile003
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFile003, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFile003, TestSize.Level0)
 {
     string path = "./tmp2.txt";
     string fileContent = "ttxx";
@@ -288,7 +288,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFile003, TestSize.Level1)
  * @tc.name: testSaveStringToFile004
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFile004, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFile004, TestSize.Level0)
 {
     string path = "./tmp2.txt";
     string fileContent = "ttxx";
@@ -309,7 +309,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFile004, TestSize.Level1)
  * @tc.name: testSaveStringToFile005
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFile005, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFile005, TestSize.Level0)
 {
     string path = "./tmp2.txt";
     string fileContent = "ttxx";
@@ -330,7 +330,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFile005, TestSize.Level1)
  * @tc.name: testSaveStringToFile006
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFile006, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFile006, TestSize.Level0)
 {
     string content;
     string path = "./tmp2.txt";
@@ -350,7 +350,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFile006, TestSize.Level1)
  * @tc.name: testSaveStringToFile007
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFile007, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFile007, TestSize.Level0)
 {
     string path = "./tmp2.txt";
     string fileContent = "ttxx";
@@ -371,7 +371,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFile007, TestSize.Level1)
  * @tc.name: testSaveStringToFd001
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFd001, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFd001, TestSize.Level0)
 {
     string content;
     bool ret = SaveStringToFd(-1, content);
@@ -382,7 +382,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFd001, TestSize.Level1)
  * @tc.name: testSaveStringToFd002
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFd002, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFd002, TestSize.Level0)
 {
     string content;
     bool ret = SaveStringToFd(0, content);
@@ -393,7 +393,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFd002, TestSize.Level1)
  * @tc.name: testSaveStringToFd003
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFd003, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFd003, TestSize.Level0)
 {
     string content = "tt";
     bool ret = SaveStringToFd(-1, content);
@@ -404,7 +404,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFd003, TestSize.Level1)
  * @tc.name: testSaveStringToFd004
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFd004, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFd004, TestSize.Level0)
 {
     string content;
     bool ret = SaveStringToFd(-1, content);
@@ -415,7 +415,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFd004, TestSize.Level1)
  * @tc.name: testSaveStringToFd005
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFd005, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFd005, TestSize.Level0)
 {
     string content;
     string filename = "./tmp3.txt";
@@ -437,7 +437,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFd005, TestSize.Level1)
  * @tc.name: testSaveStringToFd006
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveStringToFd006, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveStringToFd006, TestSize.Level0)
 {
     string content = "TTTTTTTT";
     string filename = "./tmp3.txt";
@@ -459,7 +459,7 @@ HWTEST_F(UtilsFileTest, testSaveStringToFd006, TestSize.Level1)
  * @tc.name: testLoadBufferFromFile001
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadBufferFromFile001, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadBufferFromFile001, TestSize.Level0)
 {
     vector<char> buff;
     string filename = "";
@@ -472,7 +472,7 @@ HWTEST_F(UtilsFileTest, testLoadBufferFromFile001, TestSize.Level1)
  * @tc.name: testLoadBufferFromFile002
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadBufferFromFile002, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadBufferFromFile002, TestSize.Level0)
 {
     vector<char> buff;
     string filename = "./tmp.txt";
@@ -491,7 +491,7 @@ HWTEST_F(UtilsFileTest, testLoadBufferFromFile002, TestSize.Level1)
  * @tc.name: testLoadBufferFromFile003
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testLoadBufferFromFile003, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testLoadBufferFromFile003, TestSize.Level0)
 {
     vector<char> buff;
     string filename = "./tmp1.txt";
@@ -507,7 +507,7 @@ HWTEST_F(UtilsFileTest, testLoadBufferFromFile003, TestSize.Level1)
  * @tc.name: testSaveBufferToFile001
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveBufferToFile001, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveBufferToFile001, TestSize.Level0)
 {
     vector<char> buff;
     string path = "./tmp2.txt";
@@ -527,7 +527,7 @@ HWTEST_F(UtilsFileTest, testSaveBufferToFile001, TestSize.Level1)
  * @tc.name: testSaveBufferToFile002
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveBufferToFile002, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveBufferToFile002, TestSize.Level0)
 {
     string path = "./tmp2.txt";
     string fileContent = "ttxx";
@@ -548,7 +548,7 @@ HWTEST_F(UtilsFileTest, testSaveBufferToFile002, TestSize.Level1)
  * @tc.name: testSaveBufferToFile003
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveBufferToFile003, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveBufferToFile003, TestSize.Level0)
 {
     vector<char> buff;
     string path = "./tmp2.txt";
@@ -568,7 +568,7 @@ HWTEST_F(UtilsFileTest, testSaveBufferToFile003, TestSize.Level1)
  * @tc.name: testSaveBufferToFile004
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testSaveBufferToFile004, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testSaveBufferToFile004, TestSize.Level0)
 {
     string path = "./tmp2.txt";
     string fileContent = "ttxx";
@@ -589,7 +589,7 @@ HWTEST_F(UtilsFileTest, testSaveBufferToFile004, TestSize.Level1)
  * @tc.name: testStringExistsInFile001
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testStringExistsInFile001, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testStringExistsInFile001, TestSize.Level0)
 {
     string str = "abc";
     string filename = "";
@@ -601,7 +601,7 @@ HWTEST_F(UtilsFileTest, testStringExistsInFile001, TestSize.Level1)
  * @tc.name: testStringExistsInFile002
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testStringExistsInFile002, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testStringExistsInFile002, TestSize.Level0)
 {
     string str = "";
     string filename = "./tmp.txt";
@@ -615,7 +615,7 @@ HWTEST_F(UtilsFileTest, testStringExistsInFile002, TestSize.Level1)
  * @tc.name: testStringExistsInFile003
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testStringExistsInFile003, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testStringExistsInFile003, TestSize.Level0)
 {
     string str = "world";
     string filename = "./tmp.txt";
@@ -629,7 +629,7 @@ HWTEST_F(UtilsFileTest, testStringExistsInFile003, TestSize.Level1)
  * @tc.name: testStringExistsInFile004
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testStringExistsInFile004, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testStringExistsInFile004, TestSize.Level0)
 {
     string str1(32*1024*1024+1, 't');
     string str2(32*1024*1024, 't');
@@ -645,7 +645,7 @@ HWTEST_F(UtilsFileTest, testStringExistsInFile004, TestSize.Level1)
  * @tc.name: testStringExistsInFile005
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testStringExistsInFile005, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testStringExistsInFile005, TestSize.Level0)
 {
     string str = "woRld";
     string filename = "./tmp.txt";
@@ -660,7 +660,7 @@ HWTEST_F(UtilsFileTest, testStringExistsInFile005, TestSize.Level1)
  * @tc.name: testStringExistsInFile006
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testStringExistsInFile006, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testStringExistsInFile006, TestSize.Level0)
 {
     string str1 = "woRld!";
     string str2 = "123";
@@ -691,7 +691,7 @@ HWTEST_F(UtilsFileTest, testStringExistsInFile006, TestSize.Level1)
  * @tc.name: testStringExistsInFile007
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testStringExistsInFile007, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testStringExistsInFile007, TestSize.Level0)
 {
     string str1 = "is";
     string str2 = "\n\ris";
@@ -710,7 +710,7 @@ HWTEST_F(UtilsFileTest, testStringExistsInFile007, TestSize.Level1)
  * @tc.name: testFileExist001
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testFileExist001, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testFileExist001, TestSize.Level0)
 {
     string filepath = "/proc/meminfo";
     string filepath1 = "/proc/meminfo1";
@@ -723,7 +723,7 @@ HWTEST_F(UtilsFileTest, testFileExist001, TestSize.Level1)
  * @tc.name: testCountStrInFile001
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testCountStrInFile001, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testCountStrInFile001, TestSize.Level0)
 {
     string str = "abc";
     string filename = "";
@@ -735,7 +735,7 @@ HWTEST_F(UtilsFileTest, testCountStrInFile001, TestSize.Level1)
  * @tc.name: testCountStrInFile002
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testCountStrInFile002, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testCountStrInFile002, TestSize.Level0)
 {
     string str = "";
     string filename = "./tmp.txt";
@@ -749,7 +749,7 @@ HWTEST_F(UtilsFileTest, testCountStrInFile002, TestSize.Level1)
  * @tc.name: testCountStrInFile003
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testCountStrInFile003, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testCountStrInFile003, TestSize.Level0)
 {
     string str1(32*1024*1024+1, 't');
     string str2(32*1024*1024, 't');
@@ -765,7 +765,7 @@ HWTEST_F(UtilsFileTest, testCountStrInFile003, TestSize.Level1)
  * @tc.name: testCountStrInFile004
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testCountStrInFile004, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testCountStrInFile004, TestSize.Level0)
 {
     string str1 = "very";
     string str2 = "VERY";
@@ -787,7 +787,7 @@ HWTEST_F(UtilsFileTest, testCountStrInFile004, TestSize.Level1)
  * @tc.name: testCountStrInFile005
  * @tc.desc: singleton template
  */
-HWTEST_F(UtilsFileTest, testCountStrInFile005, TestSize.Level1)
+HWTEST_F(UtilsFileTest, testCountStrInFile005, TestSize.Level0)
 {
     string str1 = "aba";
     string filename = "./tmp.txt";
