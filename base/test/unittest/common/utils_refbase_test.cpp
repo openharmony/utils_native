@@ -315,7 +315,7 @@ int RegisterEventThread()
  * @tc.name: testRefbaseOperateThreads001
  * @tc.desc: Refbase for threads
  */
-HWTEST_F(UtilsRefbaseTest, testRefbaseOperateThreads001, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testRefbaseOperateThreads001, TestSize.Level0)
 {
     RefBaseTestTracker *tracker = RefBaseTestTracker::GetInstance();
     tracker->InitTracker();
@@ -338,7 +338,7 @@ HWTEST_F(UtilsRefbaseTest, testRefbaseOperateThreads001, TestSize.Level1)
  * @tc.name: testRefbaseOperateNull001
  * @tc.desc: Refbase for null
  */
-HWTEST_F(UtilsRefbaseTest, testRefbaseOperateNull001, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testRefbaseOperateNull001, TestSize.Level0)
 {
     RefBaseTestTracker *tracker = RefBaseTestTracker::GetInstance();
     tracker->InitTracker();
@@ -406,7 +406,7 @@ private:
  * @tc.name: testRefbaseOperateLeftValue001
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testRefbaseOperateLeftValue001, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testRefbaseOperateLeftValue001, TestSize.Level0)
 {
     RefBaseMemTest::g_checkCount = 0;
     {
@@ -432,7 +432,7 @@ HWTEST_F(UtilsRefbaseTest, testRefbaseOperateLeftValue001, TestSize.Level1)
  * @tc.name: testRefbaseOperateRightValue001
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testRefbaseOperateRightValue001, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testRefbaseOperateRightValue001, TestSize.Level0)
 {
     RefBaseMemTest::g_checkCount = 0;
     {
@@ -458,7 +458,7 @@ HWTEST_F(UtilsRefbaseTest, testRefbaseOperateRightValue001, TestSize.Level1)
  * @tc.name: testRefbaseAcquire001
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testRefbaseAcquire001, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testRefbaseAcquire001, TestSize.Level0)
 {
     RefBaseTest* testobject = new RefBaseTest();
     testobject->AttemptAcquire(this);
@@ -479,7 +479,7 @@ HWTEST_F(UtilsRefbaseTest, testRefbaseAcquire001, TestSize.Level1)
  * @tc.name: testSptrefbase001
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbase001, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbase001, TestSize.Level0)
 {
     sptr<RefBaseTest> testobject = new RefBaseTest();
     testobject->ExtendObjectLifetime();
@@ -498,7 +498,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbase001, TestSize.Level1)
  * @tc.name: testSptrefbaseRealease001
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbaseRealease001, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbaseRealease001, TestSize.Level0)
 {
     sptr<RefBaseTest> testObject = new RefBaseTest();
     EXPECT_EQ(g_refbaseflag, 1);
@@ -511,7 +511,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbaseRealease001, TestSize.Level1)
  * @tc.name: testSptrefbaseRealease002
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbaseRealease002, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbaseRealease002, TestSize.Level0)
 {
     wptr<RefBaseTest> testObject = new RefBaseTest();
     EXPECT_EQ(g_refbaseflag, 1);
@@ -523,7 +523,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbaseRealease002, TestSize.Level1)
  * @tc.name: testSptrefbase002
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbase002, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbase002, TestSize.Level0)
 {
     {
         sptr<RefBaseTest> testObject(new RefBaseTest());
@@ -536,7 +536,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbase002, TestSize.Level1)
  * @tc.name: testSptrefbase003
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbase003, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbase003, TestSize.Level0)
 {
     sptr<RefBaseTest> testObject1(new RefBaseTest());
     sptr<RefBaseTest> testObject2 = testObject1.GetRefPtr();
@@ -564,7 +564,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbase003, TestSize.Level1)
  * @tc.name: testSptrefbase004
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbase004, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbase004, TestSize.Level0)
 {
     sptr<RefBaseTest> testObject1(new RefBaseTest());
     testObject1->SetRefPtr();
@@ -581,7 +581,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbase004, TestSize.Level1)
  * @tc.name: testSptrefbase005
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbase005, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbase005, TestSize.Level0)
 {
     sptr<RefBaseTest> testObject1(new RefBaseTest());
     wptr<RefBaseTest> testObject2 = testObject1;
@@ -593,7 +593,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbase005, TestSize.Level1)
  * @tc.name: testSptrefbase006
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbase006, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbase006, TestSize.Level0)
 {
     sptr<RefBaseTest> testObject1;
     EXPECT_EQ(testObject1.GetRefPtr(), nullptr);
@@ -606,7 +606,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbase006, TestSize.Level1)
  * @tc.name: testSptrefbase007
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbase007, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbase007, TestSize.Level0)
 {
     const sptr<RefBaseTest> &testObject1 = new RefBaseTest();
     sptr<RefBaseTest> testObject2(testObject1);
@@ -617,7 +617,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbase007, TestSize.Level1)
  * @tc.name: testSptrefbase008
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbase008, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbase008, TestSize.Level0)
 {
     sptr<RefBaseTest> testObject1;
     sptr<RefBaseTest> testObject2(testObject1);
@@ -628,7 +628,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbase008, TestSize.Level1)
  * @tc.name: testSptrefbase009
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbase009, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbase009, TestSize.Level0)
 {
     sptr<RefBaseTest> testObject0 = new RefBaseTest();
     sptr<RefBaseTest> testObject1 = move(testObject0);
@@ -641,7 +641,7 @@ HWTEST_F(UtilsRefbaseTest, testSptrefbase009, TestSize.Level1)
  * @tc.name: testSptrefbase010
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testSptrefbase010, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testSptrefbase010, TestSize.Level0)
 {
     sptr<RefBaseTest> testObject1 = new RefBaseTest();
     sptr<RefBaseTest> testObject3(new RefBaseTest());
@@ -680,7 +680,7 @@ private:
  * @tc.name: testRefbase005
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testRefbase005, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testRefbase005, TestSize.Level0)
 {
     {
         sptr<SptrTest> testObject1(new SptrTest());
@@ -725,7 +725,7 @@ private:
  * @tc.name: testRefbase006
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testRefbase006, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testRefbase006, TestSize.Level0)
 {
     {
         sptr<SptrTest1> testObject1(new SptrTest1());
@@ -767,7 +767,7 @@ private:
  * @tc.name: testWptrefbase001
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testWptrefbase001, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testWptrefbase001, TestSize.Level0)
 {
     wptr<WptrTest> testObject1(new WptrTest());
     EXPECT_EQ(testObject1->GetWptrRefCount(), 1);
@@ -785,7 +785,7 @@ HWTEST_F(UtilsRefbaseTest, testWptrefbase001, TestSize.Level1)
  * @tc.name: testWptrefbase002
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testWptrefbase002, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testWptrefbase002, TestSize.Level0)
 {
     wptr<WptrTest> testObject1(new WptrTest());
     wptr<WptrTest> testObject2(testObject1);
@@ -799,7 +799,7 @@ HWTEST_F(UtilsRefbaseTest, testWptrefbase002, TestSize.Level1)
  * @tc.name: testWptrefbase003
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testWptrefbase003, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testWptrefbase003, TestSize.Level0)
 {
     const wptr<WptrTest> &testObject1(new WptrTest());
     wptr<WptrTest> testObject2(testObject1);
@@ -813,7 +813,7 @@ HWTEST_F(UtilsRefbaseTest, testWptrefbase003, TestSize.Level1)
  * @tc.name: testWptrefbase004
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testWptrefbase004, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testWptrefbase004, TestSize.Level0)
 {
     const sptr<WptrTest2> &testObject1(new WptrTest2());
     EXPECT_NE(testObject1, nullptr);
@@ -825,7 +825,7 @@ HWTEST_F(UtilsRefbaseTest, testWptrefbase004, TestSize.Level1)
  * @tc.name: testWptrefbase005
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testWptrefbase005, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testWptrefbase005, TestSize.Level0)
 {
     wptr<WptrTest2> testObject1 = new WptrTest2();
     wptr<WptrTest> testObject2(testObject1);
@@ -836,7 +836,7 @@ HWTEST_F(UtilsRefbaseTest, testWptrefbase005, TestSize.Level1)
  * @tc.name: testWptrefbase006
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testWptrefbase006, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testWptrefbase006, TestSize.Level0)
 {
     wptr<WptrTest> testObject1 = new WptrTest();
     wptr<WptrTest> &testObject2 = testObject1;
@@ -847,7 +847,7 @@ HWTEST_F(UtilsRefbaseTest, testWptrefbase006, TestSize.Level1)
  * @tc.name: testWptrefbase007
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testWptrefbase007, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testWptrefbase007, TestSize.Level0)
 {
     wptr<WptrTest2> testObject1 = new WptrTest2();
     wptr<WptrTest2> testObject2 = testObject1.GetRefPtr();
@@ -858,7 +858,7 @@ HWTEST_F(UtilsRefbaseTest, testWptrefbase007, TestSize.Level1)
  * @tc.name: testWptrefbase008
  * @tc.desc: Refbase
  */
-HWTEST_F(UtilsRefbaseTest, testWptrefbase008, TestSize.Level1)
+HWTEST_F(UtilsRefbaseTest, testWptrefbase008, TestSize.Level0)
 {
     wptr<WptrTest> testObject1 = new WptrTest();
     wptr<WptrTest2> testObject2;

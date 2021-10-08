@@ -59,7 +59,7 @@ void UtilsAshmemTest::TearDownTestCase(void)
  * @tc.desc: create and map ashmem
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_001, TestSize.Level1)
+HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_001, TestSize.Level0)
 {
     UTILS_LOGI("test_ashmem_WriteAndRead_001");
 
@@ -79,7 +79,7 @@ HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_001, TestSize.Level1)
  * @tc.desc: write to and read from ashmem
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_002, TestSize.Level1)
+HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_002, TestSize.Level0)
 {
     sptr<Ashmem> ashmem = Ashmem::CreateAshmem(MEMORY_NAME.c_str(), MEMORY_SIZE);
     ASSERT_TRUE(ashmem != nullptr);
@@ -114,7 +114,7 @@ HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_002, TestSize.Level1)
  * @tc.desc: test read-only ashmem
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_003, TestSize.Level1)
+HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_003, TestSize.Level0)
 {
     sptr<Ashmem> ashmem = Ashmem::CreateAshmem(MEMORY_NAME.c_str(), MEMORY_SIZE);
     ASSERT_TRUE(ashmem != nullptr);
@@ -148,7 +148,7 @@ HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_003, TestSize.Level1)
  * @tc.desc: set read-only protection and map again
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_004, TestSize.Level1)
+HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_004, TestSize.Level0)
 {
     sptr<Ashmem> ashmem = Ashmem::CreateAshmem(MEMORY_NAME.c_str(), MEMORY_SIZE);
     ASSERT_TRUE(ashmem != nullptr);
@@ -185,7 +185,7 @@ HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_004, TestSize.Level1)
  * @tc.desc: set read-only protection without mapping again
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_005, TestSize.Level1)
+HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_005, TestSize.Level0)
 {
     sptr<Ashmem> ashmem = Ashmem::CreateAshmem(MEMORY_NAME.c_str(), MEMORY_SIZE);
     ASSERT_TRUE(ashmem != nullptr);
@@ -217,7 +217,7 @@ HWTEST_F(UtilsAshmemTest, test_ashmem_WriteAndRead_005, TestSize.Level1)
  * @tc.desc: create invalid-size ashmem or set invalid protection type
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_001, TestSize.Level1)
+HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_001, TestSize.Level0)
 {
     sptr<Ashmem> ashmem = Ashmem::CreateAshmem(MEMORY_NAME.c_str(), -1);
     ASSERT_TRUE(ashmem == nullptr);
@@ -236,7 +236,7 @@ HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_001, TestSize.Level1)
  * @tc.desc: map after closing ashmem
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_002, TestSize.Level1)
+HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_002, TestSize.Level0)
 {
     sptr<Ashmem> ashmem = Ashmem::CreateAshmem(MEMORY_NAME.c_str(), MEMORY_SIZE);
     ASSERT_TRUE(ashmem != nullptr);
@@ -252,7 +252,7 @@ HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_002, TestSize.Level1)
  * @tc.desc: write or read after closing ashmem
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_003, TestSize.Level1)
+HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_003, TestSize.Level0)
 {
     sptr<Ashmem> ashmem = Ashmem::CreateAshmem(MEMORY_NAME.c_str(), MEMORY_SIZE);
     ASSERT_TRUE(ashmem != nullptr);
@@ -274,7 +274,7 @@ HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_003, TestSize.Level1)
  * @tc.desc: write or read after unmapping ashmem
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_004, TestSize.Level1)
+HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_004, TestSize.Level0)
 {
     sptr<Ashmem> ashmem = Ashmem::CreateAshmem(MEMORY_NAME.c_str(), MEMORY_SIZE);
     ASSERT_TRUE(ashmem != nullptr);
@@ -298,7 +298,7 @@ HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_004, TestSize.Level1)
  * @tc.desc: expand protection type
  * @tc.type: FUNC
  */
-HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_005, TestSize.Level1)
+HWTEST_F(UtilsAshmemTest, test_ashmem_InvalidOperation_005, TestSize.Level0)
 {
     sptr<Ashmem> ashmem = Ashmem::CreateAshmem(MEMORY_NAME.c_str(), MEMORY_SIZE);
     ASSERT_TRUE(ashmem != nullptr);

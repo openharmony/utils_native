@@ -96,7 +96,7 @@ void UtilsSingletonTest::TearDown(void)
 }
 
 
-HWTEST_F(UtilsSingletonTest, test_DelayedSingletonDeclearTest, TestSize.Level1)
+HWTEST_F(UtilsSingletonTest, test_DelayedSingletonDeclearTest, TestSize.Level0)
 {
     shared_ptr<DelayedSingletonDeclearTest> sp1 = DelayedSingleton<DelayedSingletonDeclearTest>::GetInstance();
     EXPECT_EQ(sp1.use_count(), 2);
@@ -107,7 +107,7 @@ HWTEST_F(UtilsSingletonTest, test_DelayedSingletonDeclearTest, TestSize.Level1)
 }
 
 
-HWTEST_F(UtilsSingletonTest, test_SingletonDeclearTest, TestSize.Level1)
+HWTEST_F(UtilsSingletonTest, test_SingletonDeclearTest, TestSize.Level0)
 {
     SingletonDeclearTest &st1 = Singleton<SingletonDeclearTest>::GetInstance();
     SingletonDeclearTest &st2 = Singleton<SingletonDeclearTest>::GetInstance();
@@ -115,7 +115,7 @@ HWTEST_F(UtilsSingletonTest, test_SingletonDeclearTest, TestSize.Level1)
 }
 
 
-HWTEST_F(UtilsSingletonTest, test_SingletonTest, TestSize.Level1)
+HWTEST_F(UtilsSingletonTest, test_SingletonTest, TestSize.Level0)
 {
     SingletonTest &st1 = SingletonTest::GetInstance();
     SingletonTest &st2 = SingletonTest::GetInstance();
@@ -123,7 +123,7 @@ HWTEST_F(UtilsSingletonTest, test_SingletonTest, TestSize.Level1)
 }
 
 
-HWTEST_F(UtilsSingletonTest, test_DelayedSingletonTest, TestSize.Level1)
+HWTEST_F(UtilsSingletonTest, test_DelayedSingletonTest, TestSize.Level0)
 {
     shared_ptr<DelayedSingletonTest> sp1 = DelayedSingletonTest::GetInstance();
     EXPECT_EQ(sp1.use_count(), 2);
@@ -133,14 +133,14 @@ HWTEST_F(UtilsSingletonTest, test_DelayedSingletonTest, TestSize.Level1)
     EXPECT_EQ(sp2.use_count(), 3);
 }
 
-HWTEST_F(UtilsSingletonTest, test_DelayedRefSingletonTest, TestSize.Level1)
+HWTEST_F(UtilsSingletonTest, test_DelayedRefSingletonTest, TestSize.Level0)
 {
     DelayedRefSingletonTest& p1 = DelayedRefSingletonTest::GetInstance();
     DelayedRefSingletonTest& p2 = DelayedRefSingletonTest::GetInstance();
     EXPECT_EQ(p1.GetObjAddr(), p2.GetObjAddr());
 }
 
-HWTEST_F(UtilsSingletonTest, test_DelayedRefSingletonDeclearTest, TestSize.Level1)
+HWTEST_F(UtilsSingletonTest, test_DelayedRefSingletonDeclearTest, TestSize.Level0)
 {
     DelayedRefSingletonDeclearTest& p1 = DelayedRefSingleton<DelayedRefSingletonDeclearTest>::GetInstance();
     DelayedRefSingletonDeclearTest& p2 = DelayedRefSingleton<DelayedRefSingletonDeclearTest>::GetInstance();

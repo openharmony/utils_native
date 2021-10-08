@@ -74,7 +74,7 @@ void TimeOutCallback2()
  * @tc.name: testTimer001
  * @tc.desc: timer unit test
  */
-HWTEST_F(UtilsTimerTest, testTimer001, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer001, TestSize.Level0)
 {
     g_data1 = 0;
     Utils::Timer timer("test_timer");
@@ -93,7 +93,7 @@ HWTEST_F(UtilsTimerTest, testTimer001, TestSize.Level1)
  * @tc.name: testTimer002
  * @tc.desc: timer unit test
  */
-HWTEST_F(UtilsTimerTest, testTimer002, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer002, TestSize.Level0)
 {
     g_data1 = 0;
     Utils::Timer timer("test_timer");
@@ -109,7 +109,7 @@ HWTEST_F(UtilsTimerTest, testTimer002, TestSize.Level1)
  * @tc.name: testTimer003
  * @tc.desc: timer unit test
  */
-HWTEST_F(UtilsTimerTest, testTimer003, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer003, TestSize.Level0)
 {
     g_data1 = 0;
     g_data2 = 0;
@@ -128,7 +128,7 @@ HWTEST_F(UtilsTimerTest, testTimer003, TestSize.Level1)
  * @tc.name: testTimer004
  * @tc.desc: timer unit test
  */
-HWTEST_F(UtilsTimerTest, testTimer004, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer004, TestSize.Level0)
 {
     g_data1 = 0;
     Utils::Timer timer("test_timer");
@@ -175,7 +175,7 @@ void A::StopTimer()
  * @tc.name: testTimer005
  * @tc.desc: timer unit test
  */
-HWTEST_F(UtilsTimerTest, testTimer005, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer005, TestSize.Level0)
 {
     A a(10);
     EXPECT_TRUE(a.Init());
@@ -189,7 +189,7 @@ HWTEST_F(UtilsTimerTest, testTimer005, TestSize.Level1)
  * @tc.name: testTimer006
  * @tc.desc: timer unit test
  */
-HWTEST_F(UtilsTimerTest, testTimer006, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer006, TestSize.Level0)
 {
     A a(10);
     EXPECT_TRUE(a.Init());
@@ -203,7 +203,7 @@ HWTEST_F(UtilsTimerTest, testTimer006, TestSize.Level1)
  * @tc.name: testTimer007
  * @tc.desc: abnormal case
  */
-HWTEST_F(UtilsTimerTest, testTimer007, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer007, TestSize.Level0)
 {
     g_data1 = 0;
     Utils::Timer timer("test_timer", -1);
@@ -227,7 +227,7 @@ HWTEST_F(UtilsTimerTest, testTimer007, TestSize.Level1)
  * @tc.name: testTimer008
  * @tc.desc: timer sleep test for ivi
  */
-HWTEST_F(UtilsTimerTest, testTimer008, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer008, TestSize.Level0)
 {
     g_data1 = 0;
     Utils::Timer timer("test_timer");
@@ -277,7 +277,7 @@ void DoFunc2(Utils::Timer &timer, int &count)
     g_data1++;
 }
 
-HWTEST_F(UtilsTimerTest, testTimer009, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer009, TestSize.Level0)
 {
     g_data1 = 0;
     Utils::Timer timer("test_timer");
@@ -299,7 +299,7 @@ HWTEST_F(UtilsTimerTest, testTimer009, TestSize.Level1)
  * @tc.name: testTimer010
  * @tc.desc: once timer register
  */
-HWTEST_F(UtilsTimerTest, testTimer010, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer010, TestSize.Level0)
 {
     g_data1 = 0;
     Utils::Timer timer("test_timer");
@@ -318,7 +318,7 @@ HWTEST_F(UtilsTimerTest, testTimer010, TestSize.Level1)
  * @tc.name: testTimer011
  * @tc.desc: once timer register
  */
-HWTEST_F(UtilsTimerTest, testTimer011, TestSize.Level1)
+HWTEST_F(UtilsTimerTest, testTimer011, TestSize.Level0)
 {
     g_data1 = 0;
     Utils::Timer timer("test_timer");

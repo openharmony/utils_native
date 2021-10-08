@@ -162,7 +162,7 @@ public:
 * CaseDescription: Multiple threads put , one thread gets, all threads finish running normally
 */
 
-HWTEST_F(UtilsSafeQueue, testMutilthreadPutAndOneThreadGetOnemptyQueue, TestSize.Level1)
+HWTEST_F(UtilsSafeQueue, testMutilthreadPutAndOneThreadGetOnemptyQueue, TestSize.Level0)
 {
 
     TestThreading testThread;
@@ -208,7 +208,7 @@ HWTEST_F(UtilsSafeQueue, testMutilthreadPutAndOneThreadGetOnemptyQueue, TestSize
 * time-point, everyone run concurrently to see the status of the queue and the state of the thread.
 */
 
-HWTEST_F(UtilsSafeQueue, testMutilthreadPutAndGetConcurrently, TestSize.Level1)
+HWTEST_F(UtilsSafeQueue, testMutilthreadPutAndGetConcurrently, TestSize.Level0)
 {
 
     using std::chrono::system_clock;
@@ -248,7 +248,7 @@ HWTEST_F(UtilsSafeQueue, testMutilthreadPutAndGetConcurrently, TestSize.Level1)
 * CaseDescription: Multi-threaded put() and Multi-threaded get() on the not empty queue. When all threads are waiting to reach a certain
 * time-point, everyone run concurrently to see the status of the queue and the state of the thread.
 */
-HWTEST_F(UtilsSafeQueue, testMutilthreadConcurrentGetAndPopInNotEmptyQueue, TestSize.Level1)
+HWTEST_F(UtilsSafeQueue, testMutilthreadConcurrentGetAndPopInNotEmptyQueue, TestSize.Level0)
 {
     //1. prepare
     using std::chrono::system_clock;
