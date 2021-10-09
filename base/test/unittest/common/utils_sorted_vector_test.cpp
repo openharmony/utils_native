@@ -24,7 +24,7 @@ using namespace std;
 class UtilsSortedVector : public testing::Test {
 };
 
-HWTEST_F(UtilsSortedVector, testDefaultConsAndAddAndSort, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testDefaultConsAndAddAndSort, TestSize.Level0)
 {
     SortedVector<int> svec;
     std::vector<int> vec;
@@ -45,7 +45,7 @@ HWTEST_F(UtilsSortedVector, testDefaultConsAndAddAndSort, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testConsFromSortedAllowDup, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testConsFromSortedAllowDup, TestSize.Level0)
 {
     SortedVector<int> svec;
     std::vector<int> vec;
@@ -68,7 +68,7 @@ HWTEST_F(UtilsSortedVector, testConsFromSortedAllowDup, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testConsFromSortedNotAllowDuplicate, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testConsFromSortedNotAllowDuplicate, TestSize.Level0)
 {
     SortedVector<int> svec;
     std::vector<int> vec;
@@ -96,7 +96,7 @@ HWTEST_F(UtilsSortedVector, testConsFromSortedNotAllowDuplicate, TestSize.Level1
     }
 }
 
-HWTEST_F(UtilsSortedVector, testConsFromSortedNotAllowToAlloworNotAllow, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testConsFromSortedNotAllowToAlloworNotAllow, TestSize.Level0)
 {
     SortedVector<int, false> svec;
     std::vector<int> vec;
@@ -131,7 +131,7 @@ HWTEST_F(UtilsSortedVector, testConsFromSortedNotAllowToAlloworNotAllow, TestSiz
     }
 }
 
-HWTEST_F(UtilsSortedVector, testoperatoreq, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testoperatoreq, TestSize.Level0)
 {
     SortedVector<int> svec;
     std::vector<int> vec;
@@ -154,7 +154,7 @@ HWTEST_F(UtilsSortedVector, testoperatoreq, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testOperatorEqAllowToNotAllow, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testOperatorEqAllowToNotAllow, TestSize.Level0)
 {
     SortedVector<int> svec;
     std::vector<int> vec;
@@ -181,7 +181,7 @@ HWTEST_F(UtilsSortedVector, testOperatorEqAllowToNotAllow, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testOperatorEqNotAllowToAllowOrNotAllow, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testOperatorEqNotAllowToAllowOrNotAllow, TestSize.Level0)
 {
     SortedVector<int, false> svec;
     std::vector<int> vec;
@@ -209,7 +209,7 @@ HWTEST_F(UtilsSortedVector, testOperatorEqNotAllowToAllowOrNotAllow, TestSize.Le
     }
 }
 
-HWTEST_F(UtilsSortedVector, testoperatorconsteq, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testoperatorconsteq, TestSize.Level0)
 {
     SortedVector<int> svec;
     std::vector<int> vec;
@@ -232,7 +232,7 @@ HWTEST_F(UtilsSortedVector, testoperatorconsteq, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testsizeclearIsEmpty, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testsizeclearIsEmpty, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -253,7 +253,7 @@ HWTEST_F(UtilsSortedVector, testsizeclearIsEmpty, TestSize.Level1)
     ASSERT_EQ(svec.Size(), static_cast<size_t>(0));
 }
 
-HWTEST_F(UtilsSortedVector, testCapasityandSetcapasity, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testCapasityandSetcapasity, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -269,7 +269,7 @@ HWTEST_F(UtilsSortedVector, testCapasityandSetcapasity, TestSize.Level1)
     ASSERT_EQ(svec.Capacity(), static_cast<size_t>(1000));
 }
 
-HWTEST_F(UtilsSortedVector, testconstArray, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testconstArray, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -290,7 +290,7 @@ HWTEST_F(UtilsSortedVector, testconstArray, TestSize.Level1)
     ASSERT_EQ(it, svec.End());
 }
 
-HWTEST_F(UtilsSortedVector, testeditArray, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testeditArray, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -336,7 +336,7 @@ HWTEST_F(UtilsSortedVector, testeditArray, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testIndexOf, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testIndexOf, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -355,7 +355,7 @@ HWTEST_F(UtilsSortedVector, testIndexOf, TestSize.Level1)
     ASSERT_EQ(-1, svec.IndexOf(10));
 }
 
-HWTEST_F(UtilsSortedVector, testOrderof, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testOrderof, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -376,7 +376,7 @@ HWTEST_F(UtilsSortedVector, testOrderof, TestSize.Level1)
     ASSERT_EQ(static_cast<size_t>(10), svec.OrderOf(10));
 }
 
-HWTEST_F(UtilsSortedVector, testoperatorAccess, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testoperatorAccess, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -389,7 +389,7 @@ HWTEST_F(UtilsSortedVector, testoperatorAccess, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testBack, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testBack, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -400,7 +400,7 @@ HWTEST_F(UtilsSortedVector, testBack, TestSize.Level1)
     ASSERT_EQ(9, svec.Back());
 }
 
-HWTEST_F(UtilsSortedVector, testMirrorItemAt, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testMirrorItemAt, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -417,7 +417,7 @@ HWTEST_F(UtilsSortedVector, testMirrorItemAt, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testEditItemAt, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testEditItemAt, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -431,7 +431,7 @@ HWTEST_F(UtilsSortedVector, testEditItemAt, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testCopyCtorFromVector, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testCopyCtorFromVector, TestSize.Level0)
 {
     std::vector<int> vec;
 
@@ -446,7 +446,7 @@ HWTEST_F(UtilsSortedVector, testCopyCtorFromVector, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testConsFromVectorToNotAllowDuplicate, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testConsFromVectorToNotAllowDuplicate, TestSize.Level0)
 {
     std::vector<int> vec;
 
@@ -468,7 +468,7 @@ HWTEST_F(UtilsSortedVector, testConsFromVectorToNotAllowDuplicate, TestSize.Leve
     }
 }
 
-HWTEST_F(UtilsSortedVector, testMergevector, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testMergevector, TestSize.Level0)
 {
     SortedVector<int> svec;
 
@@ -488,7 +488,7 @@ HWTEST_F(UtilsSortedVector, testMergevector, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testMergevectorNoduplicate, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testMergevectorNoduplicate, TestSize.Level0)
 {
 
     SortedVector<int, false> svec;
@@ -514,7 +514,7 @@ HWTEST_F(UtilsSortedVector, testMergevectorNoduplicate, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testMergesortedvectorNoduplicate, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testMergesortedvectorNoduplicate, TestSize.Level0)
 {
     SortedVector<int, false> svec;
     SortedVector<int, false> svec2;
@@ -531,7 +531,7 @@ HWTEST_F(UtilsSortedVector, testMergesortedvectorNoduplicate, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testMergesortedvector, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testMergesortedvector, TestSize.Level0)
 {
     SortedVector<int> svec;
     SortedVector<int> svec2;
@@ -548,7 +548,7 @@ HWTEST_F(UtilsSortedVector, testMergesortedvector, TestSize.Level1)
     }
 }
 
-HWTEST_F(UtilsSortedVector, testAddNotAllowDuplicate, TestSize.Level1)
+HWTEST_F(UtilsSortedVector, testAddNotAllowDuplicate, TestSize.Level0)
 {
     SortedVector<int, false> svec;
 

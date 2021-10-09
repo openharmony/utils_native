@@ -49,7 +49,7 @@ void UtilsDateTimeTest::TearDown(void)
  * @tc.name: testTimecover001
  * @tc.desc: convert all letters of str to uppercase
  */
-HWTEST_F(UtilsDateTimeTest, testTimecover001, TestSize.Level1)
+HWTEST_F(UtilsDateTimeTest, testTimecover001, TestSize.Level0)
 {
     int64_t second = 20;
     EXPECT_EQ(SecToNanosec(second), 20000000000);
@@ -68,7 +68,7 @@ HWTEST_F(UtilsDateTimeTest, testTimecover001, TestSize.Level1)
  * @tc.name: testTime001
  * @tc.desc: datetime unit
  */
-HWTEST_F(UtilsDateTimeTest, testTime001, TestSize.Level1)
+HWTEST_F(UtilsDateTimeTest, testTime001, TestSize.Level0)
 {
     int64_t second = GetSecondsSince1970ToNow();
 
@@ -84,7 +84,7 @@ HWTEST_F(UtilsDateTimeTest, testTime001, TestSize.Level1)
  * @tc.name: testTime002
  * @tc.desc: datetime unit
  */
-HWTEST_F(UtilsDateTimeTest, testTime002, TestSize.Level1)
+HWTEST_F(UtilsDateTimeTest, testTime002, TestSize.Level0)
 {
     int64_t days = GetDaysSince1970ToNow();
     int64_t seconds = GetSecondsSince1970ToNow();
@@ -96,7 +96,7 @@ HWTEST_F(UtilsDateTimeTest, testTime002, TestSize.Level1)
  * @tc.name: testTime003
  * @tc.desc: datetime unit
  */
-HWTEST_F(UtilsDateTimeTest, testTime003, TestSize.Level1)
+HWTEST_F(UtilsDateTimeTest, testTime003, TestSize.Level0)
 {
     struct tm curTime = { 0 };
     bool ret = GetSystemCurrentTime(&curTime);
@@ -115,7 +115,7 @@ HWTEST_F(UtilsDateTimeTest, testTime003, TestSize.Level1)
  * @tc.name: testTime004
  * @tc.desc: datetime unit
  */
-HWTEST_F(UtilsDateTimeTest, testTime004, TestSize.Level1)
+HWTEST_F(UtilsDateTimeTest, testTime004, TestSize.Level0)
 {
     int timezone = 0;
     bool ret = GetLocalTimeZone(timezone);
@@ -126,7 +126,7 @@ HWTEST_F(UtilsDateTimeTest, testTime004, TestSize.Level1)
  * @tc.name: testGetTickCount001
  * @tc.desc: datetime unit
  */
-HWTEST_F(UtilsDateTimeTest, testGetTickCount001, TestSize.Level1)
+HWTEST_F(UtilsDateTimeTest, testGetTickCount001, TestSize.Level0)
 {
     int64_t begin = GetTickCount();
     usleep(100000);
@@ -140,7 +140,7 @@ HWTEST_F(UtilsDateTimeTest, testGetTickCount001, TestSize.Level1)
  * @tc.name: testGetMicroTickCount001
  * @tc.desc: datetime unit
  */
-HWTEST_F(UtilsDateTimeTest, testGetMicroTickCount001, TestSize.Level1)
+HWTEST_F(UtilsDateTimeTest, testGetMicroTickCount001, TestSize.Level0)
 {
     int64_t begin = GetMicroTickCount();
     usleep(100000);
