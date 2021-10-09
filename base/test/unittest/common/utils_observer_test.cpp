@@ -85,7 +85,7 @@ void UtilsObserverTest::TearDown(void)
 }
 
 
-HWTEST_F(UtilsObserverTest, test_ObserverNotify, TestSize.Level1)
+HWTEST_F(UtilsObserverTest, test_ObserverNotify, TestSize.Level0)
 {
     BookList bookList;
     shared_ptr<BookObserver> bookObserver1 = make_shared<BookObserver>();
@@ -117,7 +117,7 @@ HWTEST_F(UtilsObserverTest, test_ObserverNotify, TestSize.Level1)
 }
 
 
-HWTEST_F(UtilsObserverTest, test_RemoveAllObserver, TestSize.Level1)
+HWTEST_F(UtilsObserverTest, test_RemoveAllObserver, TestSize.Level0)
 {
     BookList bookList;
     shared_ptr<BookObserver> bookObserver1 = make_shared<BookObserver>();

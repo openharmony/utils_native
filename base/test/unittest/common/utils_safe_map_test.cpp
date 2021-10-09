@@ -37,7 +37,7 @@ class UtilsSafeMap : public testing::Test {
  * @tc.name: testUtilsCopyAndAssign001
  * @tc.desc: single thread test the normal feature insert and erase and EnsureInsert
  */
-HWTEST_F(UtilsSafeMap, testUtilsCopyAndAssign001, TestSize.Level1)
+HWTEST_F(UtilsSafeMap, testUtilsCopyAndAssign001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
     // insert new
@@ -61,7 +61,7 @@ HWTEST_F(UtilsSafeMap, testUtilsCopyAndAssign001, TestSize.Level1)
  * @tc.name: testUtilsoperator001
  * @tc.desc: SafeMap
  */
-HWTEST_F(UtilsSafeMap, testUtilsoperator001, TestSize.Level1)
+HWTEST_F(UtilsSafeMap, testUtilsoperator001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
     // insert new
@@ -87,7 +87,7 @@ HWTEST_F(UtilsSafeMap, testUtilsoperator001, TestSize.Level1)
  * @tc.name: testUtilsNormalFeatureInsert001
  * @tc.desc: SafeMap
  */
-HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureInsert001, TestSize.Level1)
+HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureInsert001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
     ASSERT_TRUE(demoData.IsEmpty());
@@ -105,7 +105,7 @@ HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureInsert001, TestSize.Level1)
  * @tc.name: testUtilsNormalFeatureEnsureInsert001
  * @tc.desc: SafeMap
  */
-HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureEnsureInsert001, TestSize.Level1)
+HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureEnsureInsert001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
     ASSERT_TRUE(demoData.IsEmpty());
@@ -126,7 +126,7 @@ HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureEnsureInsert001, TestSize.Level1)
  * @tc.name: testUtilsNormalFeatureFind001
  * @tc.desc: SafeMap
  */
-HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureFind001, TestSize.Level1)
+HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureFind001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
     ASSERT_TRUE(demoData.IsEmpty());
@@ -153,7 +153,7 @@ HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureFind001, TestSize.Level1)
  * @tc.name: testUtilsNormalFeatureFindAndSet001
  * @tc.desc: SafeMap
  */
-HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureFindAndSet001, TestSize.Level1)
+HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureFindAndSet001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
     ASSERT_TRUE(demoData.IsEmpty());
@@ -184,7 +184,7 @@ HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureFindAndSet001, TestSize.Level1)
  * @tc.name: testUtilsNormalFeatureEraseAndClear001
  * @tc.desc: SafeMap
  */
-HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureEraseAndClear001, TestSize.Level1)
+HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureEraseAndClear001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
     ASSERT_TRUE(demoData.IsEmpty());
@@ -205,7 +205,7 @@ HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureEraseAndClear001, TestSize.Level1)
  * @tc.desc: 100 threads test in writein to the same key of the map, while read at same time  and no throw
  */
 const int THREAD_NUM = 100;
-HWTEST_F(UtilsSafeMap, testUtilsConcurrentWriteAndRead001, TestSize.Level1)
+HWTEST_F(UtilsSafeMap, testUtilsConcurrentWriteAndRead001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
     std::thread threads[THREAD_NUM];
@@ -251,7 +251,7 @@ HWTEST_F(UtilsSafeMap, testUtilsConcurrentWriteAndRead001, TestSize.Level1)
  * @tc.desc: 100 threads test in writein to the corresponding key of the map,
  * while read at same time  and check the results
  */
-HWTEST_F(UtilsSafeMap, testUtilsConcurrentWriteAndFind001, TestSize.Level1)
+HWTEST_F(UtilsSafeMap, testUtilsConcurrentWriteAndFind001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
     std::thread threads[THREAD_NUM];
@@ -311,7 +311,7 @@ HWTEST_F(UtilsSafeMap, testUtilsConcurrentWriteAndFind001, TestSize.Level1)
  * @tc.desc: 100 threads test in writein to the corresponding key of the map,
  * while findandfix at same time  and check the results
  */
-HWTEST_F(UtilsSafeMap, testUtilsConcurrentWriteAndFindAndSet001, TestSize.Level1)
+HWTEST_F(UtilsSafeMap, testUtilsConcurrentWriteAndFindAndSet001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
     std::thread threads[THREAD_NUM];

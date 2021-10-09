@@ -148,7 +148,7 @@ bool TestThread::Run()
  * @tc.name: testThread001
  * @tc.desc: ThreadTest
  */
-HWTEST_F(UtilsThreadTest, testThread001, TestSize.Level1)
+HWTEST_F(UtilsThreadTest, testThread001, TestSize.Level0)
 {
     times = 0;
     std::unique_ptr<TestThread> test = std::make_unique<TestThread>(0, false, TestRun01);
@@ -177,7 +177,7 @@ HWTEST_F(UtilsThreadTest, testThread001, TestSize.Level1)
  * @tc.name: testThread002
  * @tc.desc: ThreadTest
  */
-HWTEST_F(UtilsThreadTest, testThread002, TestSize.Level1)
+HWTEST_F(UtilsThreadTest, testThread002, TestSize.Level0)
 {
     times = 0;
     std::unique_ptr<TestThread> test = std::make_unique<TestThread>(0, true, TestRun01);
@@ -205,7 +205,7 @@ HWTEST_F(UtilsThreadTest, testThread002, TestSize.Level1)
  * @tc.name: testThread003
  * @tc.desc: ThreadTest
  */
-HWTEST_F(UtilsThreadTest, testThread003, TestSize.Level1)
+HWTEST_F(UtilsThreadTest, testThread003, TestSize.Level0)
 {
     times = 0;
     std::unique_ptr<TestThread> test = std::make_unique<TestThread>(0, false, TestRun02);
@@ -232,7 +232,7 @@ HWTEST_F(UtilsThreadTest, testThread003, TestSize.Level1)
  * @tc.name: testThread004
  * @tc.desc: ThreadTest
  */
-HWTEST_F(UtilsThreadTest, testThread004, TestSize.Level1)
+HWTEST_F(UtilsThreadTest, testThread004, TestSize.Level0)
 {
     times = 0;
     std::unique_ptr<TestThread> test = std::make_unique<TestThread>(0, true, TestRun02);
@@ -260,7 +260,7 @@ HWTEST_F(UtilsThreadTest, testThread004, TestSize.Level1)
  * @tc.name: testThread005
  * @tc.desc: ThreadTest
  */
-HWTEST_F(UtilsThreadTest, testThread005, TestSize.Level1)
+HWTEST_F(UtilsThreadTest, testThread005, TestSize.Level0)
 {
     times = 0;
     std::unique_ptr<TestThread> test = std::make_unique<TestThread>(0, false, TestRun03);
@@ -287,7 +287,7 @@ HWTEST_F(UtilsThreadTest, testThread005, TestSize.Level1)
  * @tc.name: testThread006
  * @tc.desc: ThreadTest
  */
-HWTEST_F(UtilsThreadTest, testThread006, TestSize.Level1)
+HWTEST_F(UtilsThreadTest, testThread006, TestSize.Level0)
 {
     times = 0;
     std::unique_ptr<TestThread> test = std::make_unique<TestThread>(0, true, TestRun03);

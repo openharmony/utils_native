@@ -49,7 +49,7 @@ void UtilsDirectoryTest::TearDown(void)
  * @tc.name: testGetCurrentProcFullFileName001
  * @tc.desc: get the directory of directorytest
  */
-HWTEST_F(UtilsDirectoryTest, testGetCurrentProcFullFileName001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testGetCurrentProcFullFileName001, TestSize.Level0)
 {
     string strBaseName = "/data/test/UtilsDirectoryTest";
     string strFilename = GetCurrentProcFullFileName();
@@ -60,7 +60,7 @@ HWTEST_F(UtilsDirectoryTest, testGetCurrentProcFullFileName001, TestSize.Level1)
  * @tc.name: testGetCurrentProcPath001
  * @tc.desc: get the path of directorytest
  */
-HWTEST_F(UtilsDirectoryTest, testGetCurrentProcPath001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testGetCurrentProcPath001, TestSize.Level0)
 {
     string strPathName = "/data/test/";
     string strCurPathName = GetCurrentProcPath();
@@ -71,7 +71,7 @@ HWTEST_F(UtilsDirectoryTest, testGetCurrentProcPath001, TestSize.Level1)
  * @tc.name: testExtractFilePath001
  * @tc.desc: get the filename of the path
  */
-HWTEST_F(UtilsDirectoryTest, testExtractFilePath001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testExtractFilePath001, TestSize.Level0)
 {
     string strFilePath = "/data/test/";
     string strPath = ExtractFilePath(GetCurrentProcFullFileName());
@@ -82,7 +82,7 @@ HWTEST_F(UtilsDirectoryTest, testExtractFilePath001, TestSize.Level1)
  * @tc.name: testExtractFileName001
  * @tc.desc: get the filename of the path
  */
-HWTEST_F(UtilsDirectoryTest, testExtractFileName001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testExtractFileName001, TestSize.Level0)
 {
     string strBaseName = "UtilsDirectoryTest";
     string strName = ExtractFileName(GetCurrentProcFullFileName());
@@ -93,7 +93,7 @@ HWTEST_F(UtilsDirectoryTest, testExtractFileName001, TestSize.Level1)
  * @tc.name: testExtractFileExt001
  * @tc.desc: get the filename of the path
  */
-HWTEST_F(UtilsDirectoryTest, testExtractFileExt001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testExtractFileExt001, TestSize.Level0)
 {
     string strBaseName = "test/test.txt";
     string strTypeName = ExtractFileExt(strBaseName);
@@ -104,7 +104,7 @@ HWTEST_F(UtilsDirectoryTest, testExtractFileExt001, TestSize.Level1)
  * @tc.name: testExcludeTrailingPathDelimiter001
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testExcludeTrailingPathDelimiter001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testExcludeTrailingPathDelimiter001, TestSize.Level0)
 {
     string strResult = "data/test/UtilsDirectoryTest";
     string strName = ExcludeTrailingPathDelimiter("data/test/UtilsDirectoryTest/");
@@ -115,7 +115,7 @@ HWTEST_F(UtilsDirectoryTest, testExcludeTrailingPathDelimiter001, TestSize.Level
  * @tc.name: testIncludeTrailingPathDelimiter001
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testIncludeTrailingPathDelimiter001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testIncludeTrailingPathDelimiter001, TestSize.Level0)
 {
     string strResult = "data/test/UtilsDirectoryTest/";
     string strName = IncludeTrailingPathDelimiter("data/test/UtilsDirectoryTest");
@@ -126,7 +126,7 @@ HWTEST_F(UtilsDirectoryTest, testIncludeTrailingPathDelimiter001, TestSize.Level
  * @tc.name: testGetDirFiles001
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testGetDirFiles001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testGetDirFiles001, TestSize.Level0)
 {
     string resultfile[2] = { "/data/test/TestFile.txt", "/data/test/UtilsDirectoryTest" };
     // prepare test data
@@ -149,7 +149,7 @@ HWTEST_F(UtilsDirectoryTest, testGetDirFiles001, TestSize.Level1)
  * @tc.name: testForceCreateDirectory001
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testForceCreateDirectory001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testForceCreateDirectory001, TestSize.Level0)
 {
     string dirpath = "/data/test_dir/test2/test3";
     bool ret = ForceCreateDirectory(dirpath);
@@ -162,7 +162,7 @@ HWTEST_F(UtilsDirectoryTest, testForceCreateDirectory001, TestSize.Level1)
  * @tc.name: testForceRemoveDirectory001
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testForceRemoveDirectory001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testForceRemoveDirectory001, TestSize.Level0)
 {
     string dirpath = "/data/test_dir";
     bool ret = ForceRemoveDirectory(dirpath);
@@ -173,7 +173,7 @@ HWTEST_F(UtilsDirectoryTest, testForceRemoveDirectory001, TestSize.Level1)
  * @tc.name: testRemoveFile001
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testRemoveFile001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testRemoveFile001, TestSize.Level0)
 {
     string dirpath = "/data/test_dir";
     bool ret = ForceCreateDirectory(dirpath);
@@ -193,7 +193,7 @@ HWTEST_F(UtilsDirectoryTest, testRemoveFile001, TestSize.Level1)
  * @tc.name: testGetFolderSize001
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testGetFolderSize001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testGetFolderSize001, TestSize.Level0)
 {
     string dirpath = "/data/test_folder/";
     bool ret = ForceCreateDirectory(dirpath);
@@ -224,7 +224,7 @@ HWTEST_F(UtilsDirectoryTest, testGetFolderSize001, TestSize.Level1)
  * @tc.name: testPathToRealPath001
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testPathToRealPath001, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testPathToRealPath001, TestSize.Level0)
 {
     string path = "/data/test";
     string realpath;
@@ -237,7 +237,7 @@ HWTEST_F(UtilsDirectoryTest, testPathToRealPath001, TestSize.Level1)
  * @tc.name: testPathToRealPath002
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testPathToRealPath002, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testPathToRealPath002, TestSize.Level0)
 {
     string path = "/data/../data/test";
     string realpath;
@@ -250,7 +250,7 @@ HWTEST_F(UtilsDirectoryTest, testPathToRealPath002, TestSize.Level1)
  * @tc.name: testPathToRealPath003
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testPathToRealPath003, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testPathToRealPath003, TestSize.Level0)
 {
     string path = "./";
     string realpath;
@@ -263,7 +263,7 @@ HWTEST_F(UtilsDirectoryTest, testPathToRealPath003, TestSize.Level1)
  * @tc.name: testPathToRealPath004
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testPathToRealPath004, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testPathToRealPath004, TestSize.Level0)
 {
     string path = "";
     string realpath;
@@ -275,7 +275,7 @@ HWTEST_F(UtilsDirectoryTest, testPathToRealPath004, TestSize.Level1)
  * @tc.name: testPathToRealPath005
  * @tc.desc: directory unit test
  */
-HWTEST_F(UtilsDirectoryTest, testPathToRealPath005, TestSize.Level1)
+HWTEST_F(UtilsDirectoryTest, testPathToRealPath005, TestSize.Level0)
 {
     string path = "/data/test/data/test/data/test/data/test/data/test/data/ \
         test/data/test/data/test/data/test/data/test/data/test/data/test/data/ \

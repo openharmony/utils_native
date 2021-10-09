@@ -124,7 +124,7 @@ void GetHandleThreadDataTime(DemoThreadData& q, int i, std::chrono::system_clock
  * @tc.name: testPut001
  * @tc.desc: Single-threaded call put and get to determine that the normal scenario
  */
-HWTEST_F(UtilsSafeBlockQueue, testPut001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testPut001, TestSize.Level0)
 {
     SafeBlockQueue<int> qi(10);
     int i = 1;
@@ -136,7 +136,7 @@ HWTEST_F(UtilsSafeBlockQueue, testPut001, TestSize.Level1)
  * @tc.name: testGet001
  * @tc.desc: Single-threaded call put and get to determine that the normal scenario
  */
-HWTEST_F(UtilsSafeBlockQueue, testGet001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testGet001, TestSize.Level0)
 {
     SafeBlockQueue<int> qi(10);
     for (int i = 0; i < 3; i++) {
@@ -151,7 +151,7 @@ HWTEST_F(UtilsSafeBlockQueue, testGet001, TestSize.Level1)
  * @tc.name: testMutilthreadPutAndBlock001
  * @tc.desc: Multiple threads put until blocking runs, one thread gets, all threads finish running normally
  */
-HWTEST_F(UtilsSafeBlockQueue, testMutilthreadPutAndBlock001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testMutilthreadPutAndBlock001, TestSize.Level0)
 {
     std::thread threads[THREAD_NUM];
 
@@ -204,7 +204,7 @@ HWTEST_F(UtilsSafeBlockQueue, testMutilthreadPutAndBlock001, TestSize.Level1)
  * @tc.desc: Multi-threaded put() on the empty queue. When n threads are waiting to reach a certain
  * time-point, everyone puts concurrent to see the status of the queue and the state of the thread.
  */
-HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentPutAndBlockInblankqueue001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentPutAndBlockInblankqueue001, TestSize.Level0)
 {
     // 1. prepare
     std::thread threads[THREAD_NUM];
@@ -264,7 +264,7 @@ HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentPutAndBlockInblankqueue00
  * @tc.desc: Multi-threaded put() on the full queue. When n threads are waiting to reach a certain
  * time-point, everyone puts concurrent to see the status of the queue and the state of the thread.
  */
-HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentPutAndBlockInfullqueue001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentPutAndBlockInfullqueue001, TestSize.Level0)
 {
     // 1. prepare
     std::thread threads[THREAD_NUM];
@@ -320,7 +320,7 @@ HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentPutAndBlockInfullqueue001
  * @tc.desc: Multi-threaded get() on the empty queue. When n threads are waiting to reach a certain
  * time-point, everyone gets concurrent to see the status of the queue and the state of the thread.
  */
-HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndBlockInblankqueue001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndBlockInblankqueue001, TestSize.Level0)
 {
     // 1. prepare
     std::thread threads[THREAD_NUM];
@@ -374,7 +374,7 @@ HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndBlockInblankqueue00
  * @tc.desc: Multi-threaded get() on the full queue. When n threads are waiting to reach a certain
  * time-point, everyone gets concurrent to see the status of the queue and the state of the thread.
  */
-HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndBlockInfullqueue001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndBlockInfullqueue001, TestSize.Level0)
 {
     // 1. prepare
     std::thread threads[THREAD_NUM];
@@ -435,7 +435,7 @@ HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndBlockInfullqueue001
  * @tc.desc: Multi-threaded get() on the notfull queue. When n threads are waiting to reach a certain
  * time-point, everyone get concurrent to see the status of the queue and the state of the thread.
  */
-HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndBlockInnotfullqueue001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndBlockInnotfullqueue001, TestSize.Level0)
 {
     // 1. prepare
     std::thread threads[THREAD_NUM];
@@ -493,7 +493,7 @@ HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndBlockInnotfullqueue
  * @tc.desc: Multi-threaded put() on the not full queue. When n threads are waiting to reach a certain
  * time-point, everyone puts concurrent to see the status of the queue and the state of the thread.
  */
-HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentPutAndBlockInnotfullqueue001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentPutAndBlockInnotfullqueue001, TestSize.Level0)
 {
     // 1. prepare
     std::thread threads[THREAD_NUM];
@@ -550,7 +550,7 @@ HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentPutAndBlockInnotfullqueue
  * @tc.desc: Multi-threaded put() and Multi-threaded get() on the empty queue. When all threads are waiting to reach
  * a certain time-point, everyone run concurrently to see the status of the queue and the state of the thread.
  */
-HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndPopInblankqueue001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndPopInblankqueue001, TestSize.Level0)
 {
     // 1. prepare
     std::thread threadsout[THREAD_NUM];
@@ -610,7 +610,7 @@ HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndPopInblankqueue001,
  * When all threads are waiting to reach a certain
  * time-point, everyone run concurrently to see the status of the queue and the state of the thread.
  */
-HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndPopInfullqueue001, TestSize.Level1)
+HWTEST_F(UtilsSafeBlockQueue, testMutilthreadConcurrentGetAndPopInfullqueue001, TestSize.Level0)
 {
     // 1. prepare
     std::thread threadsout[THREAD_NUM];

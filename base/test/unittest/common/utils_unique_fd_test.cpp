@@ -60,7 +60,7 @@ void UtilsUniqueFd::TearDownTestCase(void)
     }
 }
 
-HWTEST_F(UtilsUniqueFd, testUtilsUniqueFd, TestSize.Level1)
+HWTEST_F(UtilsUniqueFd, testUtilsUniqueFd, TestSize.Level0)
 {
     int fd = open("NOTHISFILE", O_RDWR, 0666);
 
@@ -70,7 +70,7 @@ HWTEST_F(UtilsUniqueFd, testUtilsUniqueFd, TestSize.Level1)
     }
 };
 
-HWTEST_F(UtilsUniqueFd, testUtilsUniqueCtroFromInt, TestSize.Level1)
+HWTEST_F(UtilsUniqueFd, testUtilsUniqueCtroFromInt, TestSize.Level0)
 {
 
     UniqueFd ufd2(open(testfilename, O_RDWR, 0666));
@@ -79,7 +79,7 @@ HWTEST_F(UtilsUniqueFd, testUtilsUniqueCtroFromInt, TestSize.Level1)
     }
 };
 
-HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompare, TestSize.Level1)
+HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompare, TestSize.Level0)
 {
     int fd = open(testfilename, O_RDWR, 0666);
     UniqueFd ufd2(fd);
@@ -87,7 +87,7 @@ HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompare, TestSize.Level1)
     ASSERT_EQ(ufd2, fd);
 };
 
-HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareNl, TestSize.Level1)
+HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareNl, TestSize.Level0)
 {
     int fd = open(testfilename, O_RDWR, 0666);
     UniqueFd ufd2(fd);
@@ -95,7 +95,7 @@ HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareNl, TestSize.Level1)
     ASSERT_TRUE(0 <= ufd2);
 };
 
-HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareBg, TestSize.Level1)
+HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareBg, TestSize.Level0)
 {
     int fd = open(testfilename, O_RDWR, 0666);
     UniqueFd ufd2(fd);
@@ -103,7 +103,7 @@ HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareBg, TestSize.Level1)
     ASSERT_TRUE(0 < ufd2);
 };
 
-HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareNb, TestSize.Level1)
+HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareNb, TestSize.Level0)
 {
     int fd = open(testfilename, O_RDWR, 0666);
     UniqueFd ufd2(fd);
@@ -111,7 +111,7 @@ HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareNb, TestSize.Level1)
     ASSERT_TRUE(1000000 >= ufd2);
 };
 
-HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareLess, TestSize.Level1)
+HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareLess, TestSize.Level0)
 {
     int fd = open(testfilename, O_RDWR, 0666);
     UniqueFd ufd2(fd);
@@ -119,7 +119,7 @@ HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareLess, TestSize.Level1)
     ASSERT_TRUE(1000000 > ufd2);
 };
 
-HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareNeq, TestSize.Level1)
+HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdeqcompareNeq, TestSize.Level0)
 {
     int fd = open(testfilename, O_RDWR, 0666);
     UniqueFd ufd2(fd);
@@ -140,7 +140,7 @@ public:
 
 int NewDeleter::iflag = 0;
 
-HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdDefineDeletor, TestSize.Level1)
+HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdDefineDeletor, TestSize.Level0)
 {
     int fd = open(testfilename, O_RDWR);
 
@@ -154,7 +154,7 @@ HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdDefineDeletor, TestSize.Level1)
     ASSERT_EQ(NewDeleter::iflag, 10);
 };
 
-HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdDefineDeletorCloseStatus, TestSize.Level1)
+HWTEST_F(UtilsUniqueFd, testUtilsUniqueFdDefineDeletorCloseStatus, TestSize.Level0)
 {
     int fd = open(testfilename, O_RDWR);
 
