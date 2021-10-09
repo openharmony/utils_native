@@ -23,6 +23,7 @@ config("utils_config") {
   if (current_os == "mingw") {
     cflags += [ "-Wno-error=inconsistent-dllimport" ]
   }
+  cflags += [ "-Wno-implicit-fallthrough" ]
 }
 
 config("static_utils_config") {
