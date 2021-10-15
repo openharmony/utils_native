@@ -349,6 +349,37 @@ bool Parcel::WriteBuffer(const void *data, size_t size)
     return false;
 }
 
+bool Parcel::WriteBufferAddTerminator(const void *data, size_t size, size_t typeSize)
+{
+    if (data == nullptr || size < typeSize) {
+        return false;
+    }
+
+    size_t padSize = GetPadSize(size);
+    size_t desireCapacity = size + padSize;
+
+    // in case of desireCapacity overflow
+    if (desireCapacity < size || desireCapacity < padSize) {
+        return false;
+    }
+
+    if (EnsureWritableCapacity(desireCapacity)) {
+        if (!WriteDataBytes(data, size - typeSize)) {
+            return false;
+        }
+
+        // Reserved for 32 bits
+        const char terminator[] = {0, 0, 0, 0};
+        if (!WriteDataBytes(terminator, typeSize)) {
+            return false;
+        }
+        WritePadBytes(padSize);
+        return true;
+    }
+
+    return false;
+}
+
 bool Parcel::WriteUnpadBuffer(const void *data, size_t size)
 {
     return WriteBuffer(data, size);
@@ -471,13 +502,14 @@ bool Parcel::WriteString(const std::string &value)
     }
 
     int32_t dataLength = value.length();
-    int32_t desireCapacity = dataLength + sizeof(char);
+    int32_t typeSize = sizeof(char);
+    int32_t desireCapacity = dataLength + typeSize;
 
     if (!Write<int32_t>(dataLength)) {
         return false;
     }
 
-    return WriteBuffer(value.data(), desireCapacity);
+    return WriteBufferAddTerminator(value.data(), desireCapacity, typeSize);
 }
 
 bool Parcel::WriteString16(const std::u16string &value)
@@ -487,13 +519,14 @@ bool Parcel::WriteString16(const std::u16string &value)
     }
 
     int32_t dataLength = value.length();
-    int32_t desireCapacity = (dataLength + 1) * sizeof(char16_t);
+    int32_t typeSize = sizeof(char16_t);
+    int32_t desireCapacity = (dataLength + 1) * typeSize;
 
     if (!Write<int32_t>(dataLength)) {
         return false;
     }
 
-    return WriteBuffer(value.data(), desireCapacity);
+    return WriteBufferAddTerminator(value.data(), desireCapacity, typeSize);
 }
 
 bool Parcel::WriteString16WithLength(const char16_t *value, size_t len)
@@ -503,14 +536,15 @@ bool Parcel::WriteString16WithLength(const char16_t *value, size_t len)
     }
 
     int32_t dataLength = len;
-    int32_t desireCapacity = (dataLength + 1) * sizeof(char16_t);
+    int32_t typeSize = sizeof(char16_t);
+    int32_t desireCapacity = (dataLength + 1) * typeSize;
     std::u16string u16str(reinterpret_cast<const char16_t *>(value), len);
 
     if (!Write<int32_t>(dataLength)) {
         return false;
     }
 
-    return WriteBuffer(u16str.data(), desireCapacity);
+    return WriteBufferAddTerminator(u16str.data(), desireCapacity, typeSize);
 }
 
 bool Parcel::WriteString8WithLength(const char *value, size_t len)
@@ -520,13 +554,14 @@ bool Parcel::WriteString8WithLength(const char *value, size_t len)
     }
 
     int32_t dataLength = len;
-    int32_t desireCapacity = (dataLength + 1) * sizeof(char);
+    int32_t typeSize = sizeof(char);
+    int32_t desireCapacity = (dataLength + 1) * typeSize;
 
     if (!Write<int32_t>(dataLength)) {
         return false;
     }
 
-    return WriteBuffer(value, desireCapacity);
+    return WriteBufferAddTerminator(value, desireCapacity, typeSize);
 }
 
 bool Parcel::EnsureObjectsCapacity()
