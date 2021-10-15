@@ -138,6 +138,8 @@ public:
 
     bool WriteBuffer(const void *data, size_t size);
 
+    bool WriteBufferAddTerminator(const void *data, size_t size, size_t typeSize);
+
     bool WriteUnpadBuffer(const void *data, size_t size);
 
     bool WriteCString(const char *value);
