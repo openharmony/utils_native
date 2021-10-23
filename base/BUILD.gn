@@ -26,7 +26,9 @@ config("utils_config") {
 }
 
 config("private_securec_config") {
-  cflags = [ "-Wno-implicit-fallthrough" ]
+  if (current_os == "mingw") {
+    cflags = [ "-Wno-implicit-fallthrough" ]
+  }
 }
 
 config("static_utils_config") {
@@ -108,6 +110,7 @@ ohos_static_library("utilsbase") {
     ":utils_config",
     ":private_securec_config",
   ]
+  public_configs = [ ":static_utils_config" ]
   defines = [ "CONFIG_HILOG" ]
   external_deps = [ "hilog_native:libhilog" ]
 }
@@ -136,6 +139,26 @@ ohos_static_library("utilsecurec") {
     ":utils_config",
     ":private_securec_config",
   ]
+  public_configs = [ ":static_utils_config" ]
+}
+
+ohos_static_library("utilsecurec_ace_allplatforms") {
+  sources = [ "src/securec/vsnprintf_s_p.c" ]
+  if (current_os == "mingw") {
+    sources += [
+      "src/securec/memset_s.c",
+      "src/securec/securecutil.c",
+      "src/securec/secureinput_w.c",
+      "src/securec/secureprintoutput_a.c",
+      "src/securec/secureprintoutput_w.c",
+    ]
+    cflags = [ "-Wno-inconsistent-dllimport" ]
+  }
+  configs = [
+    ":utils_config",
+    ":private_securec_config",
+  ]
+  public_configs = [ ":static_utils_config" ]
 }
 
 if (build_public_version) {
