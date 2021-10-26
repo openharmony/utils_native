@@ -209,6 +209,33 @@ HWTEST_F(UtilsSortedVector, testOperatorEqNotAllowToAllowOrNotAllow, TestSize.Le
     }
 }
 
+HWTEST_F(UtilsSortedVector, testOperatorEqAssignmentTwice, TestSize.Level0)
+{
+    SortedVector<int, true> svec;
+
+    std::vector<int> vec;
+    for (int i = 20; i < 30; i++) {
+        vec.push_back(i);
+    }
+
+    for (int i = 0; i < 20; i++) {
+        svec.Add(i);
+    }
+
+    SortedVector<int, false> newSvecFalse;
+
+    for (int i = 20; i < 30; i++) {
+        newSvecFalse.Add(i);
+    }
+
+    svec = newSvecFalse;
+
+    ASSERT_EQ(static_cast<size_t>(10), svec.Size());
+    for (int i = 0; i < 10; i++) {
+        ASSERT_EQ(vec[i], svec[i]);
+    }
+}
+
 HWTEST_F(UtilsSortedVector, testoperatorconsteq, TestSize.Level0)
 {
     SortedVector<int> svec;
