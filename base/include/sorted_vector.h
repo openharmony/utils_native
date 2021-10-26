@@ -162,6 +162,7 @@ template <class TYPE, bool AllowDuplicate>
 SortedVector<TYPE, AllowDuplicate>& SortedVector<TYPE, AllowDuplicate>::operator=(const SortedVector<TYPE, false>& rhs)
 {
     // this class: AllowDuplicate or Not AllowDuplicate same type
+    vec_.clear();
     std::copy(rhs.Begin(), rhs.End(), std::back_inserter(vec_));
     return *this;
 }
