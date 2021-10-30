@@ -335,6 +335,9 @@ inline sptr<T> &sptr<T>::operator=(const sptr<T> &other)
 template <typename T>
 inline sptr<T> &sptr<T>::operator=(const wptr<T> &other)
 {
+    if (refs_ != nullptr) {
+        refs_->DecStrongRef(this);
+    }
     if ((other != nullptr) && other.AttemptIncStrongRef(this)) {
         refs_ = other.GetRefPtr();
     } else {
