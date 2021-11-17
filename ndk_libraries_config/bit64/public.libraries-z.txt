@@ -1,0 +1,13 @@
+libhilog_ndk.z.so 64
+libzgraphic.z.so 64
+librawfile.z.so 64
+libsensors.z.so 64
+libeventhandler_native.z.so 64
+libimage_pixelmap.z.so 64
+libmedia_ndk.z.so 64
+libtrans_jni.z.so 64
+libhiappevent_base.z.so 64
+libipc_core.z.so 64
+libhisysevent_jni.z.so 64
+libteec.z.so 64
+
