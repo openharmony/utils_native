@@ -20,6 +20,8 @@ config("module_private_config") {
 
   include_dirs = [ "../../../include" ]
 
+  cflags = [ "-Wno-implicit-const-int-float-conversion" ]
+
   # library path
   lib_dirs = [ "libs" ]
 }
