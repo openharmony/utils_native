@@ -440,7 +440,7 @@ HWTEST_F(UtilsParcelTest, test_parcel_WriteAndRead_Float_001, TestSize.Level0)
     Parcel parcel1(nullptr);
     bool result;
 
-    float floatwrite = 0x12345678;
+    float floatwrite = 12.345678f;
     result = parcel1.WriteFloat(floatwrite);
     EXPECT_EQ(result, true);
 
