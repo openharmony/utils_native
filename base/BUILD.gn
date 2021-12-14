@@ -26,9 +26,7 @@ config("utils_config") {
 }
 
 config("private_securec_config") {
-  if (current_os == "mingw") {
-    cflags = [ "-Wno-implicit-fallthrough" ]
-  }
+  cflags = [ "-Wno-implicit-fallthrough" ]
 }
 
 config("static_utils_config") {
@@ -161,19 +159,17 @@ ohos_static_library("utilsecurec_ace_allplatforms") {
   public_configs = [ ":static_utils_config" ]
 }
 
-if (build_public_version) {
-  ohos_shared_library("utilsecurec_shared") {
-    sources = securec_sources
-    configs = [
-      ":utils_config",
-      ":private_securec_config",
-    ]
-    public_configs = [ ":utils_config" ]
-    part_name = "utils_base"
-    install_images = [
-      "system",
-      "updater",
-    ]
-  }
+ohos_shared_library("utilsecurec_shared") {
+  sources = securec_sources
+  configs = [
+    ":utils_config",
+    ":private_securec_config",
+  ]
+  public_configs = [ ":utils_config" ]
+  part_name = "utils_base"
+  install_images = [
+    "system",
+    "updater",
+  ]
 }
 ###############################################################################
