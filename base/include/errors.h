@@ -79,7 +79,8 @@ enum {
     SUBSYS_WEARABLE              = 43,
     SUBSYS_WEARABLEHARDWARE      = 44,
     SUBSYS_IVI                   = 45,
-    SUBSYS_DISTRIBUTEDHARDWARE   = 46
+    SUBSYS_DISTRIBUTEDHARDWARE   = 46,
+    SUBSYS_DEVICEPROFILE         = 47
     // new type
 };
 
