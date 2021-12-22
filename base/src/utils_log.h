@@ -16,13 +16,17 @@
 #define UTILS_BASE_LOG_H
 
 #ifdef CONFIG_HILOG
-#include "hilog/log.h"
-static constexpr OHOS::HiviewDFX::HiLogLabel label = { LOG_CORE, 0xD003D00, "utils_base" };
-#define UTILS_LOGF(...) (void)OHOS::HiviewDFX::HiLog::Fatal(label, __VA_ARGS__)
-#define UTILS_LOGE(...) (void)OHOS::HiviewDFX::HiLog::Error(label, __VA_ARGS__)
-#define UTILS_LOGW(...) (void)OHOS::HiviewDFX::HiLog::Warn(label, __VA_ARGS__)
-#define UTILS_LOGI(...) (void)OHOS::HiviewDFX::HiLog::Info(label, __VA_ARGS__)
-#define UTILS_LOGD(...) (void)OHOS::HiviewDFX::HiLog::Debug(label, __VA_ARGS__)
+#include "hilog_base/log_base.h"
+namespace UTILS_LOG {
+constexpr LogType TYPE = LOG_CORE;
+constexpr unsigned int DOMAIN = 0xD003D00;
+constexpr const char *TAG = "utils_base";
+} // namespace UTILS_LOG
+#define UTILS_LOGF(...) (void)HiLogBasePrint(UTILS_LOG::TYPE, LOG_FATAL, UTILS_LOG::DOMAIN, UTILS_LOG::TAG, __VA_ARGS__)
+#define UTILS_LOGE(...) (void)HiLogBasePrint(UTILS_LOG::TYPE, LOG_ERROR, UTILS_LOG::DOMAIN, UTILS_LOG::TAG, __VA_ARGS__)
+#define UTILS_LOGW(...) (void)HiLogBasePrint(UTILS_LOG::TYPE, LOG_WARN, UTILS_LOG::DOMAIN, UTILS_LOG::TAG, __VA_ARGS__)
+#define UTILS_LOGI(...) (void)HiLogBasePrint(UTILS_LOG::TYPE, LOG_INFO, UTILS_LOG::DOMAIN, UTILS_LOG::TAG, __VA_ARGS__)
+#define UTILS_LOGD(...) (void)HiLogBasePrint(UTILS_LOG::TYPE, LOG_DEBUG, UTILS_LOG::DOMAIN, UTILS_LOG::TAG, __VA_ARGS__)
 #else
 #define UTILS_LOGF(...)
 #define UTILS_LOGE(...)
@@ -32,12 +36,21 @@ static constexpr OHOS::HiviewDFX::HiLogLabel label = { LOG_CORE, 0xD003D00, "uti
 #endif  // CONFIG_HILOG
 
 #if (defined CONFIG_HILOG) && (defined CONFIG_PARCEL_DEBUG)
-static constexpr OHOS::HiviewDFX::HiLogLabel parcelLabel = { LOG_CORE, 0xD003D01, "parcel" };
-#define PARCEL_LOGF(...) (void)OHOS::HiviewDFX::HiLog::Fatal(parcelLabel, __VA_ARGS__)
-#define PARCEL_LOGE(...) (void)OHOS::HiviewDFX::HiLog::Error(parcelLabel, __VA_ARGS__)
-#define PARCEL_LOGW(...) (void)OHOS::HiviewDFX::HiLog::Warn(parcelLabel, __VA_ARGS__)
-#define PARCEL_LOGI(...) (void)OHOS::HiviewDFX::HiLog::Info(parcelLabel, __VA_ARGS__)
-#define PARCEL_LOGD(...) (void)OHOS::HiviewDFX::HiLog::Debug(parcelLabel, __VA_ARGS__)
+namespace PARCEL_LOG {
+constexpr LogType TYPE = LOG_CORE;
+constexpr unsigned int DOMAIN = 0xD003D01;
+constexpr const char *TAG = "parcel";
+} // namespace PARCEL_LOG
+#define PARCEL_LOGF(...) \
+    (void)HiLogBasePrint(PARCEL_LOG::TYPE, LOG_FATAL, PARCEL_LOG::DOMAIN, PARCEL_LOG::TAG, __VA_ARGS__)
+#define PARCEL_LOGE(...) \
+    (void)HiLogBasePrint(PARCEL_LOG::TYPE, LOG_ERROR, PARCEL_LOG::DOMAIN, PARCEL_LOG::TAG, __VA_ARGS__)
+#define PARCEL_LOGW(...) \
+    (void)HiLogBasePrint(PARCEL_LOG::TYPE, LOG_WARN, PARCEL_LOG::DOMAIN, PARCEL_LOG::TAG, __VA_ARGS__)
+#define PARCEL_LOGI(...) \
+    (void)HiLogBasePrint(PARCEL_LOG::TYPE, LOG_INFO, PARCEL_LOG::DOMAIN, PARCEL_LOG::TAG, __VA_ARGS__)
+#define PARCEL_LOGD(...) \
+    (void)HiLogBasePrint(PARCEL_LOG::TYPE, LOG_DEBUG, PARCEL_LOG::DOMAIN, PARCEL_LOG::TAG, __VA_ARGS__)
 #else
 #define PARCEL_LOGF(...)
 #define PARCEL_LOGE(...)
