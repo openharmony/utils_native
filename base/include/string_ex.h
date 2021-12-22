@@ -41,7 +41,7 @@ std::string ReplaceStr(const std::string& str, const std::string& src, const std
 std::string TrimStr(const std::string& str, const char cTrim = ' ');
 
 /**
- * The DexToHexString function convert dex to hex string.
+ * The DexToHexString function convert decimal to hexadecimal string.
  */
 std::string DexToHexString(int value, bool upper = true);
 
