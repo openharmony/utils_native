@@ -34,7 +34,7 @@ WeakRefCounter::~WeakRefCounter()
 
 void* WeakRefCounter::GetRefPtr()
 {
-    if ((cookie_ != nullptr) && (!refCounter_->IsRefPtrValid())){
+    if ((cookie_ != nullptr) && (!refCounter_->IsRefPtrValid())) {
         cookie_ = nullptr;
     }
     return cookie_;
@@ -103,7 +103,7 @@ RefCounter::~RefCounter()
 {
 }
 
-int RefCounter::IncStrongRefCount(const void* /*objectId*/)
+int RefCounter::IncStrongRefCount(const void* /* objectId */)
 {
     int curCount = atomicStrong_.load(std::memory_order_relaxed);
 
@@ -117,7 +117,7 @@ int RefCounter::IncStrongRefCount(const void* /*objectId*/)
     return curCount;
 }
 
-int RefCounter::DecStrongRefCount(const void* /*objectId*/)
+int RefCounter::DecStrongRefCount(const void* /* objectId */)
 {
     int curCount = GetStrongRefCount();
     if (curCount == INITIAL_PRIMARY_VALUE) {
@@ -136,12 +136,12 @@ int RefCounter::GetStrongRefCount()
     return atomicStrong_.load(std::memory_order_relaxed);
 }
 
-int RefCounter::IncWeakRefCount(const void* /*objectId*/)
+int RefCounter::IncWeakRefCount(const void* /* objectId */)
 {
     return atomicWeak_.fetch_add(1, std::memory_order_relaxed);
 }
 
-int RefCounter::DecWeakRefCount(const void* /*objectId*/)
+int RefCounter::DecWeakRefCount(const void* /* objectId */)
 {
     int curCount = GetWeakRefCount();
     if (curCount > 0) {
@@ -237,7 +237,7 @@ RefBase::RefBase() : refs_(new RefCounter())
     refs_->SetCallback(std::bind(&RefBase::RefPtrCallback, this));
 }
 
-RefBase::RefBase(const RefBase &/*other*/)
+RefBase::RefBase(const RefBase & /* other */)
 {
     refs_ = new RefCounter();
     if (refs_ != nullptr) {
@@ -257,7 +257,7 @@ void RefBase::RefPtrCallback()
  * RISK: If there is a reference count on the left of the equal sign,
  * it may cause a reference count exception
  */
-RefBase &RefBase::operator=(const RefBase &/*other*/)
+RefBase &RefBase::operator=(const RefBase & /* other */)
 {
     if (refs_ != nullptr) {
         refs_->RemoveCallback();
@@ -426,16 +426,16 @@ bool RefBase::IsExtendLifeTimeSet()
     return refs_->IsLifeTimeExtended();
 }
 
-void RefBase::OnFirstStrongRef(const void* /*objectId*/)
+void RefBase::OnFirstStrongRef(const void* /* objectId */)
 {}
 
-void RefBase::OnLastStrongRef(const void* /*objectId*/)
+void RefBase::OnLastStrongRef(const void* /* objectId */)
 {}
 
-void RefBase::OnLastWeakRef(const void* /*objectId*/)
+void RefBase::OnLastWeakRef(const void* /* objectId */)
 {}
 
-bool RefBase::OnAttemptPromoted(const void* /*objectId*/)
+bool RefBase::OnAttemptPromoted(const void* /* objectId */)
 {
     return true;
 }
