@@ -34,7 +34,7 @@ public:
     EventHandler(const EventHandler&) = delete;
     EventHandler& operator=(const EventHandler&&) = delete;
     EventHandler(const EventHandler&&) = delete;
-    ~EventHandler(){};
+    ~EventHandler() {};
 
     int GetHandle() const { return (fd_); }
     uint32_t Events() const { return (events_); }

@@ -46,7 +46,7 @@ public:
      *          others: wait(until event-trigger)
      */
     explicit Timer(const std::string& name, int timeoutMs = 1000);
-    virtual ~Timer(){}
+    virtual ~Timer() {}
 
     virtual uint32_t Setup();
 
