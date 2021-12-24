@@ -82,7 +82,7 @@ class IRemoteObject : public virtual RefBase {
 public:
     IRemoteObject() { ExtendObjectLifetime(); };
     virtual bool IsProxyObject() = 0;
-    ~IRemoteObject(){};
+    ~IRemoteObject() {};
 };
 
 class RefBaseTestTracker : public RefBase {
@@ -205,7 +205,7 @@ public:
         tracker->TrackObject(this);
         tracker->TrackNewObject(this);
     };
-    ~IPCObjectProxy(){};
+    ~IPCObjectProxy() {};
     void RefPtrCallback() override;
     void OnLastStrongRef(const void *objectId) override;
     void OnFirstStrongRef(const void *objectId) override;

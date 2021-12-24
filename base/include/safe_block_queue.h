@@ -121,7 +121,7 @@ public:
         unfinishedTaskCount_ = 0;
     }
 
-    virtual ~SafeBlockQueueTracking(){};
+    virtual ~SafeBlockQueueTracking() {};
 
     virtual void Push(T const& elem)
     {

@@ -120,13 +120,13 @@ HWTEST_F(UtilsThreadPoolTest, test_05, TestSize.Level0)
     EXPECT_EQ((int)pool.GetThreadsNum(), 5);
     EXPECT_EQ((int)pool.GetCurTaskNum(), 0);
 
-    for ( int i = 0; i < 3; ++i )
+    for (int i = 0; i < 3; ++i)
     {
         auto task = std::bind(TestFuncAddOneTime, i);
         pool.AddTask(task);
     }
 
-    for ( int i = 0; i < 2; ++i )
+    for (int i = 0; i < 2; ++i)
     {
         auto task = std::bind(TestFuncSubOneTime, i);
         pool.AddTask(task);
@@ -150,13 +150,13 @@ HWTEST_F(UtilsThreadPoolTest, test_06, TestSize.Level0)
 
     pool.SetMaxTaskNum(10);
 
-    for ( int i = 0; i < 8; ++i )
+    for (int i = 0; i < 8; ++i)
     {
         auto task = std::bind(TestFuncAddOneTime, i);
         pool.AddTask(task);
     }
 
-    for ( int i = 0; i < 7; ++i )
+    for (int i = 0; i < 7; ++i)
     {
         auto task = std::bind(TestFuncSubOneTime, i);
         pool.AddTask(task);
@@ -175,7 +175,7 @@ void TestFuncAddWait(int& i)
     ++g_times;
     printf("after func:%s0%d called, :%d\n", __func__, i, g_times);
     std::unique_lock<std::mutex> lk(g_mutex);
-    g_cv.wait(lk, []{return g_ready;});
+    g_cv.wait(lk, [] {return g_ready;});
     printf("func:%s0%d received ready signal!\n", __func__, i);
 }
 
@@ -184,7 +184,7 @@ void TestFuncSubWait(int& i)
     --g_times;
     printf("after func:%s0%d called, :%d\n", __func__, i, g_times);
     std::unique_lock<std::mutex> lk(g_mutex);
-    g_cv.wait(lk, []{return g_ready;});
+    g_cv.wait(lk, [] {return g_ready;});
     printf("func:%s0%d received ready signal!\n", __func__, i);
 }
 
@@ -198,13 +198,13 @@ HWTEST_F(UtilsThreadPoolTest, test_07, TestSize.Level0)
     EXPECT_EQ((int)pool.GetThreadsNum(), 5);
     EXPECT_EQ((int)pool.GetCurTaskNum(), 0);
 
-    for ( int i = 0; i < 3; ++i )
+    for (int i = 0; i < 3; ++i)
     {
         auto task = std::bind(TestFuncAddWait, i);
         pool.AddTask(task);
     }
 
-    for ( int i = 0; i < 2; ++i )
+    for (int i = 0; i < 2; ++i)
     {
         auto task = std::bind(TestFuncSubWait, i);
         pool.AddTask(task);
@@ -236,13 +236,13 @@ HWTEST_F(UtilsThreadPoolTest, test_08, TestSize.Level0)
     pool.SetMaxTaskNum(10);
 
     // ADD 15 tasks
-    for ( int i = 0; i < 8; ++i )
+    for (int i = 0; i < 8; ++i)
     {
         auto task = std::bind(TestFuncAddWait, i);
         pool.AddTask(task);
     }
 
-    for ( int i = 0; i < 7; ++i )
+    for (int i = 0; i < 7; ++i)
     {
         auto task = std::bind(TestFuncSubWait, i);
         pool.AddTask(task);
