@@ -43,7 +43,7 @@ public:
 
     SortedVector(const std::vector<TYPE>& orivect);
 
-    virtual ~SortedVector(){};
+    virtual ~SortedVector() {};
     // copy operator
     SortedVector<TYPE, AllowDuplicate>& operator=(const SortedVector<TYPE, false>& rhs);
     SortedVector<TYPE, AllowDuplicate>& operator=(const SortedVector<TYPE, true>& rhs);

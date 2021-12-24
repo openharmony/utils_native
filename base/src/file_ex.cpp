@@ -14,7 +14,6 @@
  */
 
 #include "file_ex.h"
-#include "directory_ex.h"
 #include <fstream>
 #include <iostream>
 #include <algorithm>
@@ -25,6 +24,7 @@
 #include <cstdio>
 #include <securec.h>
 #include <cstring>
+#include "directory_ex.h"
 #include "utils_log.h"
 
 using namespace std;
