@@ -216,14 +216,12 @@ string::size_type GetFirstSubStrBetween(const string& str, const string& left,
 void GetSubStrBetween(const string& str, const string& left, const string& right, vector<string>& sub)
 {
     string subString;
-    string::size_type pos = 0;
     string strTmp = str;
+    string::size_type pos = GetFirstSubStrBetween(strTmp, left, right, subString);
     while (pos != string::npos) {
+        sub.push_back(subString);
+        strTmp = strTmp.substr(pos);
         pos = GetFirstSubStrBetween(strTmp, left, right, subString);
-        if (pos != string::npos) {
-            sub.push_back(subString);
-            strTmp = strTmp.substr(pos);
-        }
     }
 }
 
