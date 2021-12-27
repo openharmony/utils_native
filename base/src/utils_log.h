@@ -17,16 +17,14 @@
 
 #ifdef CONFIG_HILOG
 #include "hilog_base/log_base.h"
-namespace UtilsLog {
-constexpr LogType TYPE = LOG_CORE;
-constexpr unsigned int DOMAIN = 0xD003D00;
-constexpr const char *TAG = "utils_base";
-} // namespace UtilsLog
-#define UTILS_LOGF(...) (void)HiLogBasePrint(UtilsLog::TYPE, LOG_FATAL, UtilsLog::DOMAIN, UtilsLog::TAG, __VA_ARGS__)
-#define UTILS_LOGE(...) (void)HiLogBasePrint(UtilsLog::TYPE, LOG_ERROR, UtilsLog::DOMAIN, UtilsLog::TAG, __VA_ARGS__)
-#define UTILS_LOGW(...) (void)HiLogBasePrint(UtilsLog::TYPE, LOG_WARN, UtilsLog::DOMAIN, UtilsLog::TAG, __VA_ARGS__)
-#define UTILS_LOGI(...) (void)HiLogBasePrint(UtilsLog::TYPE, LOG_INFO, UtilsLog::DOMAIN, UtilsLog::TAG, __VA_ARGS__)
-#define UTILS_LOGD(...) (void)HiLogBasePrint(UtilsLog::TYPE, LOG_DEBUG, UtilsLog::DOMAIN, UtilsLog::TAG, __VA_ARGS__)
+constexpr LogType UTILS_LOG_TYPE = LOG_CORE;
+constexpr unsigned int UTILS_LOG_DOMAIN = 0xD003D00;
+constexpr const char *UTILS_LOG_TAG = "utils_base";
+#define UTILS_LOGF(...) (void)HiLogBasePrint(UTILS_LOG_TYPE, LOG_FATAL, UTILS_LOG_DOMAIN, UTILS_LOG_TAG, __VA_ARGS__)
+#define UTILS_LOGE(...) (void)HiLogBasePrint(UTILS_LOG_TYPE, LOG_ERROR, UTILS_LOG_DOMAIN, UTILS_LOG_TAG, __VA_ARGS__)
+#define UTILS_LOGW(...) (void)HiLogBasePrint(UTILS_LOG_TYPE, LOG_WARN, UTILS_LOG_DOMAIN, UTILS_LOG_TAG, __VA_ARGS__)
+#define UTILS_LOGI(...) (void)HiLogBasePrint(UTILS_LOG_TYPE, LOG_INFO, UTILS_LOG_DOMAIN, UTILS_LOG_TAG, __VA_ARGS__)
+#define UTILS_LOGD(...) (void)HiLogBasePrint(UTILS_LOG_TYPE, LOG_DEBUG, UTILS_LOG_DOMAIN, UTILS_LOG_TAG, __VA_ARGS__)
 #else
 #define UTILS_LOGF(...)
 #define UTILS_LOGE(...)
@@ -36,21 +34,19 @@ constexpr const char *TAG = "utils_base";
 #endif  // CONFIG_HILOG
 
 #if (defined CONFIG_HILOG) && (defined CONFIG_PARCEL_DEBUG)
-namespace ParcelLog {
-constexpr LogType TYPE = LOG_CORE;
-constexpr unsigned int DOMAIN = 0xD003D01;
-constexpr const char *TAG = "parcel";
-} // namespace ParcelLog
+constexpr LogType PARCEL_LOG_TYPE = LOG_CORE;
+constexpr unsigned int PARCEL_LOG_DOMAIN = 0xD003D01;
+constexpr const char *PARCEL_LOG_TAG = "parcel";
 #define PARCEL_LOGF(...) \
-    (void)HiLogBasePrint(ParcelLog::TYPE, LOG_FATAL, ParcelLog::DOMAIN, ParcelLog::TAG, __VA_ARGS__)
+    (void)HiLogBasePrint(PARCEL_LOG_TYPE, LOG_FATAL, PARCEL_LOG_DOMAIN, PARCEL_LOG_TAG, __VA_ARGS__)
 #define PARCEL_LOGE(...) \
-    (void)HiLogBasePrint(ParcelLog::TYPE, LOG_ERROR, ParcelLog::DOMAIN, ParcelLog::TAG, __VA_ARGS__)
+    (void)HiLogBasePrint(PARCEL_LOG_TYPE, LOG_ERROR, PARCEL_LOG_DOMAIN, PARCEL_LOG_TAG, __VA_ARGS__)
 #define PARCEL_LOGW(...) \
-    (void)HiLogBasePrint(ParcelLog::TYPE, LOG_WARN, ParcelLog::DOMAIN, ParcelLog::TAG, __VA_ARGS__)
+    (void)HiLogBasePrint(PARCEL_LOG_TYPE, LOG_WARN, PARCEL_LOG_DOMAIN, PARCEL_LOG_TAG, __VA_ARGS__)
 #define PARCEL_LOGI(...) \
-    (void)HiLogBasePrint(ParcelLog::TYPE, LOG_INFO, ParcelLog::DOMAIN, ParcelLog::TAG, __VA_ARGS__)
+    (void)HiLogBasePrint(PARCEL_LOG_TYPE, LOG_INFO, PARCEL_LOG_DOMAIN, PARCEL_LOG_TAG, __VA_ARGS__)
 #define PARCEL_LOGD(...) \
-    (void)HiLogBasePrint(ParcelLog::TYPE, LOG_DEBUG, ParcelLog::DOMAIN, ParcelLog::TAG, __VA_ARGS__)
+    (void)HiLogBasePrint(PARCEL_LOG_TYPE, LOG_DEBUG, PARCEL_LOG_DOMAIN, PARCEL_LOG_TAG, __VA_ARGS__)
 #else
 #define PARCEL_LOGF(...)
 #define PARCEL_LOGE(...)
