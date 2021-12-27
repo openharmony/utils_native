@@ -292,7 +292,6 @@ public:
     bool WriteUint8Unaligned(uint8_t value);
     bool WriteUint16Unaligned(uint16_t value);
 
-
     bool ReadBoolUnaligned();
     bool ReadInt8Unaligned(int8_t &value);
     bool ReadInt16Unaligned(int16_t &value);

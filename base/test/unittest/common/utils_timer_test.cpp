@@ -145,7 +145,7 @@ HWTEST_F(UtilsTimerTest, testTimer004, TestSize.Level0)
 
 class A {
 public:
-    explicit A(int data) : data_(data), timer_("ATimer"){}
+    explicit A(int data) : data_(data), timer_("ATimer") {}
     ~A() = default;
     bool Init();
     bool StartTimer(int milliseconds, bool once);

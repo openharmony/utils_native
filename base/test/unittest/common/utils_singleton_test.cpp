@@ -28,8 +28,8 @@ public:
     void* GetObjAddr() { return (void*)this; }
 };
 
-DelayedSingletonDeclearTest::~DelayedSingletonDeclearTest(){};
-DelayedSingletonDeclearTest::DelayedSingletonDeclearTest(){};
+DelayedSingletonDeclearTest::~DelayedSingletonDeclearTest() {};
+DelayedSingletonDeclearTest::DelayedSingletonDeclearTest() {};
 
 class SingletonDeclearTest {
     DECLARE_SINGLETON(SingletonDeclearTest);
@@ -37,8 +37,8 @@ public:
     void* GetObjAddr() { return (void*)this; }
 };
     
-SingletonDeclearTest::~SingletonDeclearTest(){};
-SingletonDeclearTest::SingletonDeclearTest(){};
+SingletonDeclearTest::~SingletonDeclearTest() {};
+SingletonDeclearTest::SingletonDeclearTest() {};
 
 class SingletonTest: public Singleton<SingletonTest> {
 public:
@@ -57,8 +57,8 @@ public:
     void* GetObjAddr() { return (void*)this; }
 };
 
-DelayedRefSingletonDeclearTest::DelayedRefSingletonDeclearTest(){};
-DelayedRefSingletonDeclearTest::~DelayedRefSingletonDeclearTest(){};
+DelayedRefSingletonDeclearTest::DelayedRefSingletonDeclearTest() {};
+DelayedRefSingletonDeclearTest::~DelayedRefSingletonDeclearTest() {};
 
 class DelayedRefSingletonTest: public DelayedRefSingleton<DelayedRefSingletonTest> {
 public:
