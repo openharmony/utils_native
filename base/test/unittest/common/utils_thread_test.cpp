@@ -25,9 +25,8 @@ using namespace std;
 static int times = 0;
 using ThreadRunFunc = bool (*)(int& data);
 
-class UtilsThreadTest : public testing::Test
-{
-public :
+class UtilsThreadTest : public testing::Test {
+public:
     static void SetUpTestCase(void);
     static void TearDownTestCase(void);
     void SetUp();
@@ -66,7 +65,7 @@ int GetThreadPriority(const pthread_t& thread)
 
     // scheduling parameters of target thread
     ret = pthread_getschedparam (thread, &policy, &param);
-    if (ret != 0){
+    if (ret != 0) {
         printf("pthread_getschedparam failed! thread:%lu, ret:%d\n", thread, ret);
         return -1;
     }
@@ -103,14 +102,14 @@ bool TestRun03(int& data)
 constexpr int DEFAULT_PRIO = 0;
 const std::string& DEFAULT_THREAD_NAME = "default";
 
-class TestThread : public OHOS::Thread{
+class TestThread : public OHOS::Thread {
 public:
     TestThread(const int data, const bool readyToWork, ThreadRunFunc runFunc)
         : data_(data), priority_(DEFAULT_PRIO), name_(DEFAULT_THREAD_NAME), readyToWork_(readyToWork), runFunc_(runFunc)
         {};
 
     TestThread() = delete;
-    ~TestThread(){};
+    ~TestThread() {};
 
     bool ReadyToWork() override;
 
@@ -158,7 +157,7 @@ HWTEST_F(UtilsThreadTest, testThread001, TestSize.Level0)
     pthread_t thread = test->GetThread();
 
     // pthread_equal return non-zero if equal
-    EXPECT_EQ(pthread_equal(thread ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(thread, -1) != 0, (test->IsRunning() ? false : true));
 
     // ReadyToWork return false, RUN will not be called!
     EXPECT_EQ(test->priority_, DEFAULT_PRIO);
@@ -170,7 +169,7 @@ HWTEST_F(UtilsThreadTest, testThread001, TestSize.Level0)
     EXPECT_EQ(times, 0);
     test->NotifyExitSync();
     sleep(1);
-    EXPECT_EQ(pthread_equal(test->GetThread() ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(test->GetThread(), -1) != 0, (test->IsRunning() ? false : true));
 }
 
 /*
@@ -188,7 +187,7 @@ HWTEST_F(UtilsThreadTest, testThread002, TestSize.Level0)
     sleep(1); // let the new thread has chance to run
 
     // pthread_equal return non-zero if equal, RUN return false,may exit already
-    EXPECT_EQ(pthread_equal(test->GetThread() ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(test->GetThread(), -1) != 0, (test->IsRunning() ? false : true));
 
     // ReadyToWork return true, RUN will be called!
     EXPECT_EQ(test->priority_, THREAD_PROI_LOW);
@@ -198,7 +197,7 @@ HWTEST_F(UtilsThreadTest, testThread002, TestSize.Level0)
     EXPECT_EQ(times, 0);
     test->NotifyExitSync();
     sleep(1);
-    EXPECT_EQ(pthread_equal(test->GetThread() ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(test->GetThread(), -1) != 0, (test->IsRunning() ? false : true));
 }
 
 /*
@@ -225,7 +224,7 @@ HWTEST_F(UtilsThreadTest, testThread003, TestSize.Level0)
     EXPECT_EQ(times, 0);
     test->NotifyExitSync();
     sleep(1);
-    EXPECT_EQ(pthread_equal(test->GetThread() ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(test->GetThread(), -1) != 0, (test->IsRunning() ? false : true));
 }
 
 /*
@@ -243,7 +242,7 @@ HWTEST_F(UtilsThreadTest, testThread004, TestSize.Level0)
     sleep(1); // let the new thread has chance to run
 
     // pthread_equal return non-zero if equal, RUN return false,may exit already
-    EXPECT_EQ(pthread_equal(test->GetThread() ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(test->GetThread(), -1) != 0, (test->IsRunning() ? false : true));
 
     // ReadyToWork return true, RUN will be called!
     EXPECT_EQ(test->priority_, THREAD_PROI_LOW);
@@ -253,7 +252,7 @@ HWTEST_F(UtilsThreadTest, testThread004, TestSize.Level0)
     EXPECT_EQ(times, 0);
     test->NotifyExitSync();
     sleep(1);
-    EXPECT_EQ(pthread_equal(test->GetThread() ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(test->GetThread(), -1) != 0, (test->IsRunning() ? false : true));
 }
 
 /*
@@ -280,7 +279,7 @@ HWTEST_F(UtilsThreadTest, testThread005, TestSize.Level0)
     EXPECT_EQ(times, 0);
     test->NotifyExitSync();
     sleep(1);
-    EXPECT_EQ(pthread_equal(test->GetThread() ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(test->GetThread(), -1) != 0, (test->IsRunning() ? false : true));
 }
 
 /*
@@ -298,7 +297,7 @@ HWTEST_F(UtilsThreadTest, testThread006, TestSize.Level0)
     sleep(1); // let the new thread has chance to run
 
     // pthread_equal return non-zero if equal, RUN return false,may exit already
-    EXPECT_EQ(pthread_equal(test->GetThread() ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(test->GetThread(), -1) != 0, (test->IsRunning() ? false : true));
 
     // ReadyToWork return true, RUN will be called!
     EXPECT_EQ(test->priority_, THREAD_PROI_LOW);
@@ -308,11 +307,11 @@ HWTEST_F(UtilsThreadTest, testThread006, TestSize.Level0)
     EXPECT_EQ(times, 0);
 
     times = 100;
-    EXPECT_GT(test->data_, 10);    
+    EXPECT_GT(test->data_, 10);
 
     sleep(1); // let the new thread has chance to run
 
     // times > 10, TestRun03 return false, thread exit
-    EXPECT_EQ(pthread_equal(test->GetThread() ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(test->GetThread(), -1) != 0, (test->IsRunning() ? false : true));
 }
 

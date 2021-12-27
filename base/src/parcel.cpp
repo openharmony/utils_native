@@ -696,7 +696,7 @@ bool Parcel::Read(T &value)
 template <typename T>
 T Parcel::Read()
 {
-    T lvalue{};
+    T lvalue {};
     return Read<T>(lvalue) ? lvalue : 0;
 }
 
