@@ -42,13 +42,11 @@ openFdFunction ProbeAshmemFdFunction()
 {
     auto handle = dlopen("libashmemd_client.so", RTLD_NOW);
     if (!handle) {
-        UTILS_LOGE("Failed to open libashmemd_client.so");
         return nullptr;
     }
     openFdFunction func = reinterpret_cast<openFdFunction>(dlsym(handle, "openAshmemdFd"));
     if (!func) {
         dlclose(handle);
-        UTILS_LOGE("Failed to obtain address of openFdFunction");
     }
     return func;
 }
