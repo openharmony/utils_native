@@ -110,7 +110,7 @@ ohos_static_library("utilsbase") {
   ]
   public_configs = [ ":static_utils_config" ]
   defines = [ "CONFIG_HILOG" ]
-  external_deps = [ "hilog_native:libhilog" ]
+  external_deps = [ "hilog_native:libhilog_base" ]
 }
 
 ohos_shared_library("utils") {
@@ -123,7 +123,7 @@ ohos_shared_library("utils") {
   public_configs = [ ":static_utils_config" ]
   subsystem_name = "utils"
   defines = [ "CONFIG_HILOG" ]
-  external_deps = [ "hilog_native:libhilog" ]
+  external_deps = [ "hilog_native:libhilog_base" ]
   part_name = "utils_base"
   install_images = [
     "system",
