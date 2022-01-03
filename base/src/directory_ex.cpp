@@ -14,10 +14,10 @@
  */
 
 #include "directory_ex.h"
-#include "securec.h"
-#include "unistd.h"
 #include <dirent.h>
 #include <errno.h>
+#include "securec.h"
+#include "unistd.h"
 #include "utils_log.h"
 using namespace std;
 
