@@ -118,13 +118,13 @@ bool IsAsciiString(const std::string& str);
 
 /**
  * The str16ToStr8 function convert string16 to string8.
- * If covert failed, return an empty string.
+ * If convert failed, return an empty string.
  */
 std::string Str16ToStr8(const std::u16string& str16);
 
 /**
  * The Str8ToStr16 function convert string8 to string16.
- * If covert failed, return an empty u16string.
+ * If convert failed, return an empty u16string.
  */
 std::u16string Str8ToStr16(const std::string& str);
 } // namespace OHOS
