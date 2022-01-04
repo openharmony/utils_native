@@ -1,5 +1,6 @@
 # C++公共基础库<a name="ZH-CN_TOPIC_0000001148676553"></a>
 
+
 -   [简介](#section11660541593)
 -   [目录](#section17271017133915)
 -   [相关仓](#section1249817110914)
@@ -21,6 +22,7 @@ utils/native
 └─ base
     ├── include       # 对各子系统开放的接口头文件
     ├── src           # 源文件
+    ├── ndk_libraries_config    # ndk库的配置目录
     └── test          # 测试代码
 ```
 
