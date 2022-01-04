@@ -1,5 +1,6 @@
 # utils/native<a name="EN-US_TOPIC_0000001148676553"></a>
 
+
 -   [Introduction](#section11660541593)
 -   [Directory Structure](#section17271017133915)
 -   [Repositories Involved](#section1249817110914)
@@ -21,6 +22,7 @@ utils/native
 └─ base
     ├── include       # Header files of APIs open to other subsystems
     ├── src           # Source files
+    ├── ndk_libraries_config # Configuration of the NDK library
     └── test          # Test code
 ```
 
