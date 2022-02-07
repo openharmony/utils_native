@@ -28,6 +28,7 @@ class RefBase;
 class RefCounter {
 public:
     using RefPtrCallback = std::function<void()>;
+    friend class RefBase;
 
     RefCounter();
 
