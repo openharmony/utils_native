@@ -148,12 +148,26 @@ int RefCounter::DecWeakRefCount(const void*)
         curCount = atomicWeak_.fetch_sub(1, std::memory_order_release);
     }
 
-    int strongRefCount = GetStrongRefCount();
-    if ((curCount == 1) || (strongRefCount == 0 && !IsLifeTimeExtended())) {
+    if (curCount != 1) {
+        return curCount;
+    }
+
+    if (IsLifeTimeExtended() && GetStrongRefCount() == 0) {
         if (callback_) {
             callback_();
         }
+    } else {
+        // only weak ptr case: no strong reference, delete the object
+        if (GetStrongRefCount() == INITIAL_PRIMARY_VALUE) {
+            if (callback_) {
+                callback_();
+            }
+        } else {
+            // free RefCounter
+            delete (this);
+        }
     }
+
     return curCount;
 }
 
@@ -299,7 +313,12 @@ RefBase::~RefBase()
 {
     if (refs_ != nullptr) {
         refs_->RemoveCallback();
-        refs_->DecRefCount();
+        if (refs_->IsLifeTimeExtended() && refs_->GetWeakRefCount() == 0) {
+            refs_->DecRefCount();
+        }
+        if (refs_->GetStrongRefCount() == INITIAL_PRIMARY_VALUE) {
+            delete refs_;
+        }
         refs_ = nullptr;
     }
 }
@@ -333,11 +352,18 @@ void RefBase::DecStrongRef(const void *objectId)
         return;
     }
 
-    const int curCount = refs_->DecStrongRefCount(objectId);
+    RefCounter *const refs = refs_;
+    const int curCount = refs->DecStrongRefCount(objectId);
     if (curCount == 1) {
         OnLastStrongRef(objectId);
+        if (!refs->IsLifeTimeExtended()) {
+            if (refs->callback_) {
+                refs->callback_();
+            }
+        }
     }
-    DecWeakRef(objectId);
+
+    refs->DecWeakRefCount(objectId);
 }
 
 int RefBase::GetSptrRefCount()
