@@ -15,16 +15,9 @@
       "adapted_system_type": [ "standard" ],
       "deps": {
         "components": [
-          "libhilog",
-          "ipc_core",
-          "system_ability_fwk",
-          "samgr_proxy",
-          "utils_base"
+          "hilog_native"
         ],
-        "third_party": [
-          "openssl",
-          "bounds_checking_function"
-        ]
+        "third_party": []
       },
       "build": {
         "sub_component": [
