@@ -15,16 +15,9 @@
       "adapted_system_type": [ "standard" ],
       "deps": {
         "components": [
-          "libhilog",
-          "ipc_core",
-          "system_ability_fwk",
-          "samgr_proxy",
-          "utils_base"
+          "hilog_native"
         ],
-        "third_party": [ 
-          "openssl",
-          "bounds_checking_function"
-        ]
+        "third_party": []
       },
       "build": {
         "sub_component": [
@@ -39,45 +32,45 @@
             "header": {
               "header_files": [
                 "include/ashmem.h",
-		"include/common_errors.h",
-	        "include/common_timer_errors.h",
-		"include/datetime_ex.h",
-		"include/directory_ex.h",
-		"include/errors.h",
-		"include/file_ex.h",
-		"include/flat_obj.h",
-		"include/nocopyable.h",
-		"include/observer.h",
-		"include/parcel.h",
-		"include/pubdef.h",
-		"include/refbase.h",
-		"include/rwlock.h",
-		"include/safe_block_queue.h",
-		"include/safe_map.h",
-		"include/safe_queue.h",
-		"include/securec_p.h",
-		"include/securec.h",
-		"include/securectype.h",
-		"include/semaphore_ex.h",
-		"include/singleton.h",
-		"include/sorted_vector.h",
-		"include/string_ex.h",
-		"include/thread_ex.h",
-		"include/thread_pool.h",
-		"include/timer.h",
-		"include/unique_fd.h",
-		"src/event_demultiplexer.h",
-		"src/event_handler.h",
-		"src/event_reactor.h",
-		"src/timer_event_handler.h",
-		"src/unicode_ex.h",
-		"src/utils_log.h"
+                "include/common_errors.h",
+                "include/common_timer_errors.h",
+                "include/datetime_ex.h",
+                "include/directory_ex.h",
+                "include/errors.h",
+                "include/file_ex.h",
+                "include/flat_obj.h",
+                "include/nocopyable.h",
+                "include/observer.h",
+                "include/parcel.h",
+                "include/pubdef.h",
+                "include/refbase.h",
+                "include/rwlock.h",
+                "include/safe_block_queue.h",
+                "include/safe_map.h",
+                "include/safe_queue.h",
+                "include/securec_p.h",
+                "include/securec.h",
+                "include/securectype.h",
+                "include/semaphore_ex.h",
+                "include/singleton.h",
+                "include/sorted_vector.h",
+                "include/string_ex.h",
+                "include/thread_ex.h",
+                "include/thread_pool.h",
+                "include/timer.h",
+                "include/unique_fd.h",
+                "src/event_demultiplexer.h",
+                "src/event_handler.h",
+                "src/event_reactor.h",
+                "src/timer_event_handler.h",
+                "src/unicode_ex.h",
+                "src/utils_log.h"
               ],
               "header_base": "//utils/native/base/"
             }
           }
         ],
-        "test": [ 
+        "test": [
           "//utils/native/base/test:unittest"
         ]
       }
