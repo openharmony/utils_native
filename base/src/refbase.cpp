@@ -352,7 +352,7 @@ void RefBase::DecStrongRef(const void *objectId)
         return;
     }
 
-    RefCounter *const refs = refs_;
+    RefCounter * const refs = refs_;
     const int curCount = refs->DecStrongRefCount(objectId);
     if (curCount == 1) {
         OnLastStrongRef(objectId);
