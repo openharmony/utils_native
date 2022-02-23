@@ -23,8 +23,7 @@
         "sub_component": [
           "//utils/native/base:utils",
           "//utils/native/ndk_libraries_config:ndk_libs_config",
-          "//utils/native/base:utilsecurec_shared",
-          "//third_party/bounds_checking_function:libsec_shared"
+          "//utils/native/base:utilsecurec_shared"
         ],
         "inner_kits": [
           {
