@@ -22,7 +22,6 @@ utils/native
 └─ base
     ├── include       # 对各子系统开放的接口头文件
     ├── src           # 源文件
-    ├── ndk_libraries_config    # ndk库的配置目录
     └── test          # 测试代码
 ```
 
