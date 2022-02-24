@@ -164,7 +164,7 @@ int RefCounter::DecWeakRefCount(const void*)
             }
         } else {
             // free RefCounter
-            delete (this);
+            DecRefCount();
         }
     }
 
@@ -313,11 +313,9 @@ RefBase::~RefBase()
 {
     if (refs_ != nullptr) {
         refs_->RemoveCallback();
-        if (refs_->IsLifeTimeExtended() && refs_->GetWeakRefCount() == 0) {
+        if ((refs_->IsLifeTimeExtended() && refs_->GetWeakRefCount() == 0)
+            || refs_->GetStrongRefCount() == INITIAL_PRIMARY_VALUE) {
             refs_->DecRefCount();
-        }
-        if (refs_->GetStrongRefCount() == INITIAL_PRIMARY_VALUE) {
-            delete refs_;
         }
         refs_ = nullptr;
     }
