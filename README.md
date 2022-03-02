@@ -22,7 +22,6 @@ utils/native
 └─ base
     ├── include       # Header files of APIs open to other subsystems
     ├── src           # Source files
-    ├── ndk_libraries_config # Configuration of the NDK library
     └── test          # Test code
 ```
 
