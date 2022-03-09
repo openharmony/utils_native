@@ -29,7 +29,7 @@
 
 using namespace std;
 
-const int MAX_FILE_LENGTH = 320 * 1024 * 1024;
+const int MAX_FILE_LENGTH = 32 * 1024 * 1024;
 
 namespace OHOS {
 
