@@ -245,6 +245,22 @@ ATTEMPT_SUCCESS:
     return true;
 }
 
+bool RefCounter::AttemptIncStrong(const void *objectId)
+{
+    IncWeakRefCount(objectId);
+    int curCount = GetStrongRefCount();
+    while (curCount > 0) {
+        if (atomicStrong_.compare_exchange_weak(curCount, curCount + 1, std::memory_order_relaxed)) {
+            break;
+        }
+        curCount = atomicStrong_.load(std::memory_order_relaxed);
+    }
+    if (curCount <= 0) {
+        DecWeakRefCount(objectId);
+    }
+    return curCount > 0;
+}
+
 RefBase::RefBase() : refs_(new RefCounter())
 {
     refs_->IncRefCount();
@@ -431,6 +447,18 @@ bool RefBase::AttemptIncStrongRef(const void *objectId)
         return ret;
     }
 
+    return false;
+}
+
+bool RefBase::AttemptIncStrong(const void *objectId)
+{
+    if (refs_ == nullptr) {
+        return false;
+    }
+    if (refs_->AttemptIncStrong(objectId)) {
+        refs_->SetAttemptAcquire();
+        return true;
+    }
     return false;
 }
 
