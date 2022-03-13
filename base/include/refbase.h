@@ -70,6 +70,9 @@ public:
 
     bool AttemptIncStrongRef(const void *objectId, int &outCount);
 
+    // Only for IPC use.
+    bool AttemptIncStrong(const void *objectId);
+
     bool IsLifeTimeExtended();
 
     void ExtendObjectLifetime();
@@ -139,6 +142,9 @@ public:
     bool AttemptAcquire(const void *objectId);
 
     bool AttemptIncStrongRef(const void *objectId);
+
+    // Only for IPC use.
+    bool AttemptIncStrong(const void *objectId);
 
     bool IsAttemptAcquireSet();
 
