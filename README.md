@@ -29,9 +29,9 @@ utils/native
 
 Utils subsystem
 
-utils
+[utils](https://gitee.com/openharmony/utils/blob/master/README.md)
 
-**utils\_native**
+[utils\_native](https://gitee.com/openharmony/utils_native/blob/master/README.md)
 
-[utils\_native\_lite](https://gitee.com/openharmony/utils_native_lite)
+[utils\_native\_lite](https://gitee.com/openharmony/utils_native_lite/blob/master/README.md)
 
