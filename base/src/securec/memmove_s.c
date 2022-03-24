@@ -59,21 +59,21 @@ static void SecUtilMemmove(void *dst, const void *src, size_t count)
  *    Copies count bytes of characters from src to dest.
  *
  * <INPUT PARAMETERS>
- *    dest                                 Destination object.
+ *    dest                              Destination object.
  *    destMax                           Size of the destination buffer.
- *    src                                   Source object.
- *    count                                Number of characters to copy.
+ *    src                               Source object.
+ *    count                             Number of characters to copy.
  *
  * <OUTPUT PARAMETERS>
  *    dest buffer                       is updated.
  *
  * <RETURN VALUE>
- *    EOK                                 Success
+ *    EOK                               Success
  *    EINVAL                            dest is  NULL and destMax != 0 and destMax <= SECUREC_MEM_MAX_LEN
- *    EINVAL_AND_RESET         dest != NULL and src is NULL and destMax != 0 and destMax <= SECUREC_MEM_MAX_LEN
- *    ERANGE                           destMax > SECUREC_MEM_MAX_LEN or destMax is 0
- *    ERANGE_AND_RESET        count > destMax and dest  !=  NULL and src != NULL and destMax != 0
- *                            and destMax <= SECUREC_MEM_MAX_LEN
+ *    EINVAL_AND_RESET                  dest != NULL and src is NULL and destMax != 0 and destMax <= SECUREC_MEM_MAX_LEN
+ *    ERANGE                            destMax > SECUREC_MEM_MAX_LEN or destMax is 0
+ *    ERANGE_AND_RESET                  count > destMax and dest  !=  NULL and src != NULL and destMax != 0
+ *                                      and destMax <= SECUREC_MEM_MAX_LEN
  *
  *    If an error occurred, dest will  be filled with 0 when dest and destMax valid.
  *    If some regions of the source area and the destination overlap, memmove_s
