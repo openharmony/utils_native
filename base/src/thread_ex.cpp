@@ -42,6 +42,7 @@ struct ThreadParam {
         std::string threadName = t->name;
 
         delete t;
+        t = nullptr;
 
         // set thread priority
         (void)setpriority(PRIO_PROCESS, 0, prio);

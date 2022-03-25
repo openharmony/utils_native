@@ -269,7 +269,7 @@ RefBase::RefBase() : refs_(new RefCounter())
 
 RefBase::RefBase(const RefBase &)
 {
-    refs_ = new RefCounter();
+    refs_ = new (std::nothrow) RefCounter();
     if (refs_ != nullptr) {
         refs_->IncRefCount();
         refs_->SetCallback(std::bind(&RefBase::RefPtrCallback, this));
@@ -294,7 +294,7 @@ RefBase &RefBase::operator=(const RefBase &)
         refs_->DecRefCount();
     }
 
-    refs_ = new RefCounter();
+    refs_ = new (std::nothrow) RefCounter();
     if (refs_ != nullptr) {
         refs_->IncRefCount();
         refs_->SetCallback(std::bind(&RefBase::RefPtrCallback, this));
