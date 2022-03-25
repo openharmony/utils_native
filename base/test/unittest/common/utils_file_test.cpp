@@ -53,11 +53,11 @@ void UtilsFileTest::TearDown(void)
 
 bool CreateTestFile(const std::string& path, const std::string& content)
 {
-    ofstream out(path, ios_base::out | ios_base::trunc);  
-    if (out.is_open()) {  
+    ofstream out(path, ios_base::out | ios_base::trunc);
+    if (out.is_open()) {
         out << content;
         return true;
-    } 
+    }
 
     std::cout << "open file failed!" << path << std::endl;
     return false;
@@ -757,7 +757,7 @@ HWTEST_F(UtilsFileTest, testCountStrInFile003, TestSize.Level0)
     string content(32*1024*1024, 't');
     CreateTestFile(filename, content);
     EXPECT_EQ(CountStrInFile(filename, str1, true), 0);
-    EXPECT_EQ(CountStrInFile(filename, str2, true),1);
+    EXPECT_EQ(CountStrInFile(filename, str2, true), 1);
     RemoveTestFile(filename);
 }
 

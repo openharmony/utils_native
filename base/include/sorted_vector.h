@@ -43,7 +43,7 @@ public:
 
     SortedVector(const std::vector<TYPE>& orivect);
 
-    virtual ~SortedVector() {};
+    virtual ~SortedVector() {}
     // copy operator
     SortedVector<TYPE, AllowDuplicate>& operator=(const SortedVector<TYPE, false>& rhs);
     SortedVector<TYPE, AllowDuplicate>& operator=(const SortedVector<TYPE, true>& rhs);
@@ -65,8 +65,8 @@ public:
 
     // Cstyle access
     // when use it , you should make sure it sorted~!
-    inline const TYPE* Array() const { return vec_.data(); };
-    TYPE* EditArray() { return vec_.data(); };
+    inline const TYPE* Array() const { return vec_.data(); }
+    TYPE* EditArray() { return vec_.data(); }
 
     ssize_t IndexOf(const TYPE& item) const;
     size_t OrderOf(const TYPE& item) const;

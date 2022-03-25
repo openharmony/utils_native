@@ -81,14 +81,14 @@
 
 /* SECUREC_PCLINT for tool do not recognize __attribute__  just for pclint */
 #if SECUREC_SUPPORT_FORMAT_WARNING && !defined(SECUREC_PCLINT)
-#define SECUREC_ATTRIBUTE(x,y)  __attribute__((format(printf, (x), (y))))
+#define SECUREC_ATTRIBUTE(x, y)  __attribute__((format(printf, (x), (y))))
 #else
-#define SECUREC_ATTRIBUTE(x,y)
+#define SECUREC_ATTRIBUTE(x, y)
 #endif
 
 /* SECUREC_PCLINT for tool do not recognize __builtin_expect ,just for pclint */
 #if defined(__GNUC__) && \
-    ((__GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ > 3 /* above 3.4 */ ))) && \
+    ((__GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ > 3 /* above 3.4 */))) && \
     !defined(SECUREC_PCLINT)
 /* This is a built-in function that can be used without a declaration, if you encounter an undeclared compilation alarm,
  * you can add -DSECUREC_NEED_BUILTIN_EXPECT_DECLARE to compiler options
@@ -181,14 +181,14 @@ long __builtin_expect(long exp, long c);
 #define SECUREC_STRNCPY_SM(dest, destMax, src, count) \
     (((void *)dest != NULL && (void *)src != NULL  && (size_t)destMax >0 && \
         (((unsigned long long)(destMax) & (unsigned long long)(-2)) < SECUREC_STRING_MAX_LEN) && \
-        (SECUREC_TWO_MIN(count , strlen(src)) + 1) <= (size_t)destMax ) ? \
+        (SECUREC_TWO_MIN(count , strlen(src)) + 1) <= (size_t)destMax) ? \
         ((count < strlen(src))? (memcpy(dest, src, count), *((char *)dest + count) = '\0', EOK): \
-        (memcpy(dest, src, strlen(src) + 1), EOK ) ) :(strncpy_error(dest, destMax, src, count)))
+        (memcpy(dest, src, strlen(src) + 1), EOK )) :(strncpy_error(dest, destMax, src, count)))
 
 #define SECUREC_STRCPY_SM(dest, destMax, src) \
     (((void *)dest != NULL && (void *)src != NULL && (size_t)destMax >0 && \
         (((unsigned long long)(destMax) & (unsigned long long)(-2)) < SECUREC_STRING_MAX_LEN) && \
-        (strlen(src) + 1) <= (size_t)destMax )? (memcpy(dest, src, strlen(src) + 1), EOK): \
+        (strlen(src) + 1) <= (size_t)destMax)? (memcpy(dest, src, strlen(src) + 1), EOK): \
         (strcpy_error(dest, destMax, src)))
 
 /* for strcat_s performance optimization */

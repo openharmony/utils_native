@@ -103,7 +103,7 @@ public:
         return queueT_.size() == maxSize_;
     }
 
-    virtual ~SafeBlockQueue() {};
+    virtual ~SafeBlockQueue() {}
 
 protected:
     unsigned long maxSize_;
@@ -121,7 +121,7 @@ public:
         unfinishedTaskCount_ = 0;
     }
 
-    virtual ~SafeBlockQueueTracking() {};
+    virtual ~SafeBlockQueueTracking() {}
 
     virtual void Push(T const& elem)
     {

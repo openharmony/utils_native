@@ -134,7 +134,7 @@ HWTEST_F(UtilsThreadPoolTest, test_05, TestSize.Level0)
 
     sleep(1);
     EXPECT_EQ((int)pool.GetCurTaskNum(), 0);
-    // add 5 task, add 3 times and sub 2 times
+    // add 5 tasks, add 3 times and sub 2 times
     EXPECT_EQ(g_times, 1);
     pool.Stop();
 }
