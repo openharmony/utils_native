@@ -45,7 +45,7 @@ uint32_t ThreadPool::Start(int numThreads)
     threads_.reserve(numThreads);
 
     for (int i = 0; i < numThreads; ++i) {
-        threads_.push_back(std::thread(&ThreadPool::WorkInThread,this));
+        threads_.push_back(std::thread(&ThreadPool::WorkInThread, this));
     }
     return ERR_OK;
 }

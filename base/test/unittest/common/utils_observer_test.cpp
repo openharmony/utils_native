@@ -25,8 +25,8 @@ using namespace std;
 class BookList: public Observable {
 public:
     BookList() { books_.clear(); }
-    void AddBook(const string& book) 
-    { 
+    void AddBook(const string& book)
+    {
         books_.insert(book);
         SetChanged();
         NotifyObservers();
@@ -34,11 +34,11 @@ public:
 
     void RemoveBook(const string& book)
     {
-        books_.erase(book); 
+        books_.erase(book);
         SetChanged();
         NotifyObservers();
     }
-    
+
     const set<string>& GetBooks() { return books_; }
 private:
     set<string> books_;
@@ -91,7 +91,7 @@ HWTEST_F(UtilsObserverTest, test_ObserverNotify, TestSize.Level0)
     shared_ptr<BookObserver> bookObserver1 = make_shared<BookObserver>();
     shared_ptr<BookObserver> bookObserver2 = make_shared<BookObserver>();
     shared_ptr<BookObserver> bookObserver3 = make_shared<BookObserver>();
-    
+
     bookList.AddObserver(bookObserver1);
     bookList.AddObserver(bookObserver2);
     bookList.AddObserver(bookObserver3);
@@ -113,7 +113,7 @@ HWTEST_F(UtilsObserverTest, test_ObserverNotify, TestSize.Level0)
     EXPECT_EQ(bookObserver1->GetBooksCount(), 1);
     EXPECT_EQ(bookObserver2->GetBooksCount(), 0);
     EXPECT_EQ(bookObserver3->GetBooksCount(), 2);
-    
+
 }
 
 
@@ -123,7 +123,7 @@ HWTEST_F(UtilsObserverTest, test_RemoveAllObserver, TestSize.Level0)
     shared_ptr<BookObserver> bookObserver1 = make_shared<BookObserver>();
     shared_ptr<BookObserver> bookObserver2 = make_shared<BookObserver>();
     shared_ptr<BookObserver> bookObserver3 = make_shared<BookObserver>();
-    
+
     bookList.AddObserver(bookObserver1);
     bookList.AddObserver(bookObserver2);
     bookList.AddObserver(bookObserver3);

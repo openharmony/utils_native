@@ -40,7 +40,7 @@ HWTEST_F(UtilsSortedVector, testDefaultConsAndAddAndSort, TestSize.Level0)
     auto it = svec.Begin();
     auto it2 = vec.begin();
 
-    for (; (it != svec.End()) and (it2 != vec.end()); it2++, it++) {
+    for (; (it != svec.End()) and (it2 != vec.end()); it2++, it++){
         ASSERT_EQ(*it, *it2);
     }
 }
@@ -63,7 +63,7 @@ HWTEST_F(UtilsSortedVector, testConsFromSortedAllowDup, TestSize.Level0)
     auto it = newSvec.Begin();
     auto it2 = vec.begin();
 
-    for (; (it != newSvec.End()) and (it2 != vec.end()); it2++, it++) {
+    for (; (it != newSvec.End()) and (it2 != vec.end()); it2++, it++){
         ASSERT_EQ(*it, *it2);
     }
 }
@@ -149,7 +149,7 @@ HWTEST_F(UtilsSortedVector, testoperatoreq, TestSize.Level0)
     auto it = newSvec.Begin();
     auto it2 = svec.Begin();
 
-    for (; (it != newSvec.End()) and (it2 != svec.End()); it2++, it++) {
+    for (; (it != newSvec.End()) and (it2 != svec.End()); it2++, it++){
         ASSERT_EQ(*it, *it2);
     }
 }
@@ -254,7 +254,7 @@ HWTEST_F(UtilsSortedVector, testoperatorconsteq, TestSize.Level0)
     auto it = newSvec.Begin();
     auto it2 = svec.Begin();
 
-    for (; (it != newSvec.End()) and (it2 != svec.End()); it2++, it++) {
+    for (; (it != newSvec.End()) and (it2 != svec.End()); it2++, it++){
         ASSERT_EQ(*it, *it2);
     }
 }

@@ -33,8 +33,8 @@ namespace OHOS {
 
 class NoCopyable {
 protected:
-    NoCopyable() {};
-    virtual ~NoCopyable() {};
+    NoCopyable() {}
+    virtual ~NoCopyable() {}
 
 private:
     DISALLOW_COPY_AND_MOVE(NoCopyable);

@@ -281,13 +281,13 @@ typedef struct {
 
 #elif defined(SECUREC_ERROR_HANDLER_BY_PRINTF)
 #if SECUREC_IN_KERNEL
-#define SECUREC_ERROR_INVALID_PARAMTER(msg) printk( "%s invalid argument\n",msg)
+#define SECUREC_ERROR_INVALID_PARAMTER(msg) printk( "%s invalid argument\n", msg)
 #define SECUREC_ERROR_INVALID_RANGE(msg)    printk( "%s invalid dest buffer size\n", msg)
-#define SECUREC_ERROR_BUFFER_OVERLAP(msg)   printk( "%s buffer overlap\n",msg)
+#define SECUREC_ERROR_BUFFER_OVERLAP(msg)   printk( "%s buffer overlap\n", msg)
 #else
-#define SECUREC_ERROR_INVALID_PARAMTER(msg) printf( "%s invalid argument\n",msg)
+#define SECUREC_ERROR_INVALID_PARAMTER(msg) printf( "%s invalid argument\n", msg)
 #define SECUREC_ERROR_INVALID_RANGE(msg)    printf( "%s invalid dest buffer size\n", msg)
-#define SECUREC_ERROR_BUFFER_OVERLAP(msg)   printf( "%s buffer overlap\n",msg)
+#define SECUREC_ERROR_BUFFER_OVERLAP(msg)   printf( "%s buffer overlap\n", msg)
 #endif
 #elif defined(SECUREC_ERROR_HANDLER_BY_FILE_LOG)
 

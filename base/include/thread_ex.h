@@ -54,6 +54,7 @@ public:
     bool IsRunning() const;
 
     pthread_t GetThread() const { return thread_; }
+    
 protected:
     virtual bool Run() = 0; // Derived class must implement Run()
 
