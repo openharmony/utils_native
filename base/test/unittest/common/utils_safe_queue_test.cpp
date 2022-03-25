@@ -19,12 +19,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <thread>
-
-#include <iostream>
-
 #include <chrono>   // std::chrono::seconds
-#include <iostream> // std::cout
-#include <thread>   // std::thread, std::this_thread::sleep_for
 
 using namespace testing::ext;
 using namespace OHOS;

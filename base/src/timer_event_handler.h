@@ -28,6 +28,7 @@ class EventReactor;
 
 class TimerEventHandler {
     using TimerCallback = std::function<void(int timerFd)>;
+    
 public:
     TimerEventHandler(EventReactor* p, uint32_t timeout, bool once);
     ~TimerEventHandler();
