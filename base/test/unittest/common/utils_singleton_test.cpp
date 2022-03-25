@@ -36,7 +36,7 @@ class SingletonDeclearTest {
 public:
     void* GetObjAddr() { return (void*)this; }
 };
-    
+
 SingletonDeclearTest::~SingletonDeclearTest() {};
 SingletonDeclearTest::SingletonDeclearTest() {};
 

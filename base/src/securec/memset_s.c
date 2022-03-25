@@ -61,14 +61,14 @@ typedef union {
     SecStrBuf1 buf1;
 } SecStrBuf32Union;
 /* C standard initializes the first member of the consortium. */
-static const SecStrBuf32 g_allZero = {{'\0','\0','\0','\0','\0','\0','\0','\0',
-                                       '\0','\0','\0','\0','\0','\0','\0','\0',
-                                       '\0','\0','\0','\0','\0','\0','\0','\0',
-                                       '\0','\0','\0','\0','\0','\0','\0','\0'}};
-static const SecStrBuf32 g_allFF   = {{0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
-                                       0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
-                                       0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
-                                       0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF}};
+static const SecStrBuf32 g_allZero = {{'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
+                                       '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',
+                                       '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 
+                                       '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0'}};
+static const SecStrBuf32 g_allFF   = {{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 
+                                       0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 
+                                       0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 
+                                       0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}};
 
 static const SecStrBuf32Union *SecStrictAliasingCast(const SecStrBuf32 *buf)
 {

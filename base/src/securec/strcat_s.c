@@ -18,7 +18,7 @@
 #if SECUREC_HAVE_STRNLEN
 #define SECUREC_STRCAT_LEN_THRESHOLD 8
 
-#define SECUREC_CALC_STR_LEN(str,maxLen,len) do { \
+#define SECUREC_CALC_STR_LEN(str,maxLen, len) do { \
             if (*((str) + 0) == '\0') { \
                 len = 0; \
             } else if (*((str) + 1) == '\0') { \

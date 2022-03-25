@@ -64,7 +64,7 @@ int GetThreadPriority(const pthread_t& thread)
     int ret;
 
     // scheduling parameters of target thread
-    ret = pthread_getschedparam (thread, &policy, &param);
+    ret = pthread_getschedparam(thread, &policy, &param);
     if (ret != 0) {
         printf("pthread_getschedparam failed! thread:%lu, ret:%d\n", thread, ret);
         return -1;
@@ -109,7 +109,7 @@ public:
         {};
 
     TestThread() = delete;
-    ~TestThread() {};
+    ~TestThread() {}
 
     bool ReadyToWork() override;
 
@@ -164,7 +164,6 @@ HWTEST_F(UtilsThreadTest, testThread001, TestSize.Level0)
     EXPECT_EQ(test->name_, DEFAULT_THREAD_NAME);
 
     // get stacksize of threa, may be different because of system memory align
-
     EXPECT_EQ(test->data_, 0);
     EXPECT_EQ(times, 0);
     test->NotifyExitSync();
@@ -214,7 +213,7 @@ HWTEST_F(UtilsThreadTest, testThread003, TestSize.Level0)
     pthread_t thread = test->GetThread();
 
     // pthread_equal return non-zero if equal
-    EXPECT_EQ(pthread_equal(thread ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(thread , -1) != 0, (test->IsRunning() ? false : true));
 
     // ReadyToWork return false, RUN will not be called!
     EXPECT_EQ(test->priority_, DEFAULT_PRIO);
@@ -269,7 +268,7 @@ HWTEST_F(UtilsThreadTest, testThread005, TestSize.Level0)
     pthread_t thread = test->GetThread();
 
     // pthread_equal return non-zero if equal
-    EXPECT_EQ(pthread_equal(thread ,-1) != 0, (test->IsRunning() ? false : true));
+    EXPECT_EQ(pthread_equal(thread , -1) != 0, (test->IsRunning() ? false : true));
 
     // ReadyToWork return false, RUN will not be called!
     EXPECT_EQ(test->priority_, DEFAULT_PRIO);

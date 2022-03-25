@@ -97,8 +97,8 @@ extern "C" {
 /* Reserved file operation macro interface */
 #define SECUREC_LOCK_FILE(s)
 #define SECUREC_UNLOCK_FILE(s)
-#define SECUREC_LOCK_STDIN(i,s)
-#define SECUREC_UNLOCK_STDIN(i,s)
+#define SECUREC_LOCK_STDIN(i, s)
+#define SECUREC_UNLOCK_STDIN(i, s)
 #endif
 
 
