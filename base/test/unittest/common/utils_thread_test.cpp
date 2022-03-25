@@ -152,7 +152,7 @@ HWTEST_F(UtilsThreadTest, testThread001, TestSize.Level0)
     times = 0;
     std::unique_ptr<TestThread> test = std::make_unique<TestThread>(0, false, TestRun01);
     ThreadStatus status = test->Start("test_thread_01", THREAD_PROI_LOW, 1024);
-    EXPECT_EQ(status == ThreadStatus::OK, true)
+    EXPECT_EQ(status == ThreadStatus::OK, true);
 
     pthread_t thread = test->GetThread();
 
@@ -164,7 +164,6 @@ HWTEST_F(UtilsThreadTest, testThread001, TestSize.Level0)
     EXPECT_EQ(test->name_, DEFAULT_THREAD_NAME);
 
     // get stacksize of threa, may be different because of system memory align
-
     EXPECT_EQ(test->data_, 0);
     EXPECT_EQ(times, 0);
     test->NotifyExitSync();
