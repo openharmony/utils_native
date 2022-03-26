@@ -81,7 +81,8 @@ enum {
     SUBSYS_IVI                   = 45,
     SUBSYS_DISTRIBUTEDHARDWARE   = 46,
     SUBSYS_DEVICEPROFILE         = 47,
-    SUBSYS_CUSTOMIZATION         = 48
+    SUBSYS_CUSTOMIZATION         = 48,
+    SUBSYS_FILEMANAGEMENT        = 49,
     // new type
 };
 
