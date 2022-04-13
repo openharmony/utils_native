@@ -51,14 +51,14 @@ void UtilsSecurecTest::TearDown(void)
 HWTEST_F(UtilsSecurecTest, test_memset_s_01, TestSize.Level0)
 {
     char cBase[20];
-    errno_t result = memset_s((void*)cBase, sizeof(char) * 20, 1, sizeof(char) * 20);
+    errno_t result = memset_s(reinterpret_cast<void*>(cBase), sizeof(char) * 20, 1, sizeof(char) * 20);
     EXPECT_EQ(result, 0);
 }
 
 HWTEST_F(UtilsSecurecTest, test_memset_s_02, TestSize.Level0)
 {
     char cBase[20];
-    errno_t result = memset_s((void*)cBase, sizeof(char) * 20, 1, sizeof(char) * 21);
+    errno_t result = memset_s(reinterpret_cast<void*>(cBase), sizeof(char) * 20, 1, sizeof(char) * 21);
     EXPECT_NE(result, 0);
 }
 
@@ -66,7 +66,7 @@ HWTEST_F(UtilsSecurecTest, test_memcpy_s_01, TestSize.Level0)
 {
     char cBase[20] = "memcpy_s";
     char cTemp[20];
-    errno_t result = memcpy_s((void*)cTemp, sizeof(char) * 20, cBase, sizeof(cBase));
+    errno_t result = memcpy_s(reinterpret_cast<void*>(cTemp), sizeof(char) * 20, cBase, sizeof(cBase));
     EXPECT_EQ(result, 0);
     EXPECT_EQ(0, strcmp(cTemp, cBase));
 }
@@ -75,7 +75,7 @@ HWTEST_F(UtilsSecurecTest, test_memcpy_s_02, TestSize.Level0)
 {
     char cBase[20] = "memcpy_s";
     char cTemp[5];
-    errno_t result = memcpy_s((void*)cTemp, sizeof(char) * 5, cBase, sizeof(cBase));
+    errno_t result = memcpy_s(reinterpret_cast<void*>(cTemp), sizeof(char) * 5, cBase, sizeof(cBase));
     EXPECT_NE(result, 0);
 }
 
