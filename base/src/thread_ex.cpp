@@ -159,7 +159,7 @@ ThreadStatus Thread::NotifyExitSync()
     std::unique_lock<std::mutex> lk(lock_);
     exitPending_ = true;
 
-    while (running_ == true) {
+    while (running_) {
         cvThreadExited_.wait(lk);
     }
 
