@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-#include "parcel.h"
+#include <malloc.h>
 #include "securec.h"
 #include "utils_log.h"
+#include "parcel.h"
 
 namespace OHOS {
 
@@ -580,7 +581,7 @@ bool Parcel::EnsureObjectsCapacity()
     size_t newCapacity = ((objectsCapacity_ + NEW_CAPACITY_ADD) * NEW_CAPACITY_MULTI) / NEW_CAPACITY_DIV;
     size_t newBytes = newCapacity * sizeof(binder_size_t);
 
-    void *newOffsets = realloc(objectOffsets_, newBytes);
+    void *newOffsets = allocator_->Realloc(objectOffsets_, newBytes);
     if (newOffsets == nullptr) {
         return false;
     }
@@ -1131,7 +1132,21 @@ void DefaultAllocator::Dealloc(void *data)
 
 void *DefaultAllocator::Realloc(void *data, size_t newSize)
 {
-    return realloc(data, newSize);
+    if (newSize != 0) {
+        void *newData = malloc(newSize);
+        if (newData != nullptr) {
+            if (data == nullptr) {
+                return newData;
+            }
+            if (memcpy_s(newData, newSize, data, malloc_usable_size(data)) == EOK) {
+                free(data);
+                return newData;
+            }
+            free(newData);
+        }
+        UTILS_LOGW("Realloc failed!");
+    }
+    return nullptr;
 }
 
 template <typename T1, typename T2>
