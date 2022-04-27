@@ -1133,6 +1133,7 @@ void DefaultAllocator::Dealloc(void *data)
 void *DefaultAllocator::Realloc(void *data, size_t newSize)
 {
     if (newSize != 0) {
+        // newSize checked before Realloc.
         void *newData = malloc(newSize);
         if (newData != nullptr) {
             if (data == nullptr) {
@@ -1144,8 +1145,8 @@ void *DefaultAllocator::Realloc(void *data, size_t newSize)
             }
             free(newData);
         }
-        UTILS_LOGW("Realloc failed!");
     }
+    UTILS_LOGW("Realloc failed! newSize = %{public}zu", newSize);
     return nullptr;
 }
 
