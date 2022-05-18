@@ -626,7 +626,8 @@ bool Parcel::WriteRemoteObject(const Parcelable *object)
     WriteObjectOffset(placeholder);
 
     if (object->TestBehavior(Parcelable::BehaviorFlag::HOLD_OBJECT)) {
-        objectHolder_.push_back(const_cast<Parcelable *>(object));
+        sptr<Parcelable> tmp(const_cast<Parcelable *>(object));
+        objectHolder_.push_back(tmp);
     }
 
     return true;
