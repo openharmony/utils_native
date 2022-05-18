@@ -299,8 +299,7 @@ public:
     bool ReadUint16Unaligned(uint16_t &value);
 
     bool EnsureObjectsCapacity();
-
-    bool WriteParcelableOffset(size_t offset);
+    bool WriteObjectOffset(binder_size_t offset);
 
 private:
     DISALLOW_COPY_AND_MOVE(Parcel);
@@ -322,8 +321,6 @@ private:
         return (((size + SIZE_OFFSET) & (~SIZE_OFFSET)) - size);
     }
 
-    bool WriteObjectOffset(binder_size_t offset);
-
     size_t CalcNewCapacity(size_t minCapacity);
 
     bool WriteDataBytes(const void *data, size_t size);
@@ -331,6 +328,8 @@ private:
     void WritePadBytes(size_t padded);
 
     bool EnsureWritableCapacity(size_t desireCapacity);
+
+    bool WriteParcelableOffset(size_t offset);
 
 private:
     uint8_t *data_;
