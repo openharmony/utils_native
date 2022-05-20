@@ -319,9 +319,9 @@ private:
         return (((size + SIZE_OFFSET) & (~SIZE_OFFSET)) - size);
     }
 
-    size_t CalcNewCapacity(size_t minCapacity);
-
     bool WriteObjectOffset(binder_size_t offset);
+
+    size_t CalcNewCapacity(size_t minCapacity);
 
     bool WriteDataBytes(const void *data, size_t size);
 
