@@ -967,3 +967,40 @@ HWTEST_F(UtilsParcelTest, test_SetMaxCapacity_002, TestSize.Level0)
     ret = parcel.ReadString16Vector(&val);
     EXPECT_EQ(false, ret);
 }
+
+/**
+ * @tc.name: test_ParcelAppend
+ * @tc.desc: test parcel append function.
+ * @tc.type: FUNC
+ */
+HWTEST_F(UtilsParcelTest, test_ParcelAppend, TestSize.Level0)
+{
+    Parcel dstParcel, srcParcel;
+    bool res = dstParcel.ParcelAppend(srcParcel);
+    ASSERT_TRUE(res);
+
+    const int32_t num = 5767168;
+    const std::string strwrite1 =
+        "test for write string padded**********************************************************##################";
+    dstParcel.WriteInt32(num);
+    dstParcel.WriteString(strwrite1);
+    srcParcel.WriteInt32(num);
+    srcParcel.WriteString(strwrite1);
+    srcParcel.WriteString(strwrite1);
+
+    res = dstParcel.ParcelAppend(srcParcel);
+    ASSERT_TRUE(res);
+    EXPECT_EQ(num, dstParcel.ReadInt32());
+    EXPECT_EQ(strwrite1, dstParcel.ReadString());
+    EXPECT_EQ(num, dstParcel.ReadInt32());
+    EXPECT_EQ(strwrite1, dstParcel.ReadString());
+    EXPECT_EQ(strwrite1, dstParcel.ReadString());
+
+    res = srcParcel.ParcelAppend(dstParcel);
+    ASSERT_TRUE(res);
+    EXPECT_EQ(num, srcParcel.ReadInt32());
+    EXPECT_EQ(strwrite1, srcParcel.ReadString());
+    EXPECT_EQ(strwrite1, srcParcel.ReadString());
+    EXPECT_EQ(num, srcParcel.ReadInt32());
+    EXPECT_EQ(strwrite1, srcParcel.ReadString());
+}
