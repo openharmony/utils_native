@@ -18,12 +18,19 @@
 
 #include <atomic>
 #include <functional>
+#ifdef DEBUG_REFBASE
+#include <mutex>
+#endif
 
 namespace OHOS {
 
 #define INITIAL_PRIMARY_VALUE (1 << 28)
 
 class RefBase;
+
+#ifdef DEBUG_REFBASE
+class RefTracker;
+#endif
 
 class RefCounter {
 public:
@@ -85,7 +92,59 @@ private:
     std::atomic<int> atomicAttempt_;
     RefPtrCallback callback_ = nullptr;
     static constexpr unsigned int FLAG_EXTEND_LIFE_TIME = 0x00000002;
+#ifdef DEBUG_REFBASE
+    RefTracker* refTracker = nullptr;
+    std::mutex trackerMutex;  // To ensure refTracker be thread-safe
+    void GetNewTrace(const void* object);
+    void PrintTracker();
+#endif
 };
+
+#ifdef DEBUG_REFBASE
+// RefTracker is a debug tool, used to record the trace of RefBase.
+// RefTracker will save the information about the count of RefBase,
+// including the pointer of sptr/wptr(The pointer of itself, not the pointer
+// it manages), the amount of strong/weak/refcout and the PID&TID.
+// The Tracker can live with RefCounter/RefBase(including its derivation).
+// User should keep thread-safety of RefTracker.
+class RefTracker {
+public:
+    RefTracker() {};
+
+    RefTracker(RefTracker* exTracker, const void* id, int strong,
+        int weak, int ref, uint pid, uint tid);
+
+    void GetTrace(RefTracker* exTracker, const void* id, int strong,
+        int weak, int ref, uint pid, uint tid);
+
+    // Only used for tracking the amount of Strong Reference.
+    void GetStrongTrace(RefTracker* exTracker, const void* id, int strong,
+        uint pid, uint tid);
+
+    // Only used for tracking the amount of Weak Reference.
+    void GetWeakTrace(RefTracker* exTracker, const void* id, int weak,
+        uint pid, uint tid);
+
+    void PrintTrace();
+
+    void PrintStrongTrace();
+
+    void PrintWeakTrace();
+
+    RefTracker* GetexTrace();
+
+    RefTracker* PopTrace();
+
+private:
+    const void* ptrID;
+    int strongRefCNT;
+    int weakRefCNT;
+    int refCNT;
+    uint PID;
+    uint TID;
+    RefTracker* exTrace;
+};
+#endif
 
 class WeakRefCounter {
 public:
