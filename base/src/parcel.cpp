@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include <unistd.h>
 
 #include "parcel.h"
 #include "securec.h"
@@ -1395,46 +1394,6 @@ bool Parcel::ReadString16Vector(std::vector<std::u16string> *val)
         v = ReadString16();
     }
 
-    return true;
-}
-
-bool Parcel::ParcelAppend(Parcel &data)
-{
-    size_t dataSize = data.GetDataSize();
-    if (dataSize == 0) {
-        return true;
-    }
-    uintptr_t dataPtr = data.GetData();
-    size_t writeCursorOld = writeCursor_;
-
-    if (EnsureWritableCapacity(dataSize)) {
-        if (!WriteDataBytes(reinterpret_cast<void *>(dataPtr), dataSize)) {
-            UTILS_LOGE("Failed to append data whit WriteBuffer");
-            return false;
-        }
-    }
-    size_t objectSize = data.GetOffsetsSize();
-    if (objectSize == 0) {
-        return true;
-    }
-    binder_size_t objectOffsets = data.GetObjectOffsets();
-    auto *newObjectOffsets = reinterpret_cast<binder_size_t *>(objectOffsets);
-    for (size_t index = 0; index < objectSize; index++) {
-        if (EnsureObjectsCapacity()) {
-            size_t offset = writeCursorOld + newObjectOffsets[index];
-            if (!WriteObjectOffset(offset)) {
-                UTILS_LOGE("Failed to write object offset");
-                return false;
-            }
-            parcel_flat_binder_object *flat = reinterpret_cast<parcel_flat_binder_object *>(data_ + offset);
-            if (flat->hdr.type == PARCEL_BINDER_TYPE_FD) {
-                flat->handle = dup(flat->handle);
-            }
-        } else {
-            UTILS_LOGE("Failed to ensure object capacity");
-            return false;
-        }
-    }
     return true;
 }
 }  // namespace OHOS
