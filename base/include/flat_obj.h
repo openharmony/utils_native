@@ -40,13 +40,4 @@ struct parcel_flat_binder_object {
     binder_uintptr_t cookie;
 };
 
-#ifndef B_PACK_CHARS
-#define B_PACK_CHARS(c1, c2, c3, c4) ((((c1) << 24)) | (((c2) << 16)) | (((c3) << 8)) | (c4))
-#endif
-
-#ifndef B_TYPE_LARGE
-#define B_TYPE_LARGE 0x85
-#endif
-
-#define PARCEL_BINDER_TYPE_FD B_PACK_CHARS('f', 'd', '*', B_TYPE_LARGE)
 #endif
