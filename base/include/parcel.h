@@ -298,6 +298,10 @@ public:
     bool ReadUint8Unaligned(uint8_t &value);
     bool ReadUint16Unaligned(uint16_t &value);
 
+protected:
+    bool WriteObjectOffset(binder_size_t offset);
+    bool EnsureObjectsCapacity();
+
 private:
     DISALLOW_COPY_AND_MOVE(Parcel);
     template <typename T>
@@ -318,8 +322,6 @@ private:
         return (((size + SIZE_OFFSET) & (~SIZE_OFFSET)) - size);
     }
 
-    bool WriteObjectOffset(binder_size_t offset);
-
     size_t CalcNewCapacity(size_t minCapacity);
 
     bool WriteDataBytes(const void *data, size_t size);
@@ -327,8 +329,6 @@ private:
     void WritePadBytes(size_t padded);
 
     bool EnsureWritableCapacity(size_t desireCapacity);
-
-    bool EnsureObjectsCapacity();
 
     bool WriteParcelableOffset(size_t offset);
 
