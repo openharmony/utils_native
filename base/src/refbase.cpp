@@ -14,6 +14,10 @@
  */
 
 #include "refbase.h"
+#ifdef DEBUG_REFBASE
+#include "utils_log.h"
+#include <unistd.h>
+#endif
 
 namespace OHOS {
 
@@ -61,10 +65,102 @@ bool WeakRefCounter::AttemptIncStrongRef(const void *objectId)
     return refCounter_->AttemptIncStrongRef(objectId, unuse);
 }
 
+#ifdef DEBUG_REFBASE
+RefTracker::RefTracker(RefTracker* exTracker, const void* id, int strong, int weak, int ref, uint pid, uint tid)
+    : ptrID (id), strongRefCNT (strong), weakRefCNT (weak), refCNT (ref), PID (pid), TID (tid), exTrace (exTracker)
+{
+}
+
+void RefTracker::GetTrace(RefTracker* exTracker, const void* id, int strong, int weak, int ref, uint pid, uint tid)
+{
+    ptrID = id;
+    strongRefCNT = strong;
+    weakRefCNT = weak;
+    refCNT = ref;
+    PID = pid;
+    TID = tid;
+    exTrace = exTracker;
+}
+
+void RefTracker::GetStrongTrace(RefTracker* exTracker, const void* id, int strong, uint pid, uint tid)
+{
+    ptrID = id;
+    strongRefCNT = strong;
+    weakRefCNT = -(INITIAL_PRIMARY_VALUE);
+    refCNT = -(INITIAL_PRIMARY_VALUE);
+    PID = pid;
+    TID = tid;
+    exTrace = exTracker;
+}
+
+void RefTracker::GetWeakTrace(RefTracker* exTracker, const void* id, int weak, uint pid, uint tid)
+{
+    ptrID = id;
+    strongRefCNT = -(INITIAL_PRIMARY_VALUE);
+    weakRefCNT = weak;
+    refCNT = -(INITIAL_PRIMARY_VALUE);
+    PID = pid;
+    TID = tid;
+    exTrace = exTracker;
+}
+
+void RefTracker::PrintTrace()
+{
+    UTILS_LOGI("ptrID: %{public}016x strongcnt: %{public}d weakcnt: \
+        %{public}d refcnt: %{public}d PID: %{public}d TID: %{public}d", \
+        ptrID, strongRefCNT, weakRefCNT, refCNT, PID, TID);
+}
+
+void RefTracker::PrintStrongTrace()
+{
+    UTILS_LOGI("ptrID: %{public}016x strongcnt: %{public}d \
+        PID: %{public}d TID: %{public}d", ptrID, strongRefCNT,\
+        PID, TID);
+}
+
+void RefTracker::PrintWeakTrace()
+{
+    UTILS_LOGI("ptrID: %{public}016x weakcnt: %{public}d \
+        PID: %{public}d TID: %{public}d", ptrID, weakRefCNT,\
+        PID, TID);
+}
+
+RefTracker* RefTracker::GetexTrace()
+{
+    return exTrace;
+}
+
+RefTracker* RefTracker::PopTrace()
+{
+    RefTracker* ref = exTrace;
+    PrintTrace();
+    delete this;
+    return ref;
+}
+
+void RefCounter::GetNewTrace(const void* object)
+{
+    std::lock_guard<std::mutex> lock(trackerMutex);
+    RefTracker* newTracker = new RefTracker(refTracker, object, atomicStrong_.load(std::memory_order_relaxed),
+        atomicWeak_.load(std::memory_order_relaxed), atomicRefCount_.load(std::memory_order_relaxed),
+        getpid(), gettid());
+    refTracker = newTracker;
+}
+
+void RefCounter::PrintTracker()
+{
+    std::lock_guard<std::mutex> lock(trackerMutex);
+    while (refTracker) {
+        refTracker = refTracker->PopTrace();
+    }
+}
+#endif
+
 RefCounter::RefCounter()
     : atomicStrong_(INITIAL_PRIMARY_VALUE), atomicWeak_(0), atomicRefCount_(0), atomicFlags_(0), atomicAttempt_(0)
 {
 }
+
 int RefCounter::GetRefCount()
 {
     return atomicRefCount_.load(std::memory_order_relaxed);
@@ -101,12 +197,22 @@ bool RefCounter::IsRefPtrValid()
 
 RefCounter::~RefCounter()
 {
+#ifdef DEBUG_REFBASE
+    while (refTracker) {
+        RefTracker* ref = refTracker;
+        ref->PrintTrace();
+        refTracker = ref->GetexTrace();
+        delete ref;
+    }
+#endif
 }
 
-int RefCounter::IncStrongRefCount(const void*)
+int RefCounter::IncStrongRefCount(const void* object)
 {
+#ifdef DEBUG_REFBASE
+    GetNewTrace(object);
+#endif
     int curCount = atomicStrong_.load(std::memory_order_relaxed);
-
     if (curCount >= 0) {
         curCount = atomicStrong_.fetch_add(1, std::memory_order_relaxed);
         if (curCount == INITIAL_PRIMARY_VALUE) {
@@ -117,8 +223,11 @@ int RefCounter::IncStrongRefCount(const void*)
     return curCount;
 }
 
-int RefCounter::DecStrongRefCount(const void*)
+int RefCounter::DecStrongRefCount(const void* object)
 {
+#ifdef DEBUG_REFBASE
+    GetNewTrace(object);
+#endif
     int curCount = GetStrongRefCount();
     if (curCount == INITIAL_PRIMARY_VALUE) {
         // unexpected case: there had never a strong reference.
@@ -136,13 +245,19 @@ int RefCounter::GetStrongRefCount()
     return atomicStrong_.load(std::memory_order_relaxed);
 }
 
-int RefCounter::IncWeakRefCount(const void*)
+int RefCounter::IncWeakRefCount(const void* object)
 {
+#ifdef DEBUG_REFBASE
+    GetNewTrace(object);
+#endif
     return atomicWeak_.fetch_add(1, std::memory_order_relaxed);
 }
 
-int RefCounter::DecWeakRefCount(const void*)
+int RefCounter::DecWeakRefCount(const void* object)
 {
+#ifdef DEBUG_REFBASE
+    GetNewTrace(object);
+#endif
     int curCount = GetWeakRefCount();
     if (curCount > 0) {
         curCount = atomicWeak_.fetch_sub(1, std::memory_order_release);
