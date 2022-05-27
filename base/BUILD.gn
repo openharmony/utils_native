@@ -135,6 +135,13 @@ ohos_shared_library("utils") {
 }
 
 ohos_static_library("utilsecurec") {
+  visibility = [
+    "//foundation/aafwk/standard/*:*",
+    "//foundation/resourceschedule/frame_aware_sched/*:*",
+    "//foundation/arkui/ace_engine/*:*",
+    "//foundation/multimedia/media_standard/*:*",
+    "//foundation/filemanagement/app_file_service/*:*",
+  ]
   sources = securec_sources
   configs = [
     ":utils_config",
@@ -145,28 +152,16 @@ ohos_static_library("utilsecurec") {
   part_name = "utils_base"
 }
 
-ohos_static_library("utilsecurec_ace_allplatforms") {
-  sources = [ "src/securec/vsnprintf_s_p.c" ]
-  if (current_os == "mingw") {
-    sources += [
-      "src/securec/memset_s.c",
-      "src/securec/securecutil.c",
-      "src/securec/secureinput_w.c",
-      "src/securec/secureprintoutput_a.c",
-      "src/securec/secureprintoutput_w.c",
-    ]
-    cflags = [ "-Wno-inconsistent-dllimport" ]
-  }
-  configs = [
-    ":utils_config",
-    ":private_securec_config",
-  ]
-  public_configs = [ ":static_utils_config" ]
-  subsystem_name = "utils"
-  part_name = "utils_base"
-}
-
 ohos_shared_library("utilsecurec_shared") {
+  visibility = [
+    ":*",
+    "//foundation/aafwk/standard/*:*",
+    "//foundation/resourceschedule/frame_aware_sched/*:*",
+    "//foundation/arkui/ace_engine/*:*",
+    "//foundation/multimedia/media_standard/*:*",
+    "//foundation/graphic/graphic_2d/*:*",
+    "//foundation/filemanagement/app_file_service/*:*",
+  ]
   sources = securec_sources
   configs = [
     ":utils_config",
