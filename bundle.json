@@ -21,8 +21,7 @@
       },
       "build": {
         "sub_component": [
-          "//utils/native/base:utils",
-          "//utils/native/base:utilsecurec_shared"
+          "//utils/native/base:utils"
         ],
         "inner_kits": [
           {
