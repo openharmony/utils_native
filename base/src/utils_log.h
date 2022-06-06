@@ -24,7 +24,11 @@ constexpr const char *UTILS_LOG_TAG = "utils_base";
 #define UTILS_LOGE(...) (void)HiLogBasePrint(UTILS_LOG_TYPE, LOG_ERROR, UTILS_LOG_DOMAIN, UTILS_LOG_TAG, __VA_ARGS__)
 #define UTILS_LOGW(...) (void)HiLogBasePrint(UTILS_LOG_TYPE, LOG_WARN, UTILS_LOG_DOMAIN, UTILS_LOG_TAG, __VA_ARGS__)
 #define UTILS_LOGI(...) (void)HiLogBasePrint(UTILS_LOG_TYPE, LOG_INFO, UTILS_LOG_DOMAIN, UTILS_LOG_TAG, __VA_ARGS__)
+#ifdef DEBUG_UTILS
 #define UTILS_LOGD(...) (void)HiLogBasePrint(UTILS_LOG_TYPE, LOG_DEBUG, UTILS_LOG_DOMAIN, UTILS_LOG_TAG, __VA_ARGS__)
+#else
+#define UTILS_LOGD(...)
+#endif
 #else
 #define UTILS_LOGF(...)
 #define UTILS_LOGE(...)
