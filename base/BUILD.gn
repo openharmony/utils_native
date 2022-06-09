@@ -135,13 +135,7 @@ ohos_shared_library("utils") {
 }
 
 ohos_static_library("utilsecurec") {
-  visibility = [
-    "//foundation/aafwk/standard/*:*",
-    "//foundation/resourceschedule/frame_aware_sched/*:*",
-    "//foundation/arkui/ace_engine/*:*",
-    "//foundation/multimedia/media_standard/*:*",
-    "//foundation/filemanagement/app_file_service/*:*",
-  ]
+  visibility = [ "//foundation/arkui/ace_engine/*:*" ]
   sources = securec_sources
   configs = [
     ":utils_config",
@@ -155,12 +149,7 @@ ohos_static_library("utilsecurec") {
 ohos_shared_library("utilsecurec_shared") {
   visibility = [
     ":*",
-    "//foundation/aafwk/standard/*:*",
-    "//foundation/resourceschedule/frame_aware_sched/*:*",
     "//foundation/arkui/ace_engine/*:*",
-    "//foundation/multimedia/media_standard/*:*",
-    "//foundation/graphic/graphic_2d/*:*",
-    "//foundation/filemanagement/app_file_service/*:*",
   ]
   sources = securec_sources
   configs = [
