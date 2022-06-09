@@ -34,7 +34,6 @@ int64_t GetSecondsSince1970ToPointTime(struct tm inputTm)
 {
     time_t inputTime = mktime(&inputTm);
     if (inputTime == -1) {
-        UTILS_LOGE("mktime failed.");
         return -1;
     }
     system_clock::time_point pointTime = system_clock::from_time_t(inputTime);
@@ -84,7 +83,7 @@ bool GetLocalTimeZone(int& timezone)
     t1 = mktime(&curTime1);
     t2 = mktime(&curTime2);
     if ((t1 == -1) || (t2 == -1)) {
-        UTILS_LOGE("mktime current time failed.");
+        UTILS_LOGD("mktime current time failed.");
         return false;
     }
 

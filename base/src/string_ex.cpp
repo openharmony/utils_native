@@ -111,7 +111,6 @@ bool StrToInt(const string& str, int& value)
     auto result = strtol(addr, &end, 10); /* 10 means decimal */
     if ((end == addr) || (end[0] != '\0') || (errno == ERANGE) ||
             (result > INT_MAX) || (result < INT_MIN)) {
-        UTILS_LOGD("call StrToInt func false,  input str is: %{public}s!", str.c_str());
         return false;
     }
 
@@ -122,13 +121,11 @@ bool StrToInt(const string& str, int& value)
 bool IsNumericStr(const string& str)
 {
     if (str.empty()) {
-        UTILS_LOGD("call IsNumericStr func,  input str is empty!");
         return false;
     }
 
     for (const auto& c : str) {
         if (!isdigit(c)) {
-            UTILS_LOGD("call IsNumericStr func false,  input str is: %{public}s!", str.c_str());
             return false;
         }
     }
@@ -139,13 +136,11 @@ bool IsNumericStr(const string& str)
 bool IsAlphaStr(const string& str)
 {
     if (str.empty()) {
-        UTILS_LOGD("call IsAlphaStr func, input str is empty!");
         return false;
     }
 
     for (const auto& c : str) {
         if (!isalpha(c)) {
-            UTILS_LOGD("call IsAlphaStr func false,  input str is: %{public}s!", str.c_str());
             return false;
         }
     }
@@ -156,13 +151,11 @@ bool IsAlphaStr(const string& str)
 bool IsUpperStr(const string& str)
 {
     if (str.empty()) {
-        UTILS_LOGD("call IsUpperStr func, input str is empty!");
         return false;
     }
 
     for (const auto& c : str) {
         if (!isupper(c)) {
-            UTILS_LOGD("call IsUpperStr func false,  input str is: %{public}s!", str.c_str());
             return false;
         }
     }
@@ -173,13 +166,11 @@ bool IsUpperStr(const string& str)
 bool IsLowerStr(const string& str)
 {
     if (str.empty()) {
-        UTILS_LOGD("call IsLowerStr func, input str is empty!");
         return false;
     }
 
     for (const auto& c : str) {
         if (!islower(c)) {
-            UTILS_LOGD("call IsLowerStr func false,  input str is: %{public}s!", str.c_str());
             return false;
         }
     }
