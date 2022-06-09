@@ -186,7 +186,7 @@ bool String16ToString8(const u16string& str16, string& str8)
 
     char* str8Temp = Char16ToChar8(str16.c_str(), str16Len);
     if (str8Temp == nullptr) {
-        UTILS_LOGE("Str16 to str8 failed, because str8Temp is nullptr!");
+        UTILS_LOGD("Str16 to str8 failed, because str8Temp is nullptr!");
         return false;
     }
 
@@ -337,7 +337,7 @@ bool String8ToString16(const string& str8, u16string& str16)
 
     char16_t* str16Temp = Char8ToChar16(str8.c_str(), str8len);
     if (str16Temp == nullptr) {
-        UTILS_LOGE("str8 to str16 failed, str16Temp is nullptr!");
+        UTILS_LOGD("str8 to str16 failed, str16Temp is nullptr!");
         return false;
     }
 
