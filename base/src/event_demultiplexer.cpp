@@ -47,7 +47,6 @@ uint32_t EventDemultiplexer::StartUp()
     if (epollFd_ < 0) {
         epollFd_ = epoll_create1(EPOLL_CLOEXEC);
         if (epollFd_ < 0) {
-            UTILS_LOGE("epoll_create1 failed.");
             return TIMER_ERR_BADF;
         }
     }
@@ -65,7 +64,6 @@ void EventDemultiplexer::CleanUp()
 uint32_t EventDemultiplexer::UpdateEventHandler(EventHandler* handler)
 {
     if (handler == nullptr) {
-        UTILS_LOGE("event handler is null.");
         return TIMER_ERR_INVALID_VALUE;
     }
 
@@ -82,7 +80,6 @@ uint32_t EventDemultiplexer::UpdateEventHandler(EventHandler* handler)
     }
 
     if (handler != itor->second) {
-        UTILS_LOGE("invalid event handler!");
         return TIMER_ERR_DEAL_FAILED;
     }
     return Update(EPOLL_CTL_MOD, handler);
@@ -91,7 +88,6 @@ uint32_t EventDemultiplexer::UpdateEventHandler(EventHandler* handler)
 uint32_t EventDemultiplexer::RemoveEventHandler(EventHandler* handler)
 {
     if (handler == nullptr) {
-        UTILS_LOGE("event handler is null.");
         return TIMER_ERR_INVALID_VALUE;
     }
 
@@ -117,7 +113,7 @@ uint32_t EventDemultiplexer::Update(int operation, EventHandler* handler)
     event.data.ptr = reinterpret_cast<void*>(handler);
 
     if (epoll_ctl(epollFd_, operation, handler->GetHandle(), &event) != 0) {
-        UTILS_LOGE("epoll_ctl %{public}d  operation %{public}d on handle %{public}d failed",
+        UTILS_LOGD("epoll_ctl %{public}d  operation %{public}d on handle %{public}d failed",
             epollFd_, operation, handler->GetHandle());
         return TIMER_ERR_DEAL_FAILED;
     }
@@ -183,7 +179,7 @@ uint32_t EventDemultiplexer::Reactor2Epoll(uint32_t reactorEvent)
         case EventReactor::READ_EVENT | EventReactor::WRITE_EVENT:
             return EPOLLIN | EPOLLPRI | EPOLLOUT;
         default:
-            UTILS_LOGE("invalid event %{public}u.", reactorEvent);
+            UTILS_LOGD("invalid event %{public}u.", reactorEvent);
             return TIMER_ERR_DEAL_FAILED;
     }
 }

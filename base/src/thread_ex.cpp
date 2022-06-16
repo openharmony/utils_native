@@ -33,7 +33,7 @@ struct ThreadParam {
     static int proxy(const ThreadParam* t)
     {
         if (t == nullptr) {
-            UTILS_LOGE("invalid param.");
+            UTILS_LOGD("invalid param.");
             return -1;
         }
         ThreadFunc f = t->startRoutine;
