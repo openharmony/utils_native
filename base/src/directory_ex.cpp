@@ -28,7 +28,7 @@ string GetCurrentProcFullFileName()
     char procFile[PATH_MAX + 1] = {0};
     int ret = readlink("/proc/self/exe", procFile, PATH_MAX);
     if (ret < 0 || ret > PATH_MAX) {
-        UTILS_LOGE("Get proc name failed, ret is: %{public}d!", ret);
+        UTILS_LOGD("Get proc name failed, ret is: %{public}d!", ret);
         return string();
     }
     procFile[ret] = '\0';
@@ -245,7 +245,7 @@ bool ChangeModeDirectory(const string& path, const mode_t& mode)
         } else {
             if (access(subPath.c_str(), F_OK) == 0) {
                 if (!ChangeMode(subPath, mode)) {
-                    UTILS_LOGE("Failed to exec ChangeMode");
+                    UTILS_LOGD("Failed to exec ChangeMode");
                     closedir(dir);
                     return false;
                 }
@@ -256,7 +256,7 @@ bool ChangeModeDirectory(const string& path, const mode_t& mode)
     string currentPath = ExcludeTrailingPathDelimiter(path);
     if (access(currentPath.c_str(), F_OK) == 0) {
         if (!ChangeMode(currentPath, mode)) {
-            UTILS_LOGE("Failed to exec ChangeMode");
+            UTILS_LOGD("Failed to exec ChangeMode");
             return false;
         }
     }
@@ -266,24 +266,24 @@ bool ChangeModeDirectory(const string& path, const mode_t& mode)
 bool PathToRealPath(const string& path, string& realPath)
 {
     if (path.empty()) {
-        UTILS_LOGE("path is empty!");
+        UTILS_LOGD("path is empty!");
         return false;
     }
 
     if ((path.length() >= PATH_MAX)) {
-        UTILS_LOGE("path len is error, the len is: [%{public}zu]", path.length());
+        UTILS_LOGD("path len is error, the len is: [%{public}zu]", path.length());
         return false;
     }
 
     char tmpPath[PATH_MAX] = {0};
     if (realpath(path.c_str(), tmpPath) == nullptr) {
-        UTILS_LOGE("path to realpath error");
+        UTILS_LOGD("path to realpath error");
         return false;
     }
 
     realPath = tmpPath;
     if (access(realPath.c_str(), F_OK) != 0) {
-        UTILS_LOGE("check realpath (%{private}s) error", realPath.c_str());
+        UTILS_LOGD("check realpath (%{private}s) error", realPath.c_str());
         return false;
     }
     return true;
