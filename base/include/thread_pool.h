@@ -27,8 +27,6 @@
 
 namespace OHOS {
 
-const int INVALID_SEMA_VALUE = -1;
-
 class ThreadPool : public NoCopyable {
 public:
     typedef std::function<void()> Task;
