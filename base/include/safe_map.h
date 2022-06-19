@@ -125,6 +125,18 @@ public:
         return;
     }
 
+    using SafeMapCallBack = std::function<void(const K, V&)>;
+
+    void Iterate(const SafeMapCallBack& callback)
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        if (!map_.empty()) {
+            for (auto it = map_.begin(); it != map_.end(); it++) {
+                callback(it -> first, it -> second);
+            }
+        }
+    }
+
 private:
     std::mutex mutex_;
     std::map<K, V> map_;
