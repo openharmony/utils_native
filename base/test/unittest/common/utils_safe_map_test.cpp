@@ -196,10 +196,80 @@ HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureEraseAndClear001, TestSize.Level0)
 }
 
 /*
+ * @tc.name: testUtilsNormalFeatureIterate001
+ * @tc.desc: Using Iterate to change the second parameter of SafeMap
+ */
+void callback(const std::string str, int& value)
+{
+    value++;
+}
+
+HWTEST_F(UtilsSafeMap, testUtilsNormalFeatureIterate001, TestSize.Level0)
+{
+    SafeMap<string, int> demoData;
+    ASSERT_TRUE(demoData.IsEmpty());
+
+    demoData.Insert("A", 1);
+    demoData.Insert("B", 2);
+    demoData.Insert("C", 3);
+    demoData.Insert("D", 4);
+    demoData.Iterate(callback);
+
+    ASSERT_EQ(demoData.Size(), 4);
+    ASSERT_EQ(demoData["A"], 2);
+    ASSERT_EQ(demoData["B"], 3);
+    ASSERT_EQ(demoData["C"], 4);
+    ASSERT_EQ(demoData["D"], 5);
+}
+
+/*
+ * @tc.name: testUtilsConcurrentIterate001
+ * @tc.desc: 100 threads test in iterate operation to rewrite a SafeMap.
+ */
+const int THREAD_NUM = 100;
+const int DATA_NUM = 10;
+HWTEST_F(UtilsSafeMap, testUtilsConcurrentIterate001, TestSize.Level0)
+{
+    SafeMap<string, int> demoData;
+    for (int i = 0; i < DATA_NUM; i++) {
+        demoData.Insert("A" + std::to_string(i), 0);
+    }
+    std::thread threads[THREAD_NUM];
+
+    ASSERT_NO_THROW({
+        auto lamfuncIterate = [](SafeMap<string, int>& data, const int& cnt,
+            const std::chrono::system_clock::time_point& absTime) {
+            auto callback_it = [cnt](const string data, int& value) {
+                value = cnt;
+            };
+            std::this_thread::sleep_until(absTime);
+            data.Iterate(callback_it);
+        };
+
+        using std::chrono::system_clock;
+
+        std::time_t timeT = system_clock::to_time_t(system_clock::now());
+        timeT += 2;
+
+        for (int i = 0; i < THREAD_NUM; ++i) {
+            threads[i] = std::thread(lamfuncIterate, std::ref(demoData), i, system_clock::from_time_t(timeT));
+        }
+
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+        for (auto& t : threads) {
+            t.join();
+        }
+
+        for (int i = 0; i < DATA_NUM - 1; i++) {
+            ASSERT_EQ(demoData["A" + std::to_string(i)], demoData["A" + std::to_string(i + 1)]);
+        }
+    });
+}
+
+/*
  * @tc.name: testUtilsConcurrentWriteAndRead001
  * @tc.desc: 100 threads test in writein to the same key of the map, while read at same time  and no throw
  */
-const int THREAD_NUM = 100;
 HWTEST_F(UtilsSafeMap, testUtilsConcurrentWriteAndRead001, TestSize.Level0)
 {
     SafeMap<string, int> demoData;
