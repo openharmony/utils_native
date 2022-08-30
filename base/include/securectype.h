@@ -207,7 +207,7 @@ long __builtin_expect(long exp, long c);
             if (catRestSize == 0) { \
                 catRet = EINVAL; \
             } else if ((strlen(src) + 1) <= catRestSize) { \
-                memcpy(catTmpDst, (src), strlen(src) + 1); \
+                (void)memcpy(catTmpDst, (src), strlen(src) + 1); \
                 catRet = EOK; \
             } else { \
                 catRet = ERANGE; \
