@@ -242,10 +242,10 @@ long __builtin_expect(long exp, long c);
                 ncatRet = EINVAL; \
             } else if ((SECUREC_TWO_MIN((count) , strlen(src)) + 1) <= ncatRestSize ) { \
                 if ((count) < strlen(src)) { \
-                    memcpy(ncatTmpDest, (src), (count)); \
+                    (void)memcpy(ncatTmpDest, (src), (count)); \
                     *(ncatTmpDest + (count)) = '\0'; \
                 } else { \
-                    memcpy(ncatTmpDest, (src), strlen(src) + 1); \
+                    (void)memcpy(ncatTmpDest, (src), strlen(src) + 1); \
                 } \
             } else { \
                 ncatRet = ERANGE; \
